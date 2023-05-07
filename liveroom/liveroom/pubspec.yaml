@@ -1,0 +1,21 @@
+name: liveroom
+description: Super simple WebSocket Room kit
+version: 1.0.6
+repository: https://github.com/rbdog/liveroom
+
+environment:
+  sdk: ">=2.18.2 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  uuid: ^3.0.6
+  web_socket_channel: ^2.2.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
