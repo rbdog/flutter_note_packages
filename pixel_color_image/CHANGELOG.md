@@ -30,3 +30,7 @@
 ## 1.2.2
 
 - fix: documents
+
+## 1.2.3
+
+- fix: documents

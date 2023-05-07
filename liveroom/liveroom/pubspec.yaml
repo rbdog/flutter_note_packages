@@ -1,7 +1,7 @@
 name: liveroom
 description: Super simple WebSocket Room kit
-version: 1.0.6
-repository: https://github.com/rbdog/liveroom
+version: 1.0.7
+repository: https://github.com/rbdog/flutter_note_packages
 
 environment:
   sdk: ">=2.18.2 <3.0.0"
