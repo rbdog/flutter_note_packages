@@ -34,7 +34,7 @@
 
 - add await to exit()
 
-## 1.0.3 
+## 1.0.3
 
 - Refactor
 
@@ -49,3 +49,7 @@
 ## 1.0.6
 
 - Fix bugs
+
+## 1.0.7
+
+- fix: documents

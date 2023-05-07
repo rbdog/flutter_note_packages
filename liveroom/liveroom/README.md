@@ -1,4 +1,4 @@
-![Header](https://github.com/rbdog/liveroom/blob/main/static/img/liveroom-header.png?raw=true)
+![Header](https://github.com/rbdog/flutter_note_packages/blob/main/liveroom/static/img/liveroom-header.png?raw=true)
 
 https://pub.dev/packages/liveroom
 
@@ -21,9 +21,6 @@ $ irm https://deno.land/install.ps1 | iex
 ```
 $ deno run --allow-net https://deno.land/x/liveroom/quick.ts
 ```
-
-more info  
-https://github.com/rbdog/liveroom/blob/main/example/main.ts
 
 <br />
 

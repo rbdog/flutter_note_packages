@@ -2,9 +2,8 @@ name: pixel_color_image
 description: >
   Pick the pixel color of a image.
   onHover, onTap, and the Preview widget.
-version: 1.2.2
-homepage: https://github.com/rbdog/pixel_color_image
-repository: https://github.com/rbdog/pixel_color_image
+version: 1.2.3
+repository: https://github.com/rbdog/flutter_note_packages
 
 environment:
   sdk: ">=2.17.0 <3.0.0"

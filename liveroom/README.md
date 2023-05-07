@@ -4,7 +4,7 @@
 - Simple WebSocket Room Server
 - for **Flutter App** (and others)
 
-![Header](https://github.com/rbdog/liveroom/blob/main/static/img/liveroom-header.png?raw=true)
+![Header](https://github.com/rbdog/flutter_note_packages/blob/main/liveroom/static/img/liveroom-header.png?raw=true)
 
 ## Quick Start
 
@@ -29,5 +29,5 @@ void main() {
 }
 ```
 
-package site  
+package site
 https://pub.dev/packages/liveroom
