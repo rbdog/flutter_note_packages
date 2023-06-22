@@ -1,3 +1,7 @@
+#### 動作確認は最新のXcode,Flutterのみで行いました。バージョンにご注意ください。
+
+<br/>
+
 # 1. 新しいアプリを作成
 
 - ターミナルで実行
@@ -77,6 +81,7 @@ $ flutter pub get
 
 # 6. 実機にインストール
 
+- カメラを使うためシミュレータでは実行できません
 - Xcode の画面上部から実機を選択 > 実行ボタン
 
 <img src='https://github.com/rbdog/flutter_note_packages/blob/main/ar_widget/docs_jp_ios/img2.png?raw=true' width='100%'>
