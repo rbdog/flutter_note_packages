@@ -1,3 +1,0 @@
-publish
-
-`dart pub publish`
