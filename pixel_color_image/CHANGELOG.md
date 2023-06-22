@@ -34,3 +34,7 @@
 ## 1.2.3
 
 - fix: documents
+
+## 1.2.4
+
+- fix: docs

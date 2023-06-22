@@ -1,4 +1,4 @@
-![Header](https://github.com/rbdog/pixel_color_image/blob/main/resources/images/pixel-color-image-header.png?raw=true)
+![Header](https://github.com/rbdog/flutter_note_packages/blob/main/pixel_color_image/static/pixel-color-image-header.png?raw=true)
 
 https://pub.dev/packages/pixel_color_image
 
@@ -49,7 +49,7 @@ void onTap(int x, int y, Color color) async {
 
 ## Color-Preview Widget
 
-![diagram](https://github.com/rbdog/pixel_color_image/blob/main/resources/images/pixel-color-preview.png?raw=true)
+![diagram](https://github.com/rbdog/flutter_note_packages/blob/main/pixel_color_image/static/pixel-color-preview.png?raw=true)
 
 ### 1. Define ref
 
