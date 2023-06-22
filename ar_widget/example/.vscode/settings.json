@@ -1,0 +1,9 @@
+{
+    // フォーマット・保存
+    "editor.formatOnSave": true,
+    "[dart]": {
+        "editor.rulers": [
+            0
+        ]
+    }
+}
