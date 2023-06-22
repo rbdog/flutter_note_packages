@@ -46,6 +46,7 @@ $ flutter pub get
 # 4. カメラ許可設定
 
 - `/ios/Runner/Info.plist` を開く
+- Xcodeで開くとGUIになるため, 右クリックからVSCodeなどで開くのがオススメ
 
 ```
 <plist ...>
