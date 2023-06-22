@@ -8,8 +8,6 @@
             "program": "lib/main.dart",
             "args": [
                 "--debug",
-                "-t",
-                "lib/main.dart",
                 "-d",
                 "${config:ios.device}"
             ]
@@ -21,8 +19,6 @@
             "program": "lib/main.dart",
             "args": [
                 "--release",
-                "-t",
-                "lib/main.dart",
                 "-d",
                 "${config:ios.device}"
             ]
@@ -34,8 +30,6 @@
             "program": "lib/main.dart",
             "args": [
                 "--debug",
-                "-t",
-                "lib/main.dart",
                 "-d",
                 "${config:android.device}"
             ]
@@ -47,8 +41,6 @@
             "program": "lib/main.dart",
             "args": [
                 "--release",
-                "-t",
-                "lib/main.dart",
                 "-d",
                 "${config:android.device}"
             ]
