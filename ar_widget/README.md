@@ -12,14 +12,14 @@
   ...
   <!-- ADD THIS -->
 	<key>NSCameraUsageDescription</key>
-	<string>AR Widget Test</string>
+	<string>For AR</string>
 </dict>
 </plist>
 ```
 
 # Android
 
-- coming soon!
+- Not yet supported.
 
 <br>
 <br>
