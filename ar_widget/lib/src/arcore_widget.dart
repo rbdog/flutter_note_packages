@@ -16,7 +16,7 @@ class ArcoreWidget extends StatelessWidget {
       color: Colors.black,
       alignment: Alignment.center,
       child: const Text(
-        'Android is not supported yet.',
+        'Android is not yet supported.',
         style: TextStyle(color: Colors.white),
       ),
     );
