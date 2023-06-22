@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="biz.rbdog.ar_widget">
+  <uses-permission android:name="android.permission.CAMERA" />
+
+  <!-- Sceneform requires OpenGL ES 3.0 or later. -->
+  <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+
+  <application>
+    <meta-data android:name="com.google.ar.core" android:value="optional" />
+  </application>
+</manifest>
+
+
+
+
+
+
