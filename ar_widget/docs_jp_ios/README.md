@@ -130,7 +130,7 @@ flutter run --release -d <デバイス ID>
 - Xcodeをインストール
 - [ダウンロードはこちら](https://developer.apple.com/jp/xcode/)
 
-- ターミナルで実行
+- インストールが完了したあとターミナルで実行
 
 ```
 $ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
@@ -139,7 +139,6 @@ $ sudo xcodebuild -runFirstLaunch
 
 ### CocoaPodsの準備がまだのとき
 
-- ターミナルで実行
 - まずはHomeBrewをインストール
 
 ```
