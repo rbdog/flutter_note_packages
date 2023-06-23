@@ -98,6 +98,7 @@ $ flutter build ipa
 # 7. 実機にインストール
 
 - カメラを使うためシミュレータでは実行できません
+- iPhone実機のロックを解除した状態でケーブルを使ってMacに接続してください
 - Xcode の画面上部から実機を選択 > 実行ボタン
 
 <img src='https://github.com/rbdog/flutter_note_packages/blob/main/ar_widget/docs_jp_ios/img2.png?raw=true' width='100%'>
@@ -125,6 +126,9 @@ flutter run --release -d <デバイス ID>
 # 補足知識
 
 ### Xcodeの準備がまだのとき
+
+- Xcodeをインストール
+- [ダウンロードはこちら](https://developer.apple.com/jp/xcode/)
 
 - ターミナルで実行
 
