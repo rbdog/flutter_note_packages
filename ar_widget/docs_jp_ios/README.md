@@ -97,13 +97,13 @@ $ flutter build ipa
 
 # 7. 実機にインストール
 
-- カメラを使うためシミュレータでは実行できません
-- iPhone実機のロックを解除した状態でケーブルを使ってMacに接続してください
-- Xcode の画面上部から実機を選択 > 実行ボタン
+- カメラを使うためシミュレータでは実行不可
+- iPhone実機のロックを解除した状態でケーブルを使ってMacに接続
+- Xcodeの画面上部から実機を選択 > 実行ボタン
 
 <img src='https://github.com/rbdog/flutter_note_packages/blob/main/ar_widget/docs_jp_ios/img2.png?raw=true' width='100%'>
 
-- デバイス ID が分かるときはターミナルで実行しても OK
+- デバイスID が分かるときはターミナルで実行してもOK
 
 ```
 flutter run --release -d <デバイス ID>
@@ -127,7 +127,7 @@ flutter run --release -d <デバイス ID>
 
 ### Xcodeの準備がまだのとき
 
-- Xcodeをインストール
+- Xcodeをインストールして起動
 - [ダウンロードはこちら](https://developer.apple.com/jp/xcode/)
 
 - インストールが完了したあとターミナルで実行
@@ -139,22 +139,21 @@ $ sudo xcodebuild -runFirstLaunch
 
 ### CocoaPodsの準備がまだのとき
 
-- まずはHomeBrewをインストール
+- まずは`HomeBrew`をインストール
+- [HomeBrewについての詳細はこちら](https://brew.sh/index_ja)
 
 ```
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-- CocoaPodsをインストール
+- `HomeBrew`を使って`CocoaPods`をインストール
 
 ```
 $ brew install cocoapods
 ```
 
-- CocoaPodsがインストールされた状態で ios フォルダを作り直す
+- `CocoaPods`がインストールされた状態で ios フォルダを作り直す
 
 ```
 $ flutter create --platforms=ios .
 ```
-
-- [HomeBrewの詳細はこちら](https://brew.sh/index_ja)
