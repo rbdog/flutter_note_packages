@@ -34,6 +34,8 @@ dependencies:
 $ flutter pub get
 ```
 
+- [パッケージの詳細はこちら](https://pub.dev/packages/ar_widget)
+
 <br/>
 <br/>
 <br/>
@@ -119,3 +121,37 @@ flutter run --release -d <デバイス ID>
 <br/>
 <br/>
 <br/>
+
+# 補足知識
+
+### Xcodeの準備がまだのとき
+
+- ターミナルで実行
+
+```
+$ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+$ sudo xcodebuild -runFirstLaunch
+```
+
+### CocoaPodsの準備がまだのとき
+
+- ターミナルで実行
+- まずはHomeBrewをインストール
+
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- CocoaPodsをインストール
+
+```
+$ brew install cocoapods
+```
+
+- CocoaPodsがインストールされた状態で ios フォルダを作り直す
+
+```
+$ flutter create --platforms=ios .
+```
+
+- [HomeBrewの詳細はこちら](https://brew.sh/index_ja)
