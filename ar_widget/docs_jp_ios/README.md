@@ -1,3 +1,7 @@
+#### 動作確認は最新のXcode,Flutterのみで行いました。バージョンにご注意ください。
+
+<br/>
+
 # 1. 新しいアプリを作成
 
 - ターミナルで実行
@@ -30,6 +34,8 @@ dependencies:
 $ flutter pub get
 ```
 
+- [パッケージの詳細はこちら](https://pub.dev/packages/ar_widget)
+
 <br/>
 <br/>
 <br/>
@@ -43,7 +49,21 @@ $ flutter pub get
 <br/>
 <br/>
 
-# 4. カメラ許可設定
+# 4. コード反映
+
+- ターミナルで実行
+
+```
+$ flutter build ipa
+```
+
+- 一度目はこの段階でエラーが出てもスルーでOK
+
+<br/>
+<br/>
+<br/>
+
+# 5. カメラ許可設定
 
 - `/ios/Runner/Info.plist` を開く
 - Xcodeで開くとGUIになるため, 右クリックからVSCodeなどで開くのがオススメ
@@ -61,7 +81,7 @@ $ flutter pub get
 <br/>
 <br/>
 
-# 5. アプリに署名
+# 6. アプリに署名
 
 - `/ios/Runner.xcworkspace` を開く
 
@@ -75,13 +95,15 @@ $ flutter pub get
 <br/>
 <br/>
 
-# 6. 実機にインストール
+# 7. 実機にインストール
 
-- Xcode の画面上部から実機を選択 > 実行ボタン
+- カメラを使うためシミュレータでは実行不可
+- iPhone実機のロックを解除した状態でケーブルを使ってMacに接続
+- Xcodeの画面上部から実機を選択 > 実行ボタン
 
 <img src='https://github.com/rbdog/flutter_note_packages/blob/main/ar_widget/docs_jp_ios/img2.png?raw=true' width='100%'>
 
-- デバイス ID が分かるときはターミナルで実行しても OK
+- デバイスID が分かるときはターミナルで実行してもOK
 
 ```
 flutter run --release -d <デバイス ID>
@@ -91,7 +113,7 @@ flutter run --release -d <デバイス ID>
 <br/>
 <br/>
 
-# 7. 開発者を信頼
+# 8. 開発者を信頼
 
 - `信頼されていないデベロッパ` のエラーが出たときに実行
 - 実機で `設定アプリ` を開く
@@ -100,3 +122,38 @@ flutter run --release -d <デバイス ID>
 <br/>
 <br/>
 <br/>
+
+# 補足知識
+
+### Xcodeの準備がまだのとき
+
+- Xcodeをインストールして起動
+- [ダウンロードはこちら](https://developer.apple.com/jp/xcode/)
+
+- インストールが完了したあとターミナルで実行
+
+```
+$ sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+$ sudo xcodebuild -runFirstLaunch
+```
+
+### CocoaPodsの準備がまだのとき
+
+- まずは`HomeBrew`をインストール
+- [HomeBrewについての詳細はこちら](https://brew.sh/index_ja)
+
+```
+$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+- `HomeBrew`を使って`CocoaPods`をインストール
+
+```
+$ brew install cocoapods
+```
+
+- `CocoaPods`がインストールされた状態で ios フォルダを作り直す
+
+```
+$ flutter create --platforms=ios .
+```
