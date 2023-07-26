@@ -1,25 +1,23 @@
 name: ar_widget
 description: Widget in the AR World
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/rbdog/flutter_note_packages
 
 environment:
   sdk: ^3.0.0
-  flutter: ">=3.3.0"
+  flutter: ">=3.10.0"
 
 dependencies:
-  vector_math: ^2.1.1
-  json_annotation: ^4.5.0
-  permission_handler: ^10.1.0
-  arkit_plugin: ^1.0.6
+  vector_math:
+  json_annotation:
+  permission_handler:
+  arkit_plugin:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface:
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints:
 
 flutter:
   plugin:
