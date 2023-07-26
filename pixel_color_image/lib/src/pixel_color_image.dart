@@ -75,8 +75,12 @@ class PixelColorImageState extends State<PixelColorImage> {
     final pixelX = (x * _wRatio).round();
     final pixelY = (y * _hRatio).round();
     final pixel = widget.image.getPixel(pixelX, pixelY);
-    final truePixel = abgrToArgb(pixel);
-    final color = Color(truePixel);
+    final color = Color.fromARGB(
+      pixel.a.toInt(),
+      pixel.r.toInt(),
+      pixel.g.toInt(),
+      pixel.b.toInt(),
+    );
     return _Params(x: pixelX, y: pixelY, color: color);
   }
 

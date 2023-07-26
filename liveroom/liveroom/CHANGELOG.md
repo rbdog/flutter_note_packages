@@ -4,27 +4,27 @@
 
 ## 0.0.2
 
-- Fix bugs
+- Fix: bugs
 
 ## 0.0.3
 
-- Change default port
+- Change: default port
 
 ## 0.0.4
 
-- Change function name
+- Change: function name
 
 ## 0.0.5
 
-- Add onError
+- Add: onError
 
 ## 0.0.6
 
-- Fix Layout
+- Fix: Layout
 
 ## 1.0.0
 
-- Stable release
+- stable release
 
 ## 1.0.1
 
@@ -32,7 +32,7 @@
 
 ## 1.0.2
 
-- add await to exit()
+- Add: await to exit()
 
 ## 1.0.3
 
@@ -48,8 +48,12 @@
 
 ## 1.0.6
 
-- Fix bugs
+- Fix: bugs
 
 ## 1.0.7
 
-- fix: documents
+- Fix: docs
+
+## 1.0.8
+
+- Change: upgrade dependencies
