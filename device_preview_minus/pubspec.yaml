@@ -1,0 +1,24 @@
+name: device_preview_minus
+version: 0.1.0
+description: A temporary alternative to device_preview. (https://pub.dev/packages/device_preview)
+homepage: https://github.com/rbdog/flutter_note_packages
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  provider:
+  freezed_annotation:
+  json_annotation:
+  shared_preferences:
+  collection:
+
+dev_dependencies:
+  flutter_lints:
+  build_runner:
+  freezed:
+  json_serializable:
