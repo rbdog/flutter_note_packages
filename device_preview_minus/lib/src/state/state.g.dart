@@ -46,7 +46,7 @@ Map<String, dynamic> _$$_DevicePreviewDataToJson(
     <String, dynamic>{
       'isToolbarVisible': instance.isToolbarVisible,
       'isEnabled': instance.isEnabled,
-      'orientation': _$OrientationEnumMap[instance.orientation],
+      'orientation': _$OrientationEnumMap[instance.orientation]!,
       'deviceIdentifier': instance.deviceIdentifier,
       'locale': instance.locale,
       'isFrameVisible': instance.isFrameVisible,
@@ -88,8 +88,8 @@ Map<String, dynamic> _$$_CustomDeviceInfoDataToJson(
         _$_CustomDeviceInfoData instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'type': _$DeviceTypeEnumMap[instance.type],
-      'platform': _$TargetPlatformEnumMap[instance.platform],
+      'type': _$DeviceTypeEnumMap[instance.type]!,
+      'platform': _$TargetPlatformEnumMap[instance.platform]!,
       'name': instance.name,
       'rotatedSafeAreas': const NullableEdgeInsetsJsonConverter()
           .toJson(instance.rotatedSafeAreas),
@@ -136,11 +136,11 @@ Map<String, dynamic> _$$_DevicePreviewSettingsDataToJson(
         _$_DevicePreviewSettingsData instance) =>
     <String, dynamic>{
       'toolbarPosition':
-          _$DevicePreviewToolBarPositionDataEnumMap[instance.toolbarPosition],
+          _$DevicePreviewToolBarPositionDataEnumMap[instance.toolbarPosition]!,
       'toolbarTheme':
-          _$DevicePreviewToolBarThemeDataEnumMap[instance.toolbarTheme],
+          _$DevicePreviewToolBarThemeDataEnumMap[instance.toolbarTheme]!,
       'backgroundTheme':
-          _$DevicePreviewBackgroundThemeDataEnumMap[instance.backgroundTheme],
+          _$DevicePreviewBackgroundThemeDataEnumMap[instance.backgroundTheme]!,
     };
 
 const _$DevicePreviewToolBarPositionDataEnumMap = {

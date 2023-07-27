@@ -2,16 +2,14 @@ import 'package:device_preview_minus/src/frame/device_frame.dart';
 import 'package:device_preview_minus/src/locales/locales.dart';
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../utilities/json_converters.dart';
-import 'package:flutter/foundation.dart';
 
 part 'state.freezed.dart';
 part 'state.g.dart';
 
 /// Represents the current state of the device preview.
 @freezed
-class PrivateDevicePreviewState with _$DevicePreviewState {
+class PrivateDevicePreviewState with _$PrivateDevicePreviewState {
   /// The device preview has not been initialized yet.
   const factory PrivateDevicePreviewState.notInitialized() =
       _NotInitializedDevicePreviewState;
