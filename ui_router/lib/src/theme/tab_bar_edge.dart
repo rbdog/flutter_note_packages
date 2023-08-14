@@ -1,0 +1,4 @@
+enum UiTabBarEdge {
+  top,
+  bottom,
+}
