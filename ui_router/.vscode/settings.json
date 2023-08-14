@@ -1,0 +1,56 @@
+{
+  // --- 以下 個別のPCで設定 ---
+
+  // デバイスのID, Xcodeで確認したものを設定
+  // "ios.simulator": "XXXX-IOS-SIMULATOR-ID-XXXX"
+  // "ios.device": "XXXX-IOS-DEVICE-ID-XXXX"
+  // "android.emulator": "XXXX-ANDROID-EMULATOR-ID-XXXX"
+  // "android.device": "XXXX-ANDROID-DEVICE-ID-XXXX"
+
+  "editor.formatOnSave": true,
+
+  "dart.flutterSdkPath": "$ENV/flutter",
+  "dart.debugExternalPackageLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "[dart]": {
+    "editor.rulers": [0],
+    "editor.defaultFormatter": "Dart-Code.dart-code"
+  },
+
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "files.exclude": {
+    "**/.dart_tool": true,
+    "**/build": true,
+    "**/web": false,
+    "**/.metadata": true,
+    "**/.packages": true,
+    "**/pubspec.lock": true,
+    "**/.flutter-plugins": true,
+    "**/.flutter-plugins-dependencies": true,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true,
+    // "**/**.freezed.dart": true,
+    // "**/**.g.dart": true,
+    "**/generated_plugin_registrant.dart": true,
+    "**/.gitattributes": true,
+    "**/**.iml": true,
+    "**/LICENSE": true,
+    "**/.idea": true,
+    "**/android": true,
+    "**/ios": true,
+    "**/windows": true,
+    "**/.gitignore": true,
+    "**/.firebase": true,
+    "**/.github": true,
+    "**/.firebaserc": true,
+    "**/firebase.json": true
+  }
+}
