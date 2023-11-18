@@ -5,3 +5,7 @@
 ## 1.0.0
 
 - Stable release
+
+## 1.0.1
+
+- compatible with Flutter 3.16.0.

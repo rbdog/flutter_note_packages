@@ -7,5 +7,5 @@ https://pub.dev/packages/device_preview_minus
 
 - A temporary alternative to [**device_preview**](https://pub.dev/packages/device_preview) package that is currently undergoing maintenance suspension
 - Only update the **version dependencies**
-- **No** additional features, bug fixes or improvements will be made
-- Minimalized by [Rubydog](https://github.com/rbdog)
+- The minimal fix in response to the warning.
+- **No** additional features, or improvements will be made
