@@ -8,11 +8,11 @@ void main() {
     home: const HomePage(),
     theme: ThemeData(
       textTheme: const TextTheme(
-        bodyText1: TextStyle(fontSize: 24.0),
-        bodyText2: TextStyle(fontSize: 24.0),
-        button: TextStyle(fontSize: 24.0),
-        subtitle1: TextStyle(fontSize: 24.0),
-        subtitle2: TextStyle(fontSize: 24.0),
+        bodyLarge: TextStyle(fontSize: 24.0),
+        bodyMedium: TextStyle(fontSize: 24.0),
+        labelLarge: TextStyle(fontSize: 24.0),
+        titleMedium: TextStyle(fontSize: 24.0),
+        titleSmall: TextStyle(fontSize: 24.0),
       ),
     ),
   );
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
         await liveroom.create(roomId: '0001');
 
         // メッセージ画面に進む
-        pushToMessagePage(context);
+        if (context.mounted) pushToMessagePage(context);
       },
       // 参加ボタンをタップ
       onTapJoin: () async {
@@ -49,7 +49,7 @@ class HomePage extends StatelessWidget {
         await liveroom.join(roomId: '0001');
 
         // メッセージ画面に進む
-        pushToMessagePage(context);
+        if (context.mounted) pushToMessagePage(context);
       },
     );
 

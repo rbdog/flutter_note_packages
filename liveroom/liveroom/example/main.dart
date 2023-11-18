@@ -7,7 +7,7 @@ import 'package:liveroom/liveroom.dart';
 
 // run multiple apps & check messages
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 //
@@ -17,6 +17,8 @@ final liveroom = Liveroom();
 
 /// Home Page
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   /// push to Message Page
   void pushToMessagePage(BuildContext context) {
     final route = MaterialPageRoute(
@@ -238,11 +240,13 @@ class _MessagePageLayout extends StatelessWidget {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: const HomePage(),
       theme: ThemeData(
         textTheme: const TextTheme(
           bodyLarge: TextStyle(fontSize: 24.0),
