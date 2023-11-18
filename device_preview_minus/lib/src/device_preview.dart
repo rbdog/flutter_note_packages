@@ -339,7 +339,7 @@ class DevicePreview extends StatefulWidget {
 
     return mediaQuery.copyWith(
       platformBrightness: isDarkMode ? Brightness.dark : Brightness.light,
-      textScaleFactor: textScaleFactor,
+      textScaler: TextScaler.linear(textScaleFactor),
       boldText: boldText,
       disableAnimations: disableAnimations,
       accessibleNavigation: accessibleNavigation,
