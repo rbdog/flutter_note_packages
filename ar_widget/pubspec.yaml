@@ -8,12 +8,12 @@ environment:
   flutter: ">=3.10.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
   vector_math:
   json_annotation:
   permission_handler:
   arkit_plugin:
-  flutter:
-    sdk: flutter
   plugin_platform_interface:
 
 dev_dependencies:
