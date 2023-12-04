@@ -88,7 +88,7 @@ class _VirtualKeyboard extends StatelessWidget {
 
   static const double minHeight = 214;
   final double height;
-  final double spacing = 12;
+  static const double spacing = 12;
 
   Widget _row(List<Widget> children) {
     return Padding(
