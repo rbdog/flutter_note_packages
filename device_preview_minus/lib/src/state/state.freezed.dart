@@ -12,7 +12,7 @@ part of 'state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PrivateDevicePreviewState {
@@ -90,29 +90,29 @@ class _$PrivateDevicePreviewStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_NotInitializedDevicePreviewStateCopyWith<$Res> {
-  factory _$$_NotInitializedDevicePreviewStateCopyWith(
-          _$_NotInitializedDevicePreviewState value,
-          $Res Function(_$_NotInitializedDevicePreviewState) then) =
-      __$$_NotInitializedDevicePreviewStateCopyWithImpl<$Res>;
+abstract class _$$NotInitializedDevicePreviewStateImplCopyWith<$Res> {
+  factory _$$NotInitializedDevicePreviewStateImplCopyWith(
+          _$NotInitializedDevicePreviewStateImpl value,
+          $Res Function(_$NotInitializedDevicePreviewStateImpl) then) =
+      __$$NotInitializedDevicePreviewStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NotInitializedDevicePreviewStateCopyWithImpl<$Res>
+class __$$NotInitializedDevicePreviewStateImplCopyWithImpl<$Res>
     extends _$PrivateDevicePreviewStateCopyWithImpl<$Res,
-        _$_NotInitializedDevicePreviewState>
-    implements _$$_NotInitializedDevicePreviewStateCopyWith<$Res> {
-  __$$_NotInitializedDevicePreviewStateCopyWithImpl(
-      _$_NotInitializedDevicePreviewState _value,
-      $Res Function(_$_NotInitializedDevicePreviewState) _then)
+        _$NotInitializedDevicePreviewStateImpl>
+    implements _$$NotInitializedDevicePreviewStateImplCopyWith<$Res> {
+  __$$NotInitializedDevicePreviewStateImplCopyWithImpl(
+      _$NotInitializedDevicePreviewStateImpl _value,
+      $Res Function(_$NotInitializedDevicePreviewStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NotInitializedDevicePreviewState
+class _$NotInitializedDevicePreviewStateImpl
     implements _NotInitializedDevicePreviewState {
-  const _$_NotInitializedDevicePreviewState();
+  const _$NotInitializedDevicePreviewStateImpl();
 
   @override
   String toString() {
@@ -120,10 +120,10 @@ class _$_NotInitializedDevicePreviewState
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotInitializedDevicePreviewState);
+            other is _$NotInitializedDevicePreviewStateImpl);
   }
 
   @override
@@ -209,33 +209,33 @@ class _$_NotInitializedDevicePreviewState
 abstract class _NotInitializedDevicePreviewState
     implements PrivateDevicePreviewState {
   const factory _NotInitializedDevicePreviewState() =
-      _$_NotInitializedDevicePreviewState;
+      _$NotInitializedDevicePreviewStateImpl;
 }
 
 /// @nodoc
-abstract class _$$_InitializingDevicePreviewStateCopyWith<$Res> {
-  factory _$$_InitializingDevicePreviewStateCopyWith(
-          _$_InitializingDevicePreviewState value,
-          $Res Function(_$_InitializingDevicePreviewState) then) =
-      __$$_InitializingDevicePreviewStateCopyWithImpl<$Res>;
+abstract class _$$InitializingDevicePreviewStateImplCopyWith<$Res> {
+  factory _$$InitializingDevicePreviewStateImplCopyWith(
+          _$InitializingDevicePreviewStateImpl value,
+          $Res Function(_$InitializingDevicePreviewStateImpl) then) =
+      __$$InitializingDevicePreviewStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitializingDevicePreviewStateCopyWithImpl<$Res>
+class __$$InitializingDevicePreviewStateImplCopyWithImpl<$Res>
     extends _$PrivateDevicePreviewStateCopyWithImpl<$Res,
-        _$_InitializingDevicePreviewState>
-    implements _$$_InitializingDevicePreviewStateCopyWith<$Res> {
-  __$$_InitializingDevicePreviewStateCopyWithImpl(
-      _$_InitializingDevicePreviewState _value,
-      $Res Function(_$_InitializingDevicePreviewState) _then)
+        _$InitializingDevicePreviewStateImpl>
+    implements _$$InitializingDevicePreviewStateImplCopyWith<$Res> {
+  __$$InitializingDevicePreviewStateImplCopyWithImpl(
+      _$InitializingDevicePreviewStateImpl _value,
+      $Res Function(_$InitializingDevicePreviewStateImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_InitializingDevicePreviewState
+class _$InitializingDevicePreviewStateImpl
     implements _InitializingDevicePreviewState {
-  const _$_InitializingDevicePreviewState();
+  const _$InitializingDevicePreviewStateImpl();
 
   @override
   String toString() {
@@ -243,10 +243,10 @@ class _$_InitializingDevicePreviewState
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitializingDevicePreviewState);
+            other is _$InitializingDevicePreviewStateImpl);
   }
 
   @override
@@ -332,15 +332,15 @@ class _$_InitializingDevicePreviewState
 abstract class _InitializingDevicePreviewState
     implements PrivateDevicePreviewState {
   const factory _InitializingDevicePreviewState() =
-      _$_InitializingDevicePreviewState;
+      _$InitializingDevicePreviewStateImpl;
 }
 
 /// @nodoc
-abstract class _$$_InitializedDevicePreviewStateCopyWith<$Res> {
-  factory _$$_InitializedDevicePreviewStateCopyWith(
-          _$_InitializedDevicePreviewState value,
-          $Res Function(_$_InitializedDevicePreviewState) then) =
-      __$$_InitializedDevicePreviewStateCopyWithImpl<$Res>;
+abstract class _$$InitializedDevicePreviewStateImplCopyWith<$Res> {
+  factory _$$InitializedDevicePreviewStateImplCopyWith(
+          _$InitializedDevicePreviewStateImpl value,
+          $Res Function(_$InitializedDevicePreviewStateImpl) then) =
+      __$$InitializedDevicePreviewStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {List<DeviceInfo> devices,
@@ -351,13 +351,13 @@ abstract class _$$_InitializedDevicePreviewStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_InitializedDevicePreviewStateCopyWithImpl<$Res>
+class __$$InitializedDevicePreviewStateImplCopyWithImpl<$Res>
     extends _$PrivateDevicePreviewStateCopyWithImpl<$Res,
-        _$_InitializedDevicePreviewState>
-    implements _$$_InitializedDevicePreviewStateCopyWith<$Res> {
-  __$$_InitializedDevicePreviewStateCopyWithImpl(
-      _$_InitializedDevicePreviewState _value,
-      $Res Function(_$_InitializedDevicePreviewState) _then)
+        _$InitializedDevicePreviewStateImpl>
+    implements _$$InitializedDevicePreviewStateImplCopyWith<$Res> {
+  __$$InitializedDevicePreviewStateImplCopyWithImpl(
+      _$InitializedDevicePreviewStateImpl _value,
+      $Res Function(_$InitializedDevicePreviewStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -367,7 +367,7 @@ class __$$_InitializedDevicePreviewStateCopyWithImpl<$Res>
     Object? locales = null,
     Object? data = null,
   }) {
-    return _then(_$_InitializedDevicePreviewState(
+    return _then(_$InitializedDevicePreviewStateImpl(
       devices: null == devices
           ? _value._devices
           : devices // ignore: cast_nullable_to_non_nullable
@@ -394,9 +394,9 @@ class __$$_InitializedDevicePreviewStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InitializedDevicePreviewState
+class _$InitializedDevicePreviewStateImpl
     implements _InitializedDevicePreviewState {
-  const _$_InitializedDevicePreviewState(
+  const _$InitializedDevicePreviewStateImpl(
       {required final List<DeviceInfo> devices,
       required final List<NamedLocale> locales,
       required this.data})
@@ -435,10 +435,10 @@ class _$_InitializedDevicePreviewState
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitializedDevicePreviewState &&
+            other is _$InitializedDevicePreviewStateImpl &&
             const DeepCollectionEquality().equals(other._devices, _devices) &&
             const DeepCollectionEquality().equals(other._locales, _locales) &&
             (identical(other.data, data) || other.data == data));
@@ -454,9 +454,10 @@ class _$_InitializedDevicePreviewState
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitializedDevicePreviewStateCopyWith<_$_InitializedDevicePreviewState>
-      get copyWith => __$$_InitializedDevicePreviewStateCopyWithImpl<
-          _$_InitializedDevicePreviewState>(this, _$identity);
+  _$$InitializedDevicePreviewStateImplCopyWith<
+          _$InitializedDevicePreviewStateImpl>
+      get copyWith => __$$InitializedDevicePreviewStateImplCopyWithImpl<
+          _$InitializedDevicePreviewStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,7 +542,7 @@ abstract class _InitializedDevicePreviewState
           {required final List<DeviceInfo> devices,
           required final List<NamedLocale> locales,
           required final DevicePreviewData data}) =
-      _$_InitializedDevicePreviewState;
+      _$InitializedDevicePreviewStateImpl;
 
   /// The list of all available devices.
   List<DeviceInfo> get devices;
@@ -552,7 +553,8 @@ abstract class _InitializedDevicePreviewState
   /// The user settings of the preview.
   DevicePreviewData get data;
   @JsonKey(ignore: true)
-  _$$_InitializedDevicePreviewStateCopyWith<_$_InitializedDevicePreviewState>
+  _$$InitializedDevicePreviewStateImplCopyWith<
+          _$InitializedDevicePreviewStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -776,11 +778,11 @@ class _$DevicePreviewDataCopyWithImpl<$Res, $Val extends DevicePreviewData>
 }
 
 /// @nodoc
-abstract class _$$_DevicePreviewDataCopyWith<$Res>
+abstract class _$$DevicePreviewDataImplCopyWith<$Res>
     implements $DevicePreviewDataCopyWith<$Res> {
-  factory _$$_DevicePreviewDataCopyWith(_$_DevicePreviewData value,
-          $Res Function(_$_DevicePreviewData) then) =
-      __$$_DevicePreviewDataCopyWithImpl<$Res>;
+  factory _$$DevicePreviewDataImplCopyWith(_$DevicePreviewDataImpl value,
+          $Res Function(_$DevicePreviewDataImpl) then) =
+      __$$DevicePreviewDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -809,11 +811,11 @@ abstract class _$$_DevicePreviewDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DevicePreviewDataCopyWithImpl<$Res>
-    extends _$DevicePreviewDataCopyWithImpl<$Res, _$_DevicePreviewData>
-    implements _$$_DevicePreviewDataCopyWith<$Res> {
-  __$$_DevicePreviewDataCopyWithImpl(
-      _$_DevicePreviewData _value, $Res Function(_$_DevicePreviewData) _then)
+class __$$DevicePreviewDataImplCopyWithImpl<$Res>
+    extends _$DevicePreviewDataCopyWithImpl<$Res, _$DevicePreviewDataImpl>
+    implements _$$DevicePreviewDataImplCopyWith<$Res> {
+  __$$DevicePreviewDataImplCopyWithImpl(_$DevicePreviewDataImpl _value,
+      $Res Function(_$DevicePreviewDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -837,7 +839,7 @@ class __$$_DevicePreviewDataCopyWithImpl<$Res>
     Object? settings = freezed,
     Object? customDevice = freezed,
   }) {
-    return _then(_$_DevicePreviewData(
+    return _then(_$DevicePreviewDataImpl(
       isToolbarVisible: null == isToolbarVisible
           ? _value.isToolbarVisible
           : isToolbarVisible // ignore: cast_nullable_to_non_nullable
@@ -912,8 +914,8 @@ class __$$_DevicePreviewDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DevicePreviewData implements _DevicePreviewData {
-  const _$_DevicePreviewData(
+class _$DevicePreviewDataImpl implements _DevicePreviewData {
+  const _$DevicePreviewDataImpl(
       {this.isToolbarVisible = true,
       this.isEnabled = true,
       this.orientation = Orientation.portrait,
@@ -934,8 +936,8 @@ class _$_DevicePreviewData implements _DevicePreviewData {
       this.customDevice = null})
       : _pluginData = pluginData;
 
-  factory _$_DevicePreviewData.fromJson(Map<String, dynamic> json) =>
-      _$$_DevicePreviewDataFromJson(json);
+  factory _$DevicePreviewDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DevicePreviewDataImplFromJson(json);
 
   /// Indicate whether the toolbar is visible.
   @override
@@ -1031,10 +1033,10 @@ class _$_DevicePreviewData implements _DevicePreviewData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DevicePreviewData &&
+            other is _$DevicePreviewDataImpl &&
             (identical(other.isToolbarVisible, isToolbarVisible) ||
                 other.isToolbarVisible == isToolbarVisible) &&
             (identical(other.isEnabled, isEnabled) ||
@@ -1096,13 +1098,13 @@ class _$_DevicePreviewData implements _DevicePreviewData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DevicePreviewDataCopyWith<_$_DevicePreviewData> get copyWith =>
-      __$$_DevicePreviewDataCopyWithImpl<_$_DevicePreviewData>(
+  _$$DevicePreviewDataImplCopyWith<_$DevicePreviewDataImpl> get copyWith =>
+      __$$DevicePreviewDataImplCopyWithImpl<_$DevicePreviewDataImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DevicePreviewDataToJson(
+    return _$$DevicePreviewDataImplToJson(
       this,
     );
   }
@@ -1126,10 +1128,10 @@ abstract class _DevicePreviewData implements DevicePreviewData {
       final Map<String, Map<String, dynamic>> pluginData,
       final double textScaleFactor,
       final DevicePreviewSettingsData? settings,
-      final CustomDeviceInfoData? customDevice}) = _$_DevicePreviewData;
+      final CustomDeviceInfoData? customDevice}) = _$DevicePreviewDataImpl;
 
   factory _DevicePreviewData.fromJson(Map<String, dynamic> json) =
-      _$_DevicePreviewData.fromJson;
+      _$DevicePreviewDataImpl.fromJson;
 
   @override
 
@@ -1199,7 +1201,7 @@ abstract class _DevicePreviewData implements DevicePreviewData {
   CustomDeviceInfoData? get customDevice;
   @override
   @JsonKey(ignore: true)
-  _$$_DevicePreviewDataCopyWith<_$_DevicePreviewData> get copyWith =>
+  _$$DevicePreviewDataImplCopyWith<_$DevicePreviewDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1320,11 +1322,11 @@ class _$CustomDeviceInfoDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_CustomDeviceInfoDataCopyWith<$Res>
+abstract class _$$CustomDeviceInfoDataImplCopyWith<$Res>
     implements $CustomDeviceInfoDataCopyWith<$Res> {
-  factory _$$_CustomDeviceInfoDataCopyWith(_$_CustomDeviceInfoData value,
-          $Res Function(_$_CustomDeviceInfoData) then) =
-      __$$_CustomDeviceInfoDataCopyWithImpl<$Res>;
+  factory _$$CustomDeviceInfoDataImplCopyWith(_$CustomDeviceInfoDataImpl value,
+          $Res Function(_$CustomDeviceInfoDataImpl) then) =
+      __$$CustomDeviceInfoDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1339,11 +1341,11 @@ abstract class _$$_CustomDeviceInfoDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_CustomDeviceInfoDataCopyWithImpl<$Res>
-    extends _$CustomDeviceInfoDataCopyWithImpl<$Res, _$_CustomDeviceInfoData>
-    implements _$$_CustomDeviceInfoDataCopyWith<$Res> {
-  __$$_CustomDeviceInfoDataCopyWithImpl(_$_CustomDeviceInfoData _value,
-      $Res Function(_$_CustomDeviceInfoData) _then)
+class __$$CustomDeviceInfoDataImplCopyWithImpl<$Res>
+    extends _$CustomDeviceInfoDataCopyWithImpl<$Res, _$CustomDeviceInfoDataImpl>
+    implements _$$CustomDeviceInfoDataImplCopyWith<$Res> {
+  __$$CustomDeviceInfoDataImplCopyWithImpl(_$CustomDeviceInfoDataImpl _value,
+      $Res Function(_$CustomDeviceInfoDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1358,7 +1360,7 @@ class __$$_CustomDeviceInfoDataCopyWithImpl<$Res>
     Object? pixelRatio = null,
     Object? screenSize = null,
   }) {
-    return _then(_$_CustomDeviceInfoData(
+    return _then(_$CustomDeviceInfoDataImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1397,8 +1399,8 @@ class __$$_CustomDeviceInfoDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CustomDeviceInfoData implements _CustomDeviceInfoData {
-  const _$_CustomDeviceInfoData(
+class _$CustomDeviceInfoDataImpl implements _CustomDeviceInfoData {
+  const _$CustomDeviceInfoDataImpl(
       {required this.id,
       required this.type,
       required this.platform,
@@ -1408,8 +1410,8 @@ class _$_CustomDeviceInfoData implements _CustomDeviceInfoData {
       required this.pixelRatio,
       @SizeJsonConverter() required this.screenSize});
 
-  factory _$_CustomDeviceInfoData.fromJson(Map<String, dynamic> json) =>
-      _$$_CustomDeviceInfoDataFromJson(json);
+  factory _$CustomDeviceInfoDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CustomDeviceInfoDataImplFromJson(json);
 
   /// Identifier of the device.
   @override
@@ -1453,10 +1455,10 @@ class _$_CustomDeviceInfoData implements _CustomDeviceInfoData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CustomDeviceInfoData &&
+            other is _$CustomDeviceInfoDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.platform, platform) ||
@@ -1480,13 +1482,14 @@ class _$_CustomDeviceInfoData implements _CustomDeviceInfoData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CustomDeviceInfoDataCopyWith<_$_CustomDeviceInfoData> get copyWith =>
-      __$$_CustomDeviceInfoDataCopyWithImpl<_$_CustomDeviceInfoData>(
-          this, _$identity);
+  _$$CustomDeviceInfoDataImplCopyWith<_$CustomDeviceInfoDataImpl>
+      get copyWith =>
+          __$$CustomDeviceInfoDataImplCopyWithImpl<_$CustomDeviceInfoDataImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CustomDeviceInfoDataToJson(
+    return _$$CustomDeviceInfoDataImplToJson(
       this,
     );
   }
@@ -1502,10 +1505,10 @@ abstract class _CustomDeviceInfoData implements CustomDeviceInfoData {
           @EdgeInsetsJsonConverter() required final EdgeInsets safeAreas,
           required final double pixelRatio,
           @SizeJsonConverter() required final Size screenSize}) =
-      _$_CustomDeviceInfoData;
+      _$CustomDeviceInfoDataImpl;
 
   factory _CustomDeviceInfoData.fromJson(Map<String, dynamic> json) =
-      _$_CustomDeviceInfoData.fromJson;
+      _$CustomDeviceInfoDataImpl.fromJson;
 
   @override
 
@@ -1544,8 +1547,8 @@ abstract class _CustomDeviceInfoData implements CustomDeviceInfoData {
   Size get screenSize;
   @override
   @JsonKey(ignore: true)
-  _$$_CustomDeviceInfoDataCopyWith<_$_CustomDeviceInfoData> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$CustomDeviceInfoDataImplCopyWith<_$CustomDeviceInfoDataImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 DevicePreviewSettingsData _$DevicePreviewSettingsDataFromJson(
@@ -1621,12 +1624,12 @@ class _$DevicePreviewSettingsDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DevicePreviewSettingsDataCopyWith<$Res>
+abstract class _$$DevicePreviewSettingsDataImplCopyWith<$Res>
     implements $DevicePreviewSettingsDataCopyWith<$Res> {
-  factory _$$_DevicePreviewSettingsDataCopyWith(
-          _$_DevicePreviewSettingsData value,
-          $Res Function(_$_DevicePreviewSettingsData) then) =
-      __$$_DevicePreviewSettingsDataCopyWithImpl<$Res>;
+  factory _$$DevicePreviewSettingsDataImplCopyWith(
+          _$DevicePreviewSettingsDataImpl value,
+          $Res Function(_$DevicePreviewSettingsDataImpl) then) =
+      __$$DevicePreviewSettingsDataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1636,13 +1639,13 @@ abstract class _$$_DevicePreviewSettingsDataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DevicePreviewSettingsDataCopyWithImpl<$Res>
+class __$$DevicePreviewSettingsDataImplCopyWithImpl<$Res>
     extends _$DevicePreviewSettingsDataCopyWithImpl<$Res,
-        _$_DevicePreviewSettingsData>
-    implements _$$_DevicePreviewSettingsDataCopyWith<$Res> {
-  __$$_DevicePreviewSettingsDataCopyWithImpl(
-      _$_DevicePreviewSettingsData _value,
-      $Res Function(_$_DevicePreviewSettingsData) _then)
+        _$DevicePreviewSettingsDataImpl>
+    implements _$$DevicePreviewSettingsDataImplCopyWith<$Res> {
+  __$$DevicePreviewSettingsDataImplCopyWithImpl(
+      _$DevicePreviewSettingsDataImpl _value,
+      $Res Function(_$DevicePreviewSettingsDataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1652,7 +1655,7 @@ class __$$_DevicePreviewSettingsDataCopyWithImpl<$Res>
     Object? toolbarTheme = null,
     Object? backgroundTheme = null,
   }) {
-    return _then(_$_DevicePreviewSettingsData(
+    return _then(_$DevicePreviewSettingsDataImpl(
       toolbarPosition: null == toolbarPosition
           ? _value.toolbarPosition
           : toolbarPosition // ignore: cast_nullable_to_non_nullable
@@ -1671,14 +1674,14 @@ class __$$_DevicePreviewSettingsDataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DevicePreviewSettingsData implements _DevicePreviewSettingsData {
-  const _$_DevicePreviewSettingsData(
+class _$DevicePreviewSettingsDataImpl implements _DevicePreviewSettingsData {
+  const _$DevicePreviewSettingsDataImpl(
       {this.toolbarPosition = DevicePreviewToolBarPositionData.bottom,
       this.toolbarTheme = DevicePreviewToolBarThemeData.dark,
       this.backgroundTheme = DevicePreviewBackgroundThemeData.light});
 
-  factory _$_DevicePreviewSettingsData.fromJson(Map<String, dynamic> json) =>
-      _$$_DevicePreviewSettingsDataFromJson(json);
+  factory _$DevicePreviewSettingsDataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DevicePreviewSettingsDataImplFromJson(json);
 
   /// The toolbar position.
   @override
@@ -1701,10 +1704,10 @@ class _$_DevicePreviewSettingsData implements _DevicePreviewSettingsData {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DevicePreviewSettingsData &&
+            other is _$DevicePreviewSettingsDataImpl &&
             (identical(other.toolbarPosition, toolbarPosition) ||
                 other.toolbarPosition == toolbarPosition) &&
             (identical(other.toolbarTheme, toolbarTheme) ||
@@ -1721,13 +1724,13 @@ class _$_DevicePreviewSettingsData implements _DevicePreviewSettingsData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DevicePreviewSettingsDataCopyWith<_$_DevicePreviewSettingsData>
-      get copyWith => __$$_DevicePreviewSettingsDataCopyWithImpl<
-          _$_DevicePreviewSettingsData>(this, _$identity);
+  _$$DevicePreviewSettingsDataImplCopyWith<_$DevicePreviewSettingsDataImpl>
+      get copyWith => __$$DevicePreviewSettingsDataImplCopyWithImpl<
+          _$DevicePreviewSettingsDataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DevicePreviewSettingsDataToJson(
+    return _$$DevicePreviewSettingsDataImplToJson(
       this,
     );
   }
@@ -1738,10 +1741,10 @@ abstract class _DevicePreviewSettingsData implements DevicePreviewSettingsData {
           {final DevicePreviewToolBarPositionData toolbarPosition,
           final DevicePreviewToolBarThemeData toolbarTheme,
           final DevicePreviewBackgroundThemeData backgroundTheme}) =
-      _$_DevicePreviewSettingsData;
+      _$DevicePreviewSettingsDataImpl;
 
   factory _DevicePreviewSettingsData.fromJson(Map<String, dynamic> json) =
-      _$_DevicePreviewSettingsData.fromJson;
+      _$DevicePreviewSettingsDataImpl.fromJson;
 
   @override
 
@@ -1757,6 +1760,6 @@ abstract class _DevicePreviewSettingsData implements DevicePreviewSettingsData {
   DevicePreviewBackgroundThemeData get backgroundTheme;
   @override
   @JsonKey(ignore: true)
-  _$$_DevicePreviewSettingsDataCopyWith<_$_DevicePreviewSettingsData>
+  _$$DevicePreviewSettingsDataImplCopyWith<_$DevicePreviewSettingsDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

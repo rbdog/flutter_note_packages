@@ -12,7 +12,7 @@ part of 'info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DeviceInfo {
@@ -131,11 +131,11 @@ class _$DeviceInfoCopyWithImpl<$Res, $Val extends DeviceInfo>
 }
 
 /// @nodoc
-abstract class _$$_DeviceInfoCopyWith<$Res>
+abstract class _$$DeviceInfoImplCopyWith<$Res>
     implements $DeviceInfoCopyWith<$Res> {
-  factory _$$_DeviceInfoCopyWith(
-          _$_DeviceInfo value, $Res Function(_$_DeviceInfo) then) =
-      __$$_DeviceInfoCopyWithImpl<$Res>;
+  factory _$$DeviceInfoImplCopyWith(
+          _$DeviceInfoImpl value, $Res Function(_$DeviceInfoImpl) then) =
+      __$$DeviceInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -151,11 +151,11 @@ abstract class _$$_DeviceInfoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_DeviceInfoCopyWithImpl<$Res>
-    extends _$DeviceInfoCopyWithImpl<$Res, _$_DeviceInfo>
-    implements _$$_DeviceInfoCopyWith<$Res> {
-  __$$_DeviceInfoCopyWithImpl(
-      _$_DeviceInfo _value, $Res Function(_$_DeviceInfo) _then)
+class __$$DeviceInfoImplCopyWithImpl<$Res>
+    extends _$DeviceInfoCopyWithImpl<$Res, _$DeviceInfoImpl>
+    implements _$$DeviceInfoImplCopyWith<$Res> {
+  __$$DeviceInfoImplCopyWithImpl(
+      _$DeviceInfoImpl _value, $Res Function(_$DeviceInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -171,7 +171,7 @@ class __$$_DeviceInfoCopyWithImpl<$Res>
     Object? frameSize = null,
     Object? screenSize = null,
   }) {
-    return _then(_$_DeviceInfo(
+    return _then(_$DeviceInfoImpl(
       identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -214,8 +214,8 @@ class __$$_DeviceInfoCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DeviceInfo with DiagnosticableTreeMixin implements _DeviceInfo {
-  const _$_DeviceInfo(
+class _$DeviceInfoImpl with DiagnosticableTreeMixin implements _DeviceInfo {
+  const _$DeviceInfoImpl(
       {required this.identifier,
       required this.name,
       this.rotatedSafeAreas = null,
@@ -285,10 +285,10 @@ class _$_DeviceInfo with DiagnosticableTreeMixin implements _DeviceInfo {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeviceInfo &&
+            other is _$DeviceInfoImpl &&
             (identical(other.identifier, identifier) ||
                 other.identifier == identifier) &&
             (identical(other.name, name) || other.name == name) &&
@@ -324,8 +324,8 @@ class _$_DeviceInfo with DiagnosticableTreeMixin implements _DeviceInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeviceInfoCopyWith<_$_DeviceInfo> get copyWith =>
-      __$$_DeviceInfoCopyWithImpl<_$_DeviceInfo>(this, _$identity);
+  _$$DeviceInfoImplCopyWith<_$DeviceInfoImpl> get copyWith =>
+      __$$DeviceInfoImplCopyWithImpl<_$DeviceInfoImpl>(this, _$identity);
 }
 
 abstract class _DeviceInfo implements DeviceInfo {
@@ -338,7 +338,7 @@ abstract class _DeviceInfo implements DeviceInfo {
       required final double pixelRatio,
       required final CustomPainter framePainter,
       required final Size frameSize,
-      required final Size screenSize}) = _$_DeviceInfo;
+      required final Size screenSize}) = _$DeviceInfoImpl;
 
   @override
 
@@ -378,6 +378,6 @@ abstract class _DeviceInfo implements DeviceInfo {
   Size get screenSize;
   @override
   @JsonKey(ignore: true)
-  _$$_DeviceInfoCopyWith<_$_DeviceInfo> get copyWith =>
+  _$$DeviceInfoImplCopyWith<_$DeviceInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

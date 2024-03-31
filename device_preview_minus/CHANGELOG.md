@@ -14,3 +14,7 @@
 
 - constraint to use Flutter SDK 3.16
 - fix: constant expression #1
+
+## 1.0.3
+
+- compatible with Flutter 3.19.0.
