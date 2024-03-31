@@ -18,3 +18,7 @@
 ## 1.0.3
 
 - compatible with Flutter 3.19.0.
+
+## 1.0.4
+
+- use super parameters

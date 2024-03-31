@@ -10,13 +10,10 @@ part 'theme.freezed.dart';
 class DeviceFrameTheme extends InheritedWidget {
   /// Give a [style] to all descentant in [child] device frames.
   const DeviceFrameTheme({
-    Key? key,
+    super.key,
     required this.style,
-    required Widget child,
-  }) : super(
-          key: key,
-          child: child,
-        );
+    required super.child,
+  });
 
   /// The style of the device frame.
   final DeviceFrameStyle style;

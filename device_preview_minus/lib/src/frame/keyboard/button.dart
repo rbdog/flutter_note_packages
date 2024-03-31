@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 class VirtualKeyboardButton extends StatelessWidget {
   /// Creates a [VirtualKeyboardButton].
   const VirtualKeyboardButton({
-    Key? key,
+    super.key,
     required this.backgroundColor,
     required this.child,
     this.borderRadius = const BorderRadius.all(Radius.circular(4)),
@@ -12,7 +12,7 @@ class VirtualKeyboardButton extends StatelessWidget {
       vertical: 10,
       horizontal: 6,
     ),
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Color backgroundColor;

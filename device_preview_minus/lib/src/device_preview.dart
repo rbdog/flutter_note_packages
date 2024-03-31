@@ -50,7 +50,7 @@ import 'views/small.dart';
 class DevicePreview extends StatefulWidget {
   /// Create a new [DevicePreview].
   const DevicePreview({
-    Key? key,
+    super.key,
     required this.builder,
     this.devices,
     this.data,
@@ -61,7 +61,7 @@ class DevicePreview extends StatefulWidget {
     this.storage,
     this.enabled = true,
     this.backgroundColor,
-  }) : super(key: key);
+  });
 
   /// If not [enabled], the [child] is used directly.
   final bool enabled;
