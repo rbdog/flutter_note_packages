@@ -13,3 +13,7 @@
 ## 0.0.4
 
 - Change: update dependencies
+
+## 0.0.5
+
+- Change: update dependencies
