@@ -5,8 +5,8 @@ import 'package:liveroom/src/liveroom_view.dart';
 /// Example app for Liveroom
 class LiveroomQuickApp extends StatelessWidget {
   LiveroomQuickApp({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final liveroom = Liveroom(logger: print);
 
@@ -30,7 +30,9 @@ class LiveroomQuickApp extends StatelessWidget {
 
 /// Home Page
 class _HomePage extends StatelessWidget {
-  const _HomePage(this.liveroom, {Key? key}) : super(key: key);
+  const _HomePage(
+    this.liveroom,
+  );
 
   final Liveroom liveroom;
 
@@ -63,7 +65,9 @@ class _HomePage extends StatelessWidget {
 
 /// Message Page
 class _MessagePage extends StatefulWidget {
-  const _MessagePage(this.liveroom, {Key? key}) : super(key: key);
+  const _MessagePage(
+    this.liveroom,
+  );
 
   final Liveroom liveroom;
 
@@ -122,8 +126,7 @@ class _HomePageLayout extends StatelessWidget {
   const _HomePageLayout({
     required this.onTapCreate,
     required this.onTapJoin,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final void Function() onTapCreate;
   final void Function() onTapJoin;
@@ -156,8 +159,7 @@ class _MessagePageLayout extends StatelessWidget {
     required this.messages,
     required this.onTapExit,
     required this.onTapSend,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final List<String> messages;
   final void Function() onTapExit;

@@ -10,8 +10,8 @@ class LiveroomView extends StatefulWidget {
     this.onReceive,
     this.onExit,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final Liveroom liveroom;
 

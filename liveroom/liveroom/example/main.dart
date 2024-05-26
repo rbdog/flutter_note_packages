@@ -131,8 +131,7 @@ class _HomePageLayout extends StatelessWidget {
   const _HomePageLayout({
     required this.onTapCreate,
     required this.onTapJoin,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final void Function() onTapCreate;
   final void Function() onTapJoin;
@@ -165,8 +164,7 @@ class _MessagePageLayout extends StatelessWidget {
     required this.messages,
     required this.onTapExit,
     required this.onTapSend,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final List<String> messages;
   final void Function() onTapExit;

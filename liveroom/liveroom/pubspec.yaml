@@ -1,6 +1,6 @@
 name: liveroom
 description: Super simple WebSocket Room kit
-version: 1.0.8
+version: 1.0.9
 repository: https://github.com/rbdog/flutter_note_packages
 
 environment:
