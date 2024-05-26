@@ -12,7 +12,7 @@
 
 ## 1.0.2
 
-- constraint to use Flutter SDK 3.16
+- constraint to use Flutter 3.16.0
 - fix: constant expression #1
 
 ## 1.0.3
@@ -22,3 +22,7 @@
 ## 1.0.4
 
 - use super parameters
+
+## 1.0.5
+
+- compatible with Flutter 3.22.0.
