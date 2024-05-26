@@ -57,3 +57,7 @@
 ## 1.0.8
 
 - Change: upgrade dependencies
+
+## 1.0.9
+
+- Change: upgrade dependencies
