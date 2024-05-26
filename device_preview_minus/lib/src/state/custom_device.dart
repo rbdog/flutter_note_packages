@@ -82,7 +82,7 @@ class CustomDeviceIdentifier implements DeviceIdentifier {
   DeviceType get type => data.type;
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other is DeviceIdentifier &&
             other.name == name &&
