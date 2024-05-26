@@ -38,3 +38,7 @@
 ## 1.2.4
 
 - fix: docs
+
+## 1.2.5
+
+- Change: upgrade dependencies
