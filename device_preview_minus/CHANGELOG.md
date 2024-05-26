@@ -26,3 +26,7 @@
 ## 1.0.5
 
 - compatible with Flutter 3.22.0.
+
+## 1.0.6
+
+- fix: lint errors
