@@ -26,10 +26,10 @@ class PixelColorPreview extends StatefulWidget {
 
   /// constructor
   const PixelColorPreview({
-    Key? key,
+    super.key,
     required this.ref,
     this.defaultColor = Colors.grey,
-  }) : super(key: key);
+  });
 
   @override
   State<PixelColorPreview> createState() => _PixelColorPreviewState();

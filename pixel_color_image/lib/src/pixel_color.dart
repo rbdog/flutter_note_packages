@@ -28,25 +28,23 @@ class PixelColor extends StatelessWidget {
 
   /// from assets
   const PixelColor.assetImage({
-    Key? key,
+    super.key,
     required this.path,
     this.onHover,
     this.onTap,
     this.buildImage,
     this.ref,
-  })  : url = null,
-        super(key: key);
+  }) : url = null;
 
   /// from network
   const PixelColor.networkImage({
-    Key? key,
+    super.key,
     required this.url,
     this.onHover,
     this.onTap,
     this.buildImage,
     this.ref,
-  })  : path = null,
-        super(key: key);
+  }) : path = null;
 
   /// get image bytes
   Future<Uint8List> getBytes() async {
