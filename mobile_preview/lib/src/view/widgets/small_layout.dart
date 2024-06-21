@@ -1,14 +1,12 @@
 import 'package:mobile_preview/src/state/store.dart';
-import 'package:mobile_preview/src/view/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'tool_panel.dart';
+import 'panel.dart';
 
 /// The tool layout when the screen is small.
-class MobilePreviewSmallLayout extends StatelessWidget {
-  /// Create a new panel from the given tools grouped as [slivers].
-  const MobilePreviewSmallLayout({
+class SmallLayout extends StatelessWidget {
+  const SmallLayout({
     super.key,
     required this.maxMenuHeight,
     required this.scaffoldKey,
@@ -32,36 +30,30 @@ class MobilePreviewSmallLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final toolbarTheme = context.select(
-      (MobilePreviewStore store) => store.settings.toolbarTheme,
-    );
-    return Theme(
-      data: toolbarTheme.asThemeData(),
-      child: SafeArea(
-        top: false,
-        child: _BottomToolbar(
-          showPanel: () async {
-            onMenuVisibleChanged(true);
-            final sheet = scaffoldKey.currentState?.showBottomSheet(
-              (context) => ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
-                ),
-                child: ToolPanel(
-                  isModal: true,
-                  slivers: slivers,
-                ),
+    return SafeArea(
+      top: false,
+      child: _BottomToolbar(
+        showPanel: () async {
+          onMenuVisibleChanged(true);
+          final sheet = scaffoldKey.currentState?.showBottomSheet(
+            (context) => ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(10),
+                topRight: Radius.circular(10),
               ),
-              constraints: BoxConstraints(
-                maxHeight: maxMenuHeight,
+              child: Panel(
+                isModal: true,
+                slivers: slivers,
               ),
-              backgroundColor: Colors.transparent,
-            );
-            await sheet?.closed;
-            onMenuVisibleChanged(false);
-          },
-        ),
+            ),
+            constraints: BoxConstraints(
+              maxHeight: maxMenuHeight,
+            ),
+            backgroundColor: Colors.transparent,
+          );
+          await sheet?.closed;
+          onMenuVisibleChanged(false);
+        },
       ),
     );
   }
@@ -81,7 +73,7 @@ class _BottomToolbar extends StatelessWidget {
     );
     return Material(
       child: ListTile(
-        title: const Text('Device Preview'),
+        title: const Text('Mobile Preview'),
         onTap: isEnabled ? showPanel : null,
         leading: const Icon(Icons.tune),
         trailing: Switch(

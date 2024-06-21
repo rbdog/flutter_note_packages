@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 
 /// A [VirtualKeyboard] button.
 class VirtualKeyboardButton extends StatelessWidget {
-  /// Creates a [VirtualKeyboardButton].
   const VirtualKeyboardButton({
     super.key,
     required this.backgroundColor,

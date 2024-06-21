@@ -1,8 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'settings.dart';
-
 part 'data.freezed.dart';
 part 'data.g.dart';
 
@@ -27,9 +25,6 @@ class MobilePreviewData with _$MobilePreviewData {
 
     /// The currently selected device locale.
     @Default('en-US') String locale,
-
-    /// Indicate whether the frame is currently visible.
-    @Default(true) bool isFrameVisible,
 
     /// Indicate whether the mode is currently dark.
     @Default(false) bool isDarkMode,
@@ -58,7 +53,6 @@ class MobilePreviewData with _$MobilePreviewData {
 
     /// The current text scaling factor.
     @Default(1.0) double textScaleFactor,
-    MobilePreviewSettingsData? settings,
   }) = _MobilePreviewData;
 
   factory MobilePreviewData.fromJson(Map<String, dynamic> json) =>

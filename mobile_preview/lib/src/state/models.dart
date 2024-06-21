@@ -1,14 +1,14 @@
-enum MobilePreviewToolBarThemeData {
+enum ToolBarThemeData {
   dark,
   light,
 }
 
-enum MobilePreviewBackgroundThemeData {
+enum BackgroundThemeData {
   dark,
   light,
 }
 
-enum MobilePreviewToolBarPositionData {
+enum ToolBarPositionData {
   bottom,
   top,
   left,

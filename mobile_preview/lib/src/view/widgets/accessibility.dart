@@ -2,7 +2,7 @@ import 'package:mobile_preview/src/state/store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'section.dart';
+import 'panel_section.dart';
 
 /// All the simulated accessibility settings.
 class AccessibilitySection extends StatelessWidget {
@@ -44,7 +44,7 @@ class AccessibilitySection extends StatelessWidget {
     final invertColors = context.select(
       (MobilePreviewStore store) => store.data.invertColors,
     );
-    return ToolPanelSection(
+    return PanelSection(
       title: 'Accessibility',
       children: [
         if (this.accessibleNavigation)

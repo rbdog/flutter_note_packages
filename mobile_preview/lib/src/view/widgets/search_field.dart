@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// A search field for the tool menu.
-class ToolbarSearchField extends StatefulWidget {
-  /// Create a new search field with the given [text].
-  ///
-  /// An [hintText] which indicates what is the awaited content.
-  ///
-  /// The [onTextChanged] is invoked each time the [text] is changed by the user.
-  const ToolbarSearchField({
+class SearchField extends StatefulWidget {
+  const SearchField({
     super.key,
     required this.hintText,
     required this.onTextChanged,
@@ -24,10 +19,10 @@ class ToolbarSearchField extends StatefulWidget {
   final ValueChanged<String> onTextChanged;
 
   @override
-  ToolbarSearchFieldState createState() => ToolbarSearchFieldState();
+  SearchFieldState createState() => SearchFieldState();
 }
 
-class ToolbarSearchFieldState extends State<ToolbarSearchField> {
+class SearchFieldState extends State<SearchField> {
   late final TextEditingController _controller = TextEditingController(
     text: widget.text,
   );
@@ -49,7 +44,7 @@ class ToolbarSearchFieldState extends State<ToolbarSearchField> {
   }
 
   @override
-  void didUpdateWidget(covariant ToolbarSearchField oldWidget) {
+  void didUpdateWidget(covariant SearchField oldWidget) {
     if (widget.text != _controller.text) {
       WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
         _controller.text = widget.text;

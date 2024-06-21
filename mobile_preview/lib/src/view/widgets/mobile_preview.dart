@@ -3,12 +3,10 @@ import 'dart:async';
 import 'package:mobile_preview/src/state/store.dart';
 import 'package:mobile_preview/src/logic/assert_inherited_media_query.dart';
 import 'package:mobile_preview/src/logic/media_query_observer.dart';
-import 'package:mobile_preview/src/view/theme/theme.dart';
 import 'package:mobile_preview/src/view/widgets/accessibility.dart';
 import 'package:mobile_preview/src/view/widgets/device_section.dart';
-import 'package:mobile_preview/src/view/widgets/settings.dart';
-import 'package:mobile_preview/src/view/widgets/system.dart';
-import 'package:mobile_preview/src/view/widgets/tool_panel.dart';
+import 'package:mobile_preview/src/view/widgets/system_section.dart';
+import 'package:mobile_preview/src/view/widgets/panel.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -23,8 +21,8 @@ import '../../logic/device/types/id.dart';
 import '../../logic/screenshot.dart';
 import '../../state/data.dart';
 import 'frame.dart';
-import 'large.dart';
-import 'small.dart';
+import 'large_layout.dart';
+import 'small_layout.dart';
 import 'virtual_keyboard.dart';
 
 /// Simulates how the result of [builder] would render on different
@@ -84,7 +82,7 @@ class MobilePreview extends StatefulWidget {
   /// Overrides `theme.canvasColor`
   final Color? backgroundColor;
 
-  /// The default selected device when opening device preview for the first time.
+  /// The default selected device for the first time.
   final Device? defaultDevice;
 
   /// The available devices used for previewing.
@@ -107,7 +105,6 @@ class MobilePreview extends StatefulWidget {
     DeviceSection(),
     SystemSection(),
     AccessibilitySection(),
-    SettingsSection(),
   ];
 
   @override
@@ -161,7 +158,6 @@ class MobilePreview extends StatefulWidget {
     );
   }
 
-  /// Indicates whether the device preview is currently enabled.
   static bool isEnabled(BuildContext context) {
     if (_isEnabled(context)) {
       return context.select(
@@ -394,9 +390,6 @@ class MobilePreviewState extends State<MobilePreview> {
     final device = context.select(
       (MobilePreviewStore store) => store.device,
     );
-    final isFrameVisible = context.select(
-      (MobilePreviewStore store) => store.data.isFrameVisible,
-    );
     final orientation = context.select(
       (MobilePreviewStore store) => store.data.orientation,
     );
@@ -421,7 +414,6 @@ class MobilePreviewState extends State<MobilePreview> {
           key: _repaintKey,
           child: DeviceFrame(
             device: device,
-            isFrameVisible: isFrameVisible,
             orientation: orientation,
             screen: VirtualKeyboard(
               isEnabled: isVirtualKeyboardVisible,
@@ -486,21 +478,11 @@ class MobilePreviewState extends State<MobilePreview> {
           (MobilePreviewStore store) => store.data.isEnabled,
         );
 
-        final toolbarTheme = context.select(
-          (MobilePreviewStore store) => store.settings.toolbarTheme,
-        );
-
-        final backgroundTheme = context.select(
-          (MobilePreviewStore store) => store.settings.backgroundTheme,
-        );
-
         final isToolbarVisible = widget.isToolbarVisible &&
             context.select(
               (MobilePreviewStore store) => store.data.isToolbarVisible,
             );
 
-        final toolbar = toolbarTheme.asThemeData();
-        final background = backgroundTheme.asThemeData();
         return Directionality(
           textDirection: TextDirection.ltr,
           child: AnimatedSwitcher(
@@ -509,7 +491,7 @@ class MobilePreviewState extends State<MobilePreview> {
               //mediaQuery: MobilePreview._mediaQuery(context),
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: toolbar.scaffoldBackgroundColor,
+                  color: Colors.black,
                 ),
                 child: LayoutBuilder(
                   builder: (context, constraints) {
@@ -529,7 +511,7 @@ class MobilePreviewState extends State<MobilePreview> {
                         : BorderRadius.zero;
                     final double rightPanelOffset = !isSmall
                         ? (isEnabled
-                            ? ToolPanel.panelWidth - 10
+                            ? Panel.panelWidth - 10
                             : (64 + mediaQuery.padding.right))
                         : 0;
                     final double bottomPanelOffset =
@@ -542,7 +524,7 @@ class MobilePreviewState extends State<MobilePreview> {
                             bottom: 0,
                             right: 0,
                             left: 0,
-                            child: MobilePreviewSmallLayout(
+                            child: SmallLayout(
                               slivers: widget.tools,
                               maxMenuHeight: constraints.maxHeight * 0.5,
                               scaffoldKey: scaffoldKey,
@@ -554,7 +536,7 @@ class MobilePreviewState extends State<MobilePreview> {
                         if (isToolbarVisible && !isSmall)
                           Positioned.fill(
                             key: const Key('Large'),
-                            child: DervicePreviewLargeLayout(
+                            child: LargeLayout(
                               slivers: widget.tools,
                             ),
                           ),
@@ -565,30 +547,27 @@ class MobilePreviewState extends State<MobilePreview> {
                           right: isToolbarVisible ? rightPanelOffset : 0,
                           top: 0,
                           bottom: isToolbarVisible ? bottomPanelOffset : 0,
-                          child: Theme(
-                            data: background,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                boxShadow: const [
-                                  BoxShadow(
-                                    blurRadius: 20,
-                                    color: Color(0xAA000000),
-                                  ),
-                                ],
-                                borderRadius: borderRadius,
-                                color: background.scaffoldBackgroundColor,
-                              ),
-                              child: ClipRRect(
-                                borderRadius: borderRadius,
-                                child: isEnabled
-                                    ? Builder(
-                                        builder: _buildPreview,
-                                      )
-                                    : Builder(
-                                        key: _appKey,
-                                        builder: widget.builder,
-                                      ),
-                              ),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 20,
+                                  color: Color(0xAA000000),
+                                ),
+                              ],
+                              borderRadius: borderRadius,
+                              color: Colors.black,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: borderRadius,
+                              child: isEnabled
+                                  ? Builder(
+                                      builder: _buildPreview,
+                                    )
+                                  : Builder(
+                                      key: _appKey,
+                                      builder: widget.builder,
+                                    ),
                             ),
                           ),
                         ),

@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 
 import '../../state/models.dart';
 
-extension ThemeBackgroundExtension on MobilePreviewBackgroundThemeData {
-  /// Converts a [MobilePreviewBackgroundThemeData] to a [ThemeData].
+extension ThemeBackgroundExtension on BackgroundThemeData {
+  /// Converts a [BackgroundThemeData] to a [ThemeData].
   ThemeData asThemeData() {
     switch (this) {
-      case MobilePreviewBackgroundThemeData.dark:
+      case BackgroundThemeData.dark:
         return ThemeData.dark();
-      case MobilePreviewBackgroundThemeData.light:
+      case BackgroundThemeData.light:
         return ThemeData.light();
     }
   }
 }
 
-extension ThemeToolbarExtension on MobilePreviewToolBarThemeData {
-  /// Converts a [MobilePreviewToolBarThemeData] to a [ThemeData].
+extension ThemeToolbarExtension on ToolBarThemeData {
+  /// Converts a [ToolBarThemeData] to a [ThemeData].
   ThemeData asThemeData() {
     switch (this) {
-      case MobilePreviewToolBarThemeData.dark:
+      case ToolBarThemeData.dark:
         final base = ThemeData.dark();
         const accentColor = Colors.white;
         return base.copyWith(
@@ -85,7 +85,7 @@ extension ThemeToolbarExtension on MobilePreviewToolBarThemeData {
             }),
           ),
         );
-      case MobilePreviewToolBarThemeData.light:
+      case ToolBarThemeData.light:
         final base = ThemeData.light();
         const accentColor = Colors.black;
         const barColor = Color(0xFF303030);
