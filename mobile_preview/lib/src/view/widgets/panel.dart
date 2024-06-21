@@ -1,15 +1,10 @@
 import 'package:mobile_preview/src/state/store.dart';
-import 'package:mobile_preview/src/view/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 /// The panel which contains all the tools.
-class ToolPanel extends StatelessWidget {
-  /// Create a new panel from the given tools grouped as [slivers].
-  ///
-  /// The [isModal] indicates whether the panel is shown modally as a new page, or if it
-  /// stays visible on one side of the parent layout.
-  const ToolPanel({
+class Panel extends StatelessWidget {
+  const Panel({
     super.key,
     required this.slivers,
     this.isModal = false,
@@ -35,18 +30,12 @@ class ToolPanel extends StatelessWidget {
         return [
           MaterialPageRoute(
             builder: (context) {
-              final toolbarTheme = context.select(
-                (MobilePreviewStore store) => store.settings.toolbarTheme,
-              );
-              return Theme(
-                data: toolbarTheme.asThemeData(),
-                child: _ToolPanel(
-                  sections: slivers,
-                  isModal: isModal,
-                  onClose: () {
-                    Navigator.maybePop(rootContext);
-                  },
-                ),
+              return _ToolPanel(
+                sections: slivers,
+                isModal: isModal,
+                onClose: () {
+                  Navigator.maybePop(rootContext);
+                },
               );
             },
           ),
@@ -76,14 +65,13 @@ class _ToolPanel extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
-          'Device preview',
+          'Mobile preview',
           style: theme.textTheme.titleLarge?.copyWith(
             fontSize: 14,
             fontWeight: FontWeight.bold,
-            color: (theme.colorScheme.brightness == Brightness.dark
-                ? theme.colorScheme.onSurface
-                : theme.colorScheme.onPrimary),
+            color: Colors.white,
           ),
         ),
         leading: isModal

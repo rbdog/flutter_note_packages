@@ -35,9 +35,6 @@ mixin _$MobilePreviewData {
   /// The currently selected device locale.
   String get locale => throw _privateConstructorUsedError;
 
-  /// Indicate whether the frame is currently visible.
-  bool get isFrameVisible => throw _privateConstructorUsedError;
-
   /// Indicate whether the mode is currently dark.
   bool get isDarkMode => throw _privateConstructorUsedError;
 
@@ -65,7 +62,6 @@ mixin _$MobilePreviewData {
 
   /// The current text scaling factor.
   double get textScaleFactor => throw _privateConstructorUsedError;
-  MobilePreviewSettingsData? get settings => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -85,7 +81,6 @@ abstract class $MobilePreviewDataCopyWith<$Res> {
       Orientation orientation,
       String? deviceIdentifier,
       String locale,
-      bool isFrameVisible,
       bool isDarkMode,
       bool boldText,
       bool isVirtualKeyboardVisible,
@@ -94,10 +89,7 @@ abstract class $MobilePreviewDataCopyWith<$Res> {
       bool accessibleNavigation,
       bool invertColors,
       Map<String, Map<String, dynamic>> pluginData,
-      double textScaleFactor,
-      MobilePreviewSettingsData? settings});
-
-  $MobilePreviewSettingsDataCopyWith<$Res>? get settings;
+      double textScaleFactor});
 }
 
 /// @nodoc
@@ -118,7 +110,6 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
     Object? orientation = null,
     Object? deviceIdentifier = freezed,
     Object? locale = null,
-    Object? isFrameVisible = null,
     Object? isDarkMode = null,
     Object? boldText = null,
     Object? isVirtualKeyboardVisible = null,
@@ -128,7 +119,6 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
     Object? invertColors = null,
     Object? pluginData = null,
     Object? textScaleFactor = null,
-    Object? settings = freezed,
   }) {
     return _then(_value.copyWith(
       isToolbarVisible: null == isToolbarVisible
@@ -151,10 +141,6 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      isFrameVisible: null == isFrameVisible
-          ? _value.isFrameVisible
-          : isFrameVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
       isDarkMode: null == isDarkMode
           ? _value.isDarkMode
           : isDarkMode // ignore: cast_nullable_to_non_nullable
@@ -191,23 +177,7 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
           ? _value.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
               as double,
-      settings: freezed == settings
-          ? _value.settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as MobilePreviewSettingsData?,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MobilePreviewSettingsDataCopyWith<$Res>? get settings {
-    if (_value.settings == null) {
-      return null;
-    }
-
-    return $MobilePreviewSettingsDataCopyWith<$Res>(_value.settings!, (value) {
-      return _then(_value.copyWith(settings: value) as $Val);
-    });
   }
 }
 
@@ -225,7 +195,6 @@ abstract class _$$MobilePreviewDataImplCopyWith<$Res>
       Orientation orientation,
       String? deviceIdentifier,
       String locale,
-      bool isFrameVisible,
       bool isDarkMode,
       bool boldText,
       bool isVirtualKeyboardVisible,
@@ -234,11 +203,7 @@ abstract class _$$MobilePreviewDataImplCopyWith<$Res>
       bool accessibleNavigation,
       bool invertColors,
       Map<String, Map<String, dynamic>> pluginData,
-      double textScaleFactor,
-      MobilePreviewSettingsData? settings});
-
-  @override
-  $MobilePreviewSettingsDataCopyWith<$Res>? get settings;
+      double textScaleFactor});
 }
 
 /// @nodoc
@@ -257,7 +222,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
     Object? orientation = null,
     Object? deviceIdentifier = freezed,
     Object? locale = null,
-    Object? isFrameVisible = null,
     Object? isDarkMode = null,
     Object? boldText = null,
     Object? isVirtualKeyboardVisible = null,
@@ -267,7 +231,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
     Object? invertColors = null,
     Object? pluginData = null,
     Object? textScaleFactor = null,
-    Object? settings = freezed,
   }) {
     return _then(_$MobilePreviewDataImpl(
       isToolbarVisible: null == isToolbarVisible
@@ -290,10 +253,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String,
-      isFrameVisible: null == isFrameVisible
-          ? _value.isFrameVisible
-          : isFrameVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
       isDarkMode: null == isDarkMode
           ? _value.isDarkMode
           : isDarkMode // ignore: cast_nullable_to_non_nullable
@@ -330,10 +289,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
           ? _value.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
               as double,
-      settings: freezed == settings
-          ? _value.settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as MobilePreviewSettingsData?,
     ));
   }
 }
@@ -347,7 +302,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
       this.orientation = Orientation.portrait,
       this.deviceIdentifier,
       this.locale = 'en-US',
-      this.isFrameVisible = true,
       this.isDarkMode = false,
       this.boldText = false,
       this.isVirtualKeyboardVisible = false,
@@ -357,8 +311,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
       this.invertColors = false,
       final Map<String, Map<String, dynamic>> pluginData =
           const <String, Map<String, dynamic>>{},
-      this.textScaleFactor = 1.0,
-      this.settings})
+      this.textScaleFactor = 1.0})
       : _pluginData = pluginData;
 
   factory _$MobilePreviewDataImpl.fromJson(Map<String, dynamic> json) =>
@@ -387,11 +340,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
   @override
   @JsonKey()
   final String locale;
-
-  /// Indicate whether the frame is currently visible.
-  @override
-  @JsonKey()
-  final bool isFrameVisible;
 
   /// Indicate whether the mode is currently dark.
   @override
@@ -444,12 +392,10 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
   @override
   @JsonKey()
   final double textScaleFactor;
-  @override
-  final MobilePreviewSettingsData? settings;
 
   @override
   String toString() {
-    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, isEnabled: $isEnabled, orientation: $orientation, deviceIdentifier: $deviceIdentifier, locale: $locale, isFrameVisible: $isFrameVisible, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor, settings: $settings)';
+    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, isEnabled: $isEnabled, orientation: $orientation, deviceIdentifier: $deviceIdentifier, locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor)';
   }
 
   @override
@@ -466,8 +412,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
             (identical(other.deviceIdentifier, deviceIdentifier) ||
                 other.deviceIdentifier == deviceIdentifier) &&
             (identical(other.locale, locale) || other.locale == locale) &&
-            (identical(other.isFrameVisible, isFrameVisible) ||
-                other.isFrameVisible == isFrameVisible) &&
             (identical(other.isDarkMode, isDarkMode) ||
                 other.isDarkMode == isDarkMode) &&
             (identical(other.boldText, boldText) ||
@@ -486,9 +430,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
             const DeepCollectionEquality()
                 .equals(other._pluginData, _pluginData) &&
             (identical(other.textScaleFactor, textScaleFactor) ||
-                other.textScaleFactor == textScaleFactor) &&
-            (identical(other.settings, settings) ||
-                other.settings == settings));
+                other.textScaleFactor == textScaleFactor));
   }
 
   @JsonKey(ignore: true)
@@ -500,7 +442,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
       orientation,
       deviceIdentifier,
       locale,
-      isFrameVisible,
       isDarkMode,
       boldText,
       isVirtualKeyboardVisible,
@@ -509,8 +450,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
       accessibleNavigation,
       invertColors,
       const DeepCollectionEquality().hash(_pluginData),
-      textScaleFactor,
-      settings);
+      textScaleFactor);
 
   @JsonKey(ignore: true)
   @override
@@ -534,7 +474,6 @@ abstract class _MobilePreviewData implements MobilePreviewData {
       final Orientation orientation,
       final String? deviceIdentifier,
       final String locale,
-      final bool isFrameVisible,
       final bool isDarkMode,
       final bool boldText,
       final bool isVirtualKeyboardVisible,
@@ -543,8 +482,7 @@ abstract class _MobilePreviewData implements MobilePreviewData {
       final bool accessibleNavigation,
       final bool invertColors,
       final Map<String, Map<String, dynamic>> pluginData,
-      final double textScaleFactor,
-      final MobilePreviewSettingsData? settings}) = _$MobilePreviewDataImpl;
+      final double textScaleFactor}) = _$MobilePreviewDataImpl;
 
   factory _MobilePreviewData.fromJson(Map<String, dynamic> json) =
       _$MobilePreviewDataImpl.fromJson;
@@ -569,10 +507,6 @@ abstract class _MobilePreviewData implements MobilePreviewData {
 
   /// The currently selected device locale.
   String get locale;
-  @override
-
-  /// Indicate whether the frame is currently visible.
-  bool get isFrameVisible;
   @override
 
   /// Indicate whether the mode is currently dark.
@@ -609,8 +543,6 @@ abstract class _MobilePreviewData implements MobilePreviewData {
 
   /// The current text scaling factor.
   double get textScaleFactor;
-  @override
-  MobilePreviewSettingsData? get settings;
   @override
   @JsonKey(ignore: true)
   _$$MobilePreviewDataImplCopyWith<_$MobilePreviewDataImpl> get copyWith =>

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_preview/src/view/widgets/screen_clipper.dart';
 
 import '../../logic/device/types/device.dart';
 
@@ -22,6 +23,13 @@ import '../../logic/device/types/device.dart';
 /// * [Devices] to get all available devices.
 ///
 class DeviceFrame extends StatelessWidget {
+  const DeviceFrame({
+    super.key,
+    required this.device,
+    required this.screen,
+    this.orientation = Orientation.portrait,
+  });
+
   /// The screen that should be inserted into the simulated
   /// device.
   ///
@@ -36,26 +44,6 @@ class DeviceFrame extends StatelessWidget {
   ///
   /// It will also affect the media query.
   final Orientation orientation;
-
-  /// Indicates whether the device frame is visible, else
-  /// only the screen is displayed.
-  final bool isFrameVisible;
-
-  /// Displays the given [screen] into the given [info]
-  /// simulated device.
-  ///
-  /// The orientation of the device can be updated if the frame supports
-  /// it (else it is ignored).
-  ///
-  /// If [isFrameVisible] is `true`, only the [screen] is displayed, but clipped with
-  /// the device screen shape.
-  const DeviceFrame({
-    super.key,
-    required this.device,
-    required this.screen,
-    this.orientation = Orientation.portrait,
-    this.isFrameVisible = true,
-  });
 
   /// Creates a [MediaQuery] from the given device [info], and for the current device [orientation].
   ///
@@ -123,26 +111,25 @@ class DeviceFrame extends StatelessWidget {
     final frameSize = device.frameSize;
     final bounds = device.screenPath.getBounds();
     final stack = SizedBox(
-      width: isFrameVisible ? frameSize.width : bounds.width,
-      height: isFrameVisible ? frameSize.height : bounds.height,
+      width: frameSize.width,
+      height: frameSize.height,
       child: Stack(
         children: [
-          if (isFrameVisible)
-            Positioned.fill(
-              key: const Key('frame'),
-              child: CustomPaint(
-                key: ValueKey(device.id),
-                painter: device.framePainter,
-              ),
+          Positioned.fill(
+            key: const Key('frame'),
+            child: CustomPaint(
+              key: ValueKey(device.id),
+              painter: device.framePainter,
             ),
+          ),
           Positioned(
             key: const Key('Screen'),
-            left: isFrameVisible ? bounds.left : 0,
-            top: isFrameVisible ? bounds.top : 0,
+            left: bounds.left,
+            top: bounds.top,
             width: bounds.width,
             height: bounds.height,
             child: ClipPath(
-              clipper: _ScreenClipper(
+              clipper: ScreenClipper(
                 device.screenPath,
               ),
               child: FittedBox(
@@ -162,25 +149,5 @@ class DeviceFrame extends StatelessWidget {
         child: stack,
       ),
     );
-  }
-}
-
-class _ScreenClipper extends CustomClipper<Path> {
-  const _ScreenClipper(this.path);
-
-  final Path? path;
-
-  @override
-  Path getClip(Size size) {
-    final path = (this.path ?? (Path()..addRect(Offset.zero & size)));
-    final bounds = path.getBounds();
-    var transform = Matrix4.translationValues(-bounds.left, -bounds.top, 0);
-
-    return path.transform(transform.storage);
-  }
-
-  @override
-  bool shouldReclip(_ScreenClipper oldClipper) {
-    return oldClipper.path != path;
   }
 }

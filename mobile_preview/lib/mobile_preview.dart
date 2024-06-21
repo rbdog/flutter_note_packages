@@ -1,9 +1,8 @@
 export 'src/view/widgets/mobile_preview.dart';
 export 'src/view/widgets/accessibility.dart';
 export 'src/view/widgets/device_section.dart';
-export 'src/view/widgets/section.dart';
-export 'src/view/widgets/settings.dart';
-export 'src/view/widgets/system.dart';
+export 'src/view/widgets/panel_section.dart';
+export 'src/view/widgets/system_section.dart';
 
 export 'src/logic/screenshot.dart';
 

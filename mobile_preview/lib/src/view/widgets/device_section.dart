@@ -1,36 +1,16 @@
 import 'package:mobile_preview/src/state/store.dart';
-import 'package:mobile_preview/src/view/widgets/device_model.dart';
-import 'package:mobile_preview/src/view/widgets/target_platform_icon.dart';
+import 'package:mobile_preview/src/view/widgets/platform_picker.dart';
+import 'package:mobile_preview/src/view/widgets/platform_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'section.dart';
+import 'panel_section.dart';
 
 /// All the simulated properties for the device.
 class DeviceSection extends StatelessWidget {
-  /// Create a new menu section with simulated device properties.
-  ///
-  /// The items can be hidden with [model], [orientation], [frameVisibility],
-  /// [virtualKeyboard] parameters.
   const DeviceSection({
     super.key,
-    this.model = true,
-    this.orientation = true,
-    this.frameVisibility = true,
-    this.virtualKeyboard = true,
   });
-
-  /// Allow to edit the current simulated model.
-  final bool model;
-
-  /// Allow to edit the current simulated device orientation.
-  final bool orientation;
-
-  /// Allow to hide or show the device frame.
-  final bool frameVisibility;
-
-  /// Allow to show or hide a software keyboard mockup.
-  final bool virtualKeyboard;
 
   @override
   Widget build(BuildContext context) {
@@ -53,44 +33,39 @@ class DeviceSection extends StatelessWidget {
       (MobilePreviewStore store) => store.data.isVirtualKeyboardVisible,
     );
 
-    final isFrameVisible = context.select(
-      (MobilePreviewStore store) => store.data.isFrameVisible,
-    );
-
-    return ToolPanelSection(
+    return PanelSection(
       title: 'Device',
       children: [
-        if (model)
-          ListTile(
-            key: const Key('model'),
-            title: const Text('Model'),
-            subtitle: Text(deviceName),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TargetPlatformIcon(
-                  platform: deviceIdentifier.platform,
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                const Icon(Icons.chevron_right_rounded),
-              ],
-            ),
-            onTap: () {
-              final theme = Theme.of(context);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Theme(
-                    data: theme,
-                    child: const DeviceModelPicker(),
-                  ),
-                ),
-              );
-            },
+        ListTile(
+          key: const Key('device'),
+          title: const Text('Device'),
+          subtitle: Text(deviceName),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              PlatformIcon(
+                platform: deviceIdentifier.platform,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              const Icon(Icons.chevron_right_rounded),
+            ],
           ),
-        if (this.orientation && canRotate)
+          onTap: () {
+            final theme = Theme.of(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Theme(
+                  data: theme,
+                  child: const PlatformPicker(),
+                ),
+              ),
+            );
+          },
+        ),
+        if (canRotate)
           ListTile(
             key: const Key('orientation'),
             title: const Text('Orientation'),
@@ -117,42 +92,23 @@ class DeviceSection extends StatelessWidget {
               state.rotate();
             },
           ),
-        if (frameVisibility)
-          ListTile(
-            key: const Key('frame'),
-            title: const Text('Frame visibility'),
-            subtitle: Text(isFrameVisible ? 'Visible' : 'Hidden'),
-            trailing: Opacity(
-              opacity: isFrameVisible ? 1.0 : 0.3,
-              child: Icon(
-                isFrameVisible
-                    ? Icons.border_outer_rounded
-                    : Icons.border_clear_rounded,
-              ),
+        ListTile(
+          key: const Key('keyboard'),
+          title: const Text('Virtual keyboard'),
+          subtitle: Text(isVirtualKeyboardVisible ? 'Visible' : 'Hidden'),
+          trailing: Opacity(
+            opacity: isVirtualKeyboardVisible ? 1.0 : 0.3,
+            child: Icon(
+              isVirtualKeyboardVisible
+                  ? Icons.keyboard
+                  : Icons.keyboard_outlined,
             ),
-            onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.toggleFrame();
-            },
           ),
-        if (virtualKeyboard)
-          ListTile(
-            key: const Key('keyboard'),
-            title: const Text('Virtual keyboard preview'),
-            subtitle: Text(isVirtualKeyboardVisible ? 'Visible' : 'Hidden'),
-            trailing: Opacity(
-              opacity: isVirtualKeyboardVisible ? 1.0 : 0.3,
-              child: Icon(
-                isVirtualKeyboardVisible
-                    ? Icons.keyboard
-                    : Icons.keyboard_outlined,
-              ),
-            ),
-            onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.toggleVirtualKeyboard();
-            },
-          ),
+          onTap: () {
+            final state = context.read<MobilePreviewStore>();
+            state.toggleVirtualKeyboard();
+          },
+        ),
       ],
     );
   }

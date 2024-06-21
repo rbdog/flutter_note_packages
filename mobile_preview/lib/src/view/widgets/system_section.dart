@@ -3,13 +3,10 @@ import 'package:mobile_preview/src/view/widgets/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'section.dart';
+import 'panel_section.dart';
 
 /// All the simulated system settings.
 class SystemSection extends StatelessWidget {
-  /// Create a new menu section with simulated systel properties.
-  ///
-  /// The items can be hidden with [locale], [theme] parameters.
   const SystemSection({
     super.key,
     this.locale = true,
@@ -41,7 +38,7 @@ class SystemSection extends StatelessWidget {
       orElse: () => locales.first,
     );
 
-    return ToolPanelSection(
+    return PanelSection(
       title: 'System',
       children: [
         if (locale)

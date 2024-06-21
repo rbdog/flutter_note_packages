@@ -33,7 +33,7 @@ class LocalePickerState extends State<LocalePicker> {
         padding: const EdgeInsets.only(left: 10.0),
         child: Column(
           children: [
-            ToolbarSearchField(
+            SearchField(
               hintText: 'Search by locale name or code',
               text: filter,
               onTextChanged: (value) => setState(() => filter = value),

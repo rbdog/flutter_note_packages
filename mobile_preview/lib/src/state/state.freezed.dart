@@ -403,10 +403,7 @@ class _$InitializedMobilePreviewStateImpl
       : _devices = devices,
         _locales = locales;
 
-  /// The list of all available devices.
   final List<Device> _devices;
-
-  /// The list of all available devices.
   @override
   List<Device> get devices {
     if (_devices is EqualUnmodifiableListView) return _devices;
@@ -414,10 +411,7 @@ class _$InitializedMobilePreviewStateImpl
     return EqualUnmodifiableListView(_devices);
   }
 
-  /// The list of all available locales.
   final List<NamedLocale> _locales;
-
-  /// The list of all available locales.
   @override
   List<NamedLocale> get locales {
     if (_locales is EqualUnmodifiableListView) return _locales;
@@ -425,7 +419,6 @@ class _$InitializedMobilePreviewStateImpl
     return EqualUnmodifiableListView(_locales);
   }
 
-  /// The user settings of the preview.
   @override
   final MobilePreviewData data;
 
@@ -544,13 +537,8 @@ abstract class _InitializedMobilePreviewState
           required final MobilePreviewData data}) =
       _$InitializedMobilePreviewStateImpl;
 
-  /// The list of all available devices.
   List<Device> get devices;
-
-  /// The list of all available locales.
   List<NamedLocale> get locales;
-
-  /// The user settings of the preview.
   MobilePreviewData get data;
   @JsonKey(ignore: true)
   _$$InitializedMobilePreviewStateImplCopyWith<

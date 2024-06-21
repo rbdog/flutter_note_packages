@@ -10,7 +10,6 @@ import '../dart_assets/devices/index.dart';
 import '../logic/device/types/device.dart';
 import '../logic/device/types/id.dart';
 import 'data.dart';
-import 'settings.dart';
 
 class MobilePreviewStore extends ChangeNotifier {
   /// Create a new store with the given [locales], [device] and [storage].
@@ -30,7 +29,6 @@ class MobilePreviewStore extends ChangeNotifier {
   PrivateMobilePreviewState _state =
       const PrivateMobilePreviewState.notInitialized();
 
-  /// The curren state of the device preview.
   PrivateMobilePreviewState get state => _state;
 
   /// Update the state with [value] and notifies all listeners
@@ -131,16 +129,6 @@ extension MobilePreviewStateHelperExtensions on MobilePreviewStore {
         orElse: () => throw Exception('Not initialized'),
       );
 
-  /// Access to device preview settings from state's data.
-  ///
-  /// Throws an exception if not initialized.
-  MobilePreviewSettingsData get settings =>
-      data.settings ?? const MobilePreviewSettingsData();
-
-  set settings(MobilePreviewSettingsData value) {
-    data = data.copyWith(settings: value);
-  }
-
   /// The currently selected device from the [availableDevices].
   ///
   /// Throws an exception if not initialized.
@@ -168,13 +156,6 @@ extension MobilePreviewStateHelperExtensions on MobilePreviewStore {
             .locale,
         orElse: () => throw Exception('Not initialized'),
       );
-
-  /// Hide or show the current device frame.
-  void toggleFrame() {
-    data = data.copyWith(
-      isFrameVisible: !data.isFrameVisible,
-    );
-  }
 
   /// Hide or show the virtual keyboard.
   void toggleVirtualKeyboard() {

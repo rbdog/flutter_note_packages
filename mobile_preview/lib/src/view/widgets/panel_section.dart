@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 /// A [Sliver] representing a section in the [MobilePreview] menu.
 ///
 /// It is only composed of a section [title] header and a list of [children].
-class ToolPanelSection extends StatelessWidget {
-  /// Create a new panel section with the given [title] and [children].
-  const ToolPanelSection({
+class PanelSection extends StatelessWidget {
+  const PanelSection({
     super.key,
     required this.title,
     required this.children,
