@@ -1,51 +1,33 @@
-import 'package:mobile_preview/src/state/store.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:mobile_preview/src/view/widgets/platform_icon.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../logic/device/config.dart';
 import 'device_picker.dart';
 
 /// A page for picking a simulated device model.
-class PlatformPicker extends StatefulWidget {
+class PlatformPicker extends HookWidget {
   const PlatformPicker({
     super.key,
+    required this.platform,
   });
 
-  @override
-  State<PlatformPicker> createState() => _PlatformPickerState();
-}
-
-class _PlatformPickerState extends State<PlatformPicker>
-    with SingleTickerProviderStateMixin {
-  late final TabController controller = TabController(
-    vsync: this,
-    length: allPlatforms.length,
-    initialIndex: () {
-      final store = context.read<MobilePreviewStore>();
-      final platform = store.device.id.platform;
-      return allPlatforms.indexOf(platform);
-    }(),
-  );
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
-  }
+  final TargetPlatform platform;
 
   @override
   Widget build(BuildContext context) {
+    final TabController tabController = useTabController(
+      initialLength: allPlatforms.length,
+      initialIndex: () {
+        return allPlatforms.indexOf(platform);
+      }(),
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Device'),
         bottom: TabBar(
-          controller: controller,
+          controller: tabController,
           isScrollable: true,
           tabs: allPlatforms
               .map(
@@ -58,7 +40,7 @@ class _PlatformPickerState extends State<PlatformPicker>
         ),
       ),
       body: TabBarView(
-        controller: controller,
+        controller: tabController,
         physics: const NeverScrollableScrollPhysics(),
         children: allPlatforms
             .map(

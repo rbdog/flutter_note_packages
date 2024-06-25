@@ -3,8 +3,8 @@ import 'package:mobile_preview/mobile_preview.dart';
 
 void main() {
   runApp(
-    MobilePreview(
-      builder: (context) => const MyApp(),
+    const MobilePreviewScope(
+      child: MyApp(),
     ),
   );
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       locale: MobilePreview.locale(context),
-      builder: MobilePreview.appBuilder,
+      builder: MobilePreview.builder,
       home: const HomePage(),
     );
   }

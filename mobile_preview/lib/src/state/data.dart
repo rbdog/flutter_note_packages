@@ -16,7 +16,7 @@ class MobilePreviewData with _$MobilePreviewData {
     @Default(Orientation.portrait) Orientation orientation,
 
     /// The currently selected device.
-    String? deviceIdentifier,
+    String? deviceId,
 
     /// The currently selected device locale.
     @Default('en-US') String locale,

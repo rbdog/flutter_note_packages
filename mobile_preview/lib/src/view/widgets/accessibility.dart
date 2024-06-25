@@ -1,122 +1,87 @@
-import 'package:mobile_preview/src/state/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_preview/src/state/data.dart';
+import 'package:mobile_preview/src/state/device_settings/provider.dart';
 
 import 'panel_section.dart';
 
 /// All the simulated accessibility settings.
-class AccessibilitySection extends StatelessWidget {
-  /// Create a new menu section with simulated accessibility settings.
-  ///
-  /// The items can be hidden with [accessibleNavigation], [invertColors],
-  /// [textScalingFactor] parameters.
+class AccessibilitySection extends ConsumerWidget {
   const AccessibilitySection({
     super.key,
-    this.accessibleNavigation = true,
-    this.invertColors = true,
-    this.textScalingFactor = true,
-    this.boldText = true,
+    required this.settings,
   });
 
-  /// Allow to enable accessible navigation mode.
-  final bool accessibleNavigation;
-
-  /// Allow to enable invert color mode.
-  final bool invertColors;
-
-  /// Allow to edit the current text scaling factor.
-  final bool textScalingFactor;
-
-  /// Allow to edit the current text weight.
-  final bool boldText;
+  final MobilePreviewData settings;
 
   @override
-  Widget build(BuildContext context) {
-    final textScalingFactor = context.select(
-      (MobilePreviewStore store) => store.data.textScaleFactor,
-    );
-    final boldText = context.select(
-      (MobilePreviewStore store) => store.data.boldText,
-    );
-    final accessibleNavigation = context.select(
-      (MobilePreviewStore store) => store.data.accessibleNavigation,
-    );
-    final invertColors = context.select(
-      (MobilePreviewStore store) => store.data.invertColors,
-    );
+  Widget build(BuildContext context, WidgetRef ref) {
     return PanelSection(
       title: 'Accessibility',
       children: [
-        if (this.accessibleNavigation)
+        if (settings.accessibleNavigation)
           ListTile(
             key: const Key('accessible-navigation'),
             title: const Text('Accessible navigation'),
-            subtitle: Text(accessibleNavigation ? 'Enabled' : 'Disabled'),
+            subtitle:
+                Text(settings.accessibleNavigation ? 'Enabled' : 'Disabled'),
             trailing: Opacity(
-              opacity: accessibleNavigation ? 1.0 : 0.3,
+              opacity: settings.accessibleNavigation ? 1.0 : 0.3,
               child: Icon(
-                accessibleNavigation
+                settings.accessibleNavigation
                     ? Icons.accessible_forward
                     : Icons.accessible_rounded,
               ),
             ),
             onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.data = state.data.copyWith(
-                accessibleNavigation: !accessibleNavigation,
-              );
+              final notifier = ref.read(deviceSettingsProvider.notifier);
+              notifier.toggleAccessibleNavigation();
             },
           ),
-        if (this.invertColors)
-          ListTile(
-            key: const Key('invert-colors'),
-            title: const Text('Invert colors'),
-            subtitle: Text(invertColors ? 'Enabled' : 'Disabled'),
-            trailing: Opacity(
-              opacity: invertColors ? 1.0 : 0.3,
-              child: Icon(
-                invertColors
-                    ? Icons.format_color_reset_rounded
-                    : Icons.format_color_reset_outlined,
-              ),
+        ListTile(
+          key: const Key('invert-colors'),
+          title: const Text('Invert colors'),
+          subtitle: Text(settings.invertColors ? 'Enabled' : 'Disabled'),
+          trailing: Opacity(
+            opacity: settings.invertColors ? 1.0 : 0.3,
+            child: Icon(
+              settings.invertColors
+                  ? Icons.format_color_reset_rounded
+                  : Icons.format_color_reset_outlined,
             ),
-            onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.data = state.data.copyWith(
-                invertColors: !invertColors,
-              );
-            },
           ),
-        if (this.boldText)
-          ListTile(
-            key: const Key('bold-text'),
-            title: const Text('Bold text'),
-            subtitle: Text(boldText ? 'Enabled' : 'Disabled'),
-            trailing: Opacity(
-              opacity: boldText ? 1.0 : 0.3,
-              child: const Icon(
-                Icons.format_bold,
-              ),
+          onTap: () {
+            final notifier = ref.read(deviceSettingsProvider.notifier);
+            notifier.toggleInvertColors();
+          },
+        ),
+        ListTile(
+          key: const Key('bold-text'),
+          title: const Text('Bold text'),
+          subtitle: Text(settings.boldText ? 'Enabled' : 'Disabled'),
+          trailing: Opacity(
+            opacity: settings.boldText ? 1.0 : 0.3,
+            child: const Icon(
+              Icons.format_bold,
             ),
-            onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.data = state.data.copyWith(
-                boldText: !boldText,
-              );
-            },
           ),
-        if (this.textScalingFactor) ...[
+          onTap: () {
+            final notifier = ref.read(deviceSettingsProvider.notifier);
+            notifier.toggleBoldText();
+          },
+        ),
+        ...[
           ListTile(
             key: const Key('text-scaling-factor'),
             title: const Text('Text scaling factor'),
-            subtitle: Text(textScalingFactor.toString()),
+            subtitle: Text(settings.textScaleFactor.toString()),
             trailing: Transform(
               alignment: Alignment.center,
               transform: (Matrix4.identity()
                 ..scale(
-                  textScalingFactor >= 2
+                  settings.textScaleFactor >= 2
                       ? 1.0
-                      : (textScalingFactor < 1 ? 0.25 : 0.6),
+                      : (settings.textScaleFactor < 1 ? 0.25 : 0.6),
                 )),
               child: const Icon(Icons.text_format),
             ),
@@ -124,10 +89,10 @@ class AccessibilitySection extends StatelessWidget {
           ListTile(
             key: const Key('text-scaling-slider'),
             title: Slider(
-              value: textScalingFactor,
-              onChanged: (v) {
-                final state = context.read<MobilePreviewStore>();
-                state.data = state.data.copyWith(textScaleFactor: v);
+              value: settings.textScaleFactor,
+              onChanged: (scale) {
+                final notifier = ref.read(deviceSettingsProvider.notifier);
+                notifier.setTextScale(scale);
               },
               min: 0.25,
               max: 3,

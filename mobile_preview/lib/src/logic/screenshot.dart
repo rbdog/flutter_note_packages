@@ -5,8 +5,6 @@ import 'device/types/device.dart';
 
 /// A screenshot from a preview.
 class DeviceScreenshot {
-  /// Creates a new preview screenshot with its associated [bytes] data, encoded with
-  /// the given image [format] for the current [device] preview.
   const DeviceScreenshot({
     required this.device,
     required this.bytes,
