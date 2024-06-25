@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_preview/src/state/device_settings/provider.dart';
 
 import '../../logic/device/types/device.dart';
-import '../../state/store.dart';
 
-class DeviceTile extends StatelessWidget {
+class DeviceTile extends ConsumerWidget {
   const DeviceTile({
     super.key,
     required this.device,
@@ -13,7 +13,7 @@ class DeviceTile extends StatelessWidget {
   final Device device;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       title: Text(device.name),
       subtitle: Text(
@@ -23,8 +23,8 @@ class DeviceTile extends StatelessWidget {
         ),
       ),
       onTap: () {
-        final state = context.read<MobilePreviewStore>();
-        state.selectDevice(device.id);
+        final notifier = ref.read(deviceSettingsProvider.notifier);
+        notifier.selectDevice(device.id);
       },
     );
   }

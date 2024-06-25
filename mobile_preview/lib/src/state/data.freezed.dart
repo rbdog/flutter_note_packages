@@ -27,7 +27,7 @@ mixin _$MobilePreviewData {
   Orientation get orientation => throw _privateConstructorUsedError;
 
   /// The currently selected device.
-  String? get deviceIdentifier => throw _privateConstructorUsedError;
+  String? get deviceId => throw _privateConstructorUsedError;
 
   /// The currently selected device locale.
   String get locale => throw _privateConstructorUsedError;
@@ -75,7 +75,7 @@ abstract class $MobilePreviewDataCopyWith<$Res> {
   $Res call(
       {bool isToolbarVisible,
       Orientation orientation,
-      String? deviceIdentifier,
+      String? deviceId,
       String locale,
       bool isDarkMode,
       bool boldText,
@@ -103,7 +103,7 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
   $Res call({
     Object? isToolbarVisible = null,
     Object? orientation = null,
-    Object? deviceIdentifier = freezed,
+    Object? deviceId = freezed,
     Object? locale = null,
     Object? isDarkMode = null,
     Object? boldText = null,
@@ -124,9 +124,9 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      deviceIdentifier: freezed == deviceIdentifier
-          ? _value.deviceIdentifier
-          : deviceIdentifier // ignore: cast_nullable_to_non_nullable
+      deviceId: freezed == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
               as String?,
       locale: null == locale
           ? _value.locale
@@ -183,7 +183,7 @@ abstract class _$$MobilePreviewDataImplCopyWith<$Res>
   $Res call(
       {bool isToolbarVisible,
       Orientation orientation,
-      String? deviceIdentifier,
+      String? deviceId,
       String locale,
       bool isDarkMode,
       bool boldText,
@@ -209,7 +209,7 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
   $Res call({
     Object? isToolbarVisible = null,
     Object? orientation = null,
-    Object? deviceIdentifier = freezed,
+    Object? deviceId = freezed,
     Object? locale = null,
     Object? isDarkMode = null,
     Object? boldText = null,
@@ -230,9 +230,9 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      deviceIdentifier: freezed == deviceIdentifier
-          ? _value.deviceIdentifier
-          : deviceIdentifier // ignore: cast_nullable_to_non_nullable
+      deviceId: freezed == deviceId
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
               as String?,
       locale: null == locale
           ? _value.locale
@@ -284,7 +284,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
   const _$MobilePreviewDataImpl(
       {this.isToolbarVisible = true,
       this.orientation = Orientation.portrait,
-      this.deviceIdentifier,
+      this.deviceId,
       this.locale = 'en-US',
       this.isDarkMode = false,
       this.boldText = false,
@@ -313,7 +313,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
 
   /// The currently selected device.
   @override
-  final String? deviceIdentifier;
+  final String? deviceId;
 
   /// The currently selected device locale.
   @override
@@ -374,7 +374,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
 
   @override
   String toString() {
-    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, orientation: $orientation, deviceIdentifier: $deviceIdentifier, locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor)';
+    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, orientation: $orientation, deviceId: $deviceId, locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor)';
   }
 
   @override
@@ -386,8 +386,8 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
                 other.isToolbarVisible == isToolbarVisible) &&
             (identical(other.orientation, orientation) ||
                 other.orientation == orientation) &&
-            (identical(other.deviceIdentifier, deviceIdentifier) ||
-                other.deviceIdentifier == deviceIdentifier) &&
+            (identical(other.deviceId, deviceId) ||
+                other.deviceId == deviceId) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             (identical(other.isDarkMode, isDarkMode) ||
                 other.isDarkMode == isDarkMode) &&
@@ -416,7 +416,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
       runtimeType,
       isToolbarVisible,
       orientation,
-      deviceIdentifier,
+      deviceId,
       locale,
       isDarkMode,
       boldText,
@@ -447,7 +447,7 @@ abstract class _MobilePreviewData implements MobilePreviewData {
   const factory _MobilePreviewData(
       {final bool isToolbarVisible,
       final Orientation orientation,
-      final String? deviceIdentifier,
+      final String? deviceId,
       final String locale,
       final bool isDarkMode,
       final bool boldText,
@@ -473,7 +473,7 @@ abstract class _MobilePreviewData implements MobilePreviewData {
   @override
 
   /// The currently selected device.
-  String? get deviceIdentifier;
+  String? get deviceId;
   @override
 
   /// The currently selected device locale.

@@ -20,27 +20,21 @@ mixin _$PrivateMobilePreviewState {
   TResult when<TResult extends Object?>({
     required TResult Function() notInitialized,
     required TResult Function() initializing,
-    required TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)
-        initialized,
+    required TResult Function(MobilePreviewData data) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notInitialized,
     TResult? Function()? initializing,
-    TResult? Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult? Function(MobilePreviewData data)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notInitialized,
     TResult Function()? initializing,
-    TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult Function(MobilePreviewData data)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -134,9 +128,7 @@ class _$NotInitializedMobilePreviewStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() notInitialized,
     required TResult Function() initializing,
-    required TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)
-        initialized,
+    required TResult Function(MobilePreviewData data) initialized,
   }) {
     return notInitialized();
   }
@@ -146,9 +138,7 @@ class _$NotInitializedMobilePreviewStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notInitialized,
     TResult? Function()? initializing,
-    TResult? Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult? Function(MobilePreviewData data)? initialized,
   }) {
     return notInitialized?.call();
   }
@@ -158,9 +148,7 @@ class _$NotInitializedMobilePreviewStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notInitialized,
     TResult Function()? initializing,
-    TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult Function(MobilePreviewData data)? initialized,
     required TResult orElse(),
   }) {
     if (notInitialized != null) {
@@ -257,9 +245,7 @@ class _$InitializingMobilePreviewStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() notInitialized,
     required TResult Function() initializing,
-    required TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)
-        initialized,
+    required TResult Function(MobilePreviewData data) initialized,
   }) {
     return initializing();
   }
@@ -269,9 +255,7 @@ class _$InitializingMobilePreviewStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notInitialized,
     TResult? Function()? initializing,
-    TResult? Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult? Function(MobilePreviewData data)? initialized,
   }) {
     return initializing?.call();
   }
@@ -281,9 +265,7 @@ class _$InitializingMobilePreviewStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notInitialized,
     TResult Function()? initializing,
-    TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult Function(MobilePreviewData data)? initialized,
     required TResult orElse(),
   }) {
     if (initializing != null) {
@@ -342,10 +324,7 @@ abstract class _$$InitializedMobilePreviewStateImplCopyWith<$Res> {
           $Res Function(_$InitializedMobilePreviewStateImpl) then) =
       __$$InitializedMobilePreviewStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {List<Device> devices,
-      List<NamedLocale> locales,
-      MobilePreviewData data});
+  $Res call({MobilePreviewData data});
 
   $MobilePreviewDataCopyWith<$Res> get data;
 }
@@ -363,19 +342,9 @@ class __$$InitializedMobilePreviewStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? devices = null,
-    Object? locales = null,
     Object? data = null,
   }) {
     return _then(_$InitializedMobilePreviewStateImpl(
-      devices: null == devices
-          ? _value._devices
-          : devices // ignore: cast_nullable_to_non_nullable
-              as List<Device>,
-      locales: null == locales
-          ? _value._locales
-          : locales // ignore: cast_nullable_to_non_nullable
-              as List<NamedLocale>,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -396,35 +365,14 @@ class __$$InitializedMobilePreviewStateImplCopyWithImpl<$Res>
 
 class _$InitializedMobilePreviewStateImpl
     implements _InitializedMobilePreviewState {
-  const _$InitializedMobilePreviewStateImpl(
-      {required final List<Device> devices,
-      required final List<NamedLocale> locales,
-      required this.data})
-      : _devices = devices,
-        _locales = locales;
-
-  final List<Device> _devices;
-  @override
-  List<Device> get devices {
-    if (_devices is EqualUnmodifiableListView) return _devices;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_devices);
-  }
-
-  final List<NamedLocale> _locales;
-  @override
-  List<NamedLocale> get locales {
-    if (_locales is EqualUnmodifiableListView) return _locales;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_locales);
-  }
+  const _$InitializedMobilePreviewStateImpl({required this.data});
 
   @override
   final MobilePreviewData data;
 
   @override
   String toString() {
-    return 'PrivateMobilePreviewState.initialized(devices: $devices, locales: $locales, data: $data)';
+    return 'PrivateMobilePreviewState.initialized(data: $data)';
   }
 
   @override
@@ -432,17 +380,11 @@ class _$InitializedMobilePreviewStateImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitializedMobilePreviewStateImpl &&
-            const DeepCollectionEquality().equals(other._devices, _devices) &&
-            const DeepCollectionEquality().equals(other._locales, _locales) &&
             (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_devices),
-      const DeepCollectionEquality().hash(_locales),
-      data);
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -457,11 +399,9 @@ class _$InitializedMobilePreviewStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() notInitialized,
     required TResult Function() initializing,
-    required TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)
-        initialized,
+    required TResult Function(MobilePreviewData data) initialized,
   }) {
-    return initialized(devices, locales, data);
+    return initialized(data);
   }
 
   @override
@@ -469,11 +409,9 @@ class _$InitializedMobilePreviewStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? notInitialized,
     TResult? Function()? initializing,
-    TResult? Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult? Function(MobilePreviewData data)? initialized,
   }) {
-    return initialized?.call(devices, locales, data);
+    return initialized?.call(data);
   }
 
   @override
@@ -481,13 +419,11 @@ class _$InitializedMobilePreviewStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? notInitialized,
     TResult Function()? initializing,
-    TResult Function(List<Device> devices, List<NamedLocale> locales,
-            MobilePreviewData data)?
-        initialized,
+    TResult Function(MobilePreviewData data)? initialized,
     required TResult orElse(),
   }) {
     if (initialized != null) {
-      return initialized(devices, locales, data);
+      return initialized(data);
     }
     return orElse();
   }
@@ -532,13 +468,9 @@ class _$InitializedMobilePreviewStateImpl
 abstract class _InitializedMobilePreviewState
     implements PrivateMobilePreviewState {
   const factory _InitializedMobilePreviewState(
-          {required final List<Device> devices,
-          required final List<NamedLocale> locales,
-          required final MobilePreviewData data}) =
+          {required final MobilePreviewData data}) =
       _$InitializedMobilePreviewStateImpl;
 
-  List<Device> get devices;
-  List<NamedLocale> get locales;
   MobilePreviewData get data;
   @JsonKey(ignore: true)
   _$$InitializedMobilePreviewStateImplCopyWith<

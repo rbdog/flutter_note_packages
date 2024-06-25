@@ -13,7 +13,7 @@ _$MobilePreviewDataImpl _$$MobilePreviewDataImplFromJson(
       orientation:
           $enumDecodeNullable(_$OrientationEnumMap, json['orientation']) ??
               Orientation.portrait,
-      deviceIdentifier: json['deviceIdentifier'] as String?,
+      deviceId: json['deviceId'] as String?,
       locale: json['locale'] as String? ?? 'en-US',
       isDarkMode: json['isDarkMode'] as bool? ?? false,
       boldText: json['boldText'] as bool? ?? false,
@@ -35,7 +35,7 @@ Map<String, dynamic> _$$MobilePreviewDataImplToJson(
     <String, dynamic>{
       'isToolbarVisible': instance.isToolbarVisible,
       'orientation': _$OrientationEnumMap[instance.orientation]!,
-      'deviceIdentifier': instance.deviceIdentifier,
+      'deviceId': instance.deviceId,
       'locale': instance.locale,
       'isDarkMode': instance.isDarkMode,
       'boldText': instance.boldText,

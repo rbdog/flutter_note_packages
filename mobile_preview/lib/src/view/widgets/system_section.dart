@@ -1,16 +1,19 @@
-import 'package:mobile_preview/src/state/store.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile_preview/src/state/device_settings/provider.dart';
 import 'package:mobile_preview/src/view/widgets/locale.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
+import '../../external/locales/default_locales.dart';
+import '../../state/data.dart';
 import 'panel_section.dart';
 
 /// All the simulated system settings.
-class SystemSection extends StatelessWidget {
+class SystemSection extends ConsumerWidget {
   const SystemSection({
     super.key,
     this.locale = true,
     this.theme = true,
+    required this.settings,
   });
 
   /// Allow to select the current device locale.
@@ -19,23 +22,13 @@ class SystemSection extends StatelessWidget {
   /// Allow to override the current system theme (dark/light)
   final bool theme;
 
+  final MobilePreviewData settings;
+
   @override
-  Widget build(BuildContext context) {
-    final isDarkMode = context.select(
-      (MobilePreviewStore store) => store.data.isDarkMode,
-    );
-
-    final locales = context.select(
-      (MobilePreviewStore store) => store.locales,
-    );
-
-    final selectedLocale = locales.firstWhere(
-      (element) =>
-          element.code ==
-          context.select(
-            (MobilePreviewStore store) => store.data.locale,
-          ),
-      orElse: () => locales.first,
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedLocale = availableLocales.firstWhere(
+      (it) => it.code == settings.locale,
+      orElse: () => availableLocales.first,
     );
 
     return PanelSection(
@@ -60,7 +53,14 @@ class SystemSection extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => Theme(
                     data: theme,
-                    child: const LocalePicker(),
+                    child: LocalePicker(
+                      locale: selectedLocale,
+                      onSelected: (newLocale) {
+                        final notifier =
+                            ref.read(deviceSettingsProvider.notifier);
+                        notifier.setLocale(newLocale);
+                      },
+                    ),
                   ),
                 ),
               );
@@ -70,13 +70,13 @@ class SystemSection extends StatelessWidget {
           ListTile(
             key: const Key('theme'),
             title: const Text('Theme'),
-            subtitle: Text(isDarkMode ? 'Dark' : 'Light'),
+            subtitle: Text(settings.isDarkMode ? 'Dark' : 'Light'),
             trailing: Icon(
-              isDarkMode ? Icons.brightness_3 : Icons.brightness_high,
+              settings.isDarkMode ? Icons.brightness_3 : Icons.brightness_high,
             ),
             onTap: () {
-              final state = context.read<MobilePreviewStore>();
-              state.toggleDarkMode();
+              final notifier = ref.read(deviceSettingsProvider.notifier);
+              notifier.toggleDarkMode();
             },
           ),
       ],
