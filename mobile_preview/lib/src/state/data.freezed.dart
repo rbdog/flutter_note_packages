@@ -23,9 +23,6 @@ mixin _$MobilePreviewData {
   /// Indicate whether the toolbar is visible.
   bool get isToolbarVisible => throw _privateConstructorUsedError;
 
-  /// Indicate whether the device simulation is enabled.
-  bool get isEnabled => throw _privateConstructorUsedError;
-
   /// The current orientation of the device
   Orientation get orientation => throw _privateConstructorUsedError;
 
@@ -77,7 +74,6 @@ abstract class $MobilePreviewDataCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isToolbarVisible,
-      bool isEnabled,
       Orientation orientation,
       String? deviceIdentifier,
       String locale,
@@ -106,7 +102,6 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
   @override
   $Res call({
     Object? isToolbarVisible = null,
-    Object? isEnabled = null,
     Object? orientation = null,
     Object? deviceIdentifier = freezed,
     Object? locale = null,
@@ -124,10 +119,6 @@ class _$MobilePreviewDataCopyWithImpl<$Res, $Val extends MobilePreviewData>
       isToolbarVisible: null == isToolbarVisible
           ? _value.isToolbarVisible
           : isToolbarVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEnabled: null == isEnabled
-          ? _value.isEnabled
-          : isEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       orientation: null == orientation
           ? _value.orientation
@@ -191,7 +182,6 @@ abstract class _$$MobilePreviewDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool isToolbarVisible,
-      bool isEnabled,
       Orientation orientation,
       String? deviceIdentifier,
       String locale,
@@ -218,7 +208,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isToolbarVisible = null,
-    Object? isEnabled = null,
     Object? orientation = null,
     Object? deviceIdentifier = freezed,
     Object? locale = null,
@@ -236,10 +225,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
       isToolbarVisible: null == isToolbarVisible
           ? _value.isToolbarVisible
           : isToolbarVisible // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isEnabled: null == isEnabled
-          ? _value.isEnabled
-          : isEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
       orientation: null == orientation
           ? _value.orientation
@@ -298,7 +283,6 @@ class __$$MobilePreviewDataImplCopyWithImpl<$Res>
 class _$MobilePreviewDataImpl implements _MobilePreviewData {
   const _$MobilePreviewDataImpl(
       {this.isToolbarVisible = true,
-      this.isEnabled = true,
       this.orientation = Orientation.portrait,
       this.deviceIdentifier,
       this.locale = 'en-US',
@@ -321,11 +305,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
   @override
   @JsonKey()
   final bool isToolbarVisible;
-
-  /// Indicate whether the device simulation is enabled.
-  @override
-  @JsonKey()
-  final bool isEnabled;
 
   /// The current orientation of the device
   @override
@@ -395,7 +374,7 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
 
   @override
   String toString() {
-    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, isEnabled: $isEnabled, orientation: $orientation, deviceIdentifier: $deviceIdentifier, locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor)';
+    return 'MobilePreviewData(isToolbarVisible: $isToolbarVisible, orientation: $orientation, deviceIdentifier: $deviceIdentifier, locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, isVirtualKeyboardVisible: $isVirtualKeyboardVisible, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, pluginData: $pluginData, textScaleFactor: $textScaleFactor)';
   }
 
   @override
@@ -405,8 +384,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
             other is _$MobilePreviewDataImpl &&
             (identical(other.isToolbarVisible, isToolbarVisible) ||
                 other.isToolbarVisible == isToolbarVisible) &&
-            (identical(other.isEnabled, isEnabled) ||
-                other.isEnabled == isEnabled) &&
             (identical(other.orientation, orientation) ||
                 other.orientation == orientation) &&
             (identical(other.deviceIdentifier, deviceIdentifier) ||
@@ -438,7 +415,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
   int get hashCode => Object.hash(
       runtimeType,
       isToolbarVisible,
-      isEnabled,
       orientation,
       deviceIdentifier,
       locale,
@@ -470,7 +446,6 @@ class _$MobilePreviewDataImpl implements _MobilePreviewData {
 abstract class _MobilePreviewData implements MobilePreviewData {
   const factory _MobilePreviewData(
       {final bool isToolbarVisible,
-      final bool isEnabled,
       final Orientation orientation,
       final String? deviceIdentifier,
       final String locale,
@@ -491,10 +466,6 @@ abstract class _MobilePreviewData implements MobilePreviewData {
 
   /// Indicate whether the toolbar is visible.
   bool get isToolbarVisible;
-  @override
-
-  /// Indicate whether the device simulation is enabled.
-  bool get isEnabled;
   @override
 
   /// The current orientation of the device
