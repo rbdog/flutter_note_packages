@@ -1,6 +1,5 @@
-import 'package:mobile_preview/src/state/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:mobile_preview/src/view/widgets/bottom_tool_bar.dart';
 
 import 'panel.dart';
 
@@ -32,15 +31,12 @@ class SmallLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       top: false,
-      child: _BottomToolbar(
+      child: BottomToolbar(
         showPanel: () async {
           onMenuVisibleChanged(true);
           final sheet = scaffoldKey.currentState?.showBottomSheet(
             (context) => ClipRRect(
-              borderRadius: const BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-              ),
+              borderRadius: BorderRadius.zero,
               child: Panel(
                 isModal: true,
                 slivers: slivers,
@@ -54,35 +50,6 @@ class SmallLayout extends StatelessWidget {
           await sheet?.closed;
           onMenuVisibleChanged(false);
         },
-      ),
-    );
-  }
-}
-
-class _BottomToolbar extends StatelessWidget {
-  const _BottomToolbar({
-    required this.showPanel,
-  });
-
-  final VoidCallback showPanel;
-
-  @override
-  Widget build(BuildContext context) {
-    final isEnabled = context.select(
-      (MobilePreviewStore store) => store.data.isEnabled,
-    );
-    return Material(
-      child: ListTile(
-        title: const Text('Mobile Preview'),
-        onTap: isEnabled ? showPanel : null,
-        leading: const Icon(Icons.tune),
-        trailing: Switch(
-          value: isEnabled,
-          onChanged: (v) {
-            final state = context.read<MobilePreviewStore>();
-            state.data = state.data.copyWith(isEnabled: v);
-          },
-        ),
       ),
     );
   }

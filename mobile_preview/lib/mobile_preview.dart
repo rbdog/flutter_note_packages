@@ -1,4 +1,4 @@
-export 'src/view/widgets/mobile_preview.dart';
+export 'src/view/router/mobile_preview.dart';
 export 'src/view/widgets/accessibility.dart';
 export 'src/view/widgets/device_section.dart';
 export 'src/view/widgets/panel_section.dart';

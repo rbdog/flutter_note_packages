@@ -8,14 +8,9 @@ part 'data.g.dart';
 /// serialized to be persisted between sessions.
 @freezed
 class MobilePreviewData with _$MobilePreviewData {
-  /// Create a new [MobilePreviewData] configuration from all
-  /// properties.
   const factory MobilePreviewData({
     /// Indicate whether the toolbar is visible.
     @Default(true) bool isToolbarVisible,
-
-    /// Indicate whether the device simulation is enabled.
-    @Default(true) bool isEnabled,
 
     /// The current orientation of the device
     @Default(Orientation.portrait) Orientation orientation,

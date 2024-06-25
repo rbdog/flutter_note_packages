@@ -1,6 +1,4 @@
-import 'package:mobile_preview/src/state/store.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 /// The panel which contains all the tools.
 class Panel extends StatelessWidget {
@@ -59,9 +57,6 @@ class _ToolPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isEnabled = context.select(
-      (MobilePreviewStore store) => store.data.isEnabled,
-    );
 
     return Scaffold(
       appBar: AppBar(
@@ -81,31 +76,11 @@ class _ToolPanel extends StatelessWidget {
                 onPressed: onClose,
               )
             : null,
-        actions: [
-          if (!isModal)
-            Switch(
-              value: isEnabled,
-              onChanged: (v) {
-                final state = context.read<MobilePreviewStore>();
-                state.data = state.data.copyWith(isEnabled: v);
-              },
-            ),
-        ],
       ),
       body: Stack(
         children: [
           CustomScrollView(
             slivers: sections,
-          ),
-          IgnorePointer(
-            ignoring: isEnabled,
-            child: AnimatedOpacity(
-              opacity: isEnabled ? 0 : 1,
-              duration: const Duration(milliseconds: 200),
-              child: Container(
-                color: const Color(0xCC000000),
-              ),
-            ),
           ),
         ],
       ),
