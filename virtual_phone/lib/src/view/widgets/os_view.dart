@@ -29,42 +29,45 @@ class OSView extends ConsumerWidget {
       mediaQuery = MediaQuery.of(context);
     }
 
-    return Theme(
-      data: Theme.of(context).copyWith(
-        brightness: settings.isDarkMode ? Brightness.dark : Brightness.light,
-      ),
-      child: MediaQuery(
-        data: mediaQuery.copyWith(
-          platformBrightness:
-              settings.isDarkMode ? Brightness.dark : Brightness.light,
-          textScaler: TextScaler.linear(settings.textScaleFactor),
-          boldText: settings.boldText,
-          disableAnimations: settings.disableAnimations,
-          accessibleNavigation: settings.accessibleNavigation,
-          invertColors: settings.invertColors,
-        ),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: child,
+    return Scaffold(
+      body: Stack(
+        children: [
+          Theme(
+            data: Theme.of(context).copyWith(
+              brightness:
+                  settings.isDarkMode ? Brightness.dark : Brightness.light,
             ),
-            Positioned(
-              bottom: -1,
-              left: -1,
-              right: -1,
-              child: AnimatedCrossFade(
-                firstChild: const SizedBox(),
-                secondChild: const Keyboard(
-                  height: Keyboard.minHeight,
-                ),
-                crossFadeState: showKeyboard
-                    ? CrossFadeState.showSecond
-                    : CrossFadeState.showFirst,
-                duration: const Duration(milliseconds: 200),
+            child: MediaQuery(
+              data: mediaQuery.copyWith(
+                platformBrightness:
+                    settings.isDarkMode ? Brightness.dark : Brightness.light,
+                textScaler: TextScaler.linear(settings.textScaleFactor),
+                boldText: settings.boldText,
+                disableAnimations: settings.disableAnimations,
+                accessibleNavigation: settings.accessibleNavigation,
+                invertColors: settings.invertColors,
+              ),
+              child: Positioned.fill(
+                child: child,
               ),
             ),
-          ],
-        ),
+          ),
+          Positioned(
+            bottom: -1,
+            left: -1,
+            right: -1,
+            child: AnimatedCrossFade(
+              firstChild: const SizedBox(),
+              secondChild: const Keyboard(
+                height: Keyboard.minHeight,
+              ),
+              crossFadeState: showKeyboard
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
+              duration: const Duration(milliseconds: 200),
+            ),
+          ),
+        ],
       ),
     );
   }
