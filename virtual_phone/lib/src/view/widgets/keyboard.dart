@@ -1,75 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'software_keyboard_button.dart';
+import 'keyboard_button.dart';
 import 'frame_theme.dart';
 
-/// Display a simulated on screen keyboard at the bottom of a [child] widget.
-class SoftwareKeyboard extends StatelessWidget {
-  const SoftwareKeyboard({
+class Keyboard extends StatelessWidget {
+  const Keyboard({
     super.key,
-    required this.child,
-    this.isEnabled = false,
-    this.transitionDuration = const Duration(milliseconds: 400),
-  });
-
-  /// Adds the keyboard insets to the given [mediaQuery].
-  static MediaQueryData mediaQuery(MediaQueryData mediaQuery) {
-    final insets = EdgeInsets.only(
-      bottom: _VirtualKeyboard.minHeight + mediaQuery.padding.bottom,
-    );
-    return mediaQuery.copyWith(
-      viewInsets: insets,
-      viewPadding: mediaQuery.viewPadding,
-      padding: mediaQuery.padding.copyWith(
-        bottom: 0,
-      ),
-    );
-  }
-
-  /// Indicates whether the keyboard is displayed or not.
-  final bool isEnabled;
-
-  /// The widget on top of which the keyboard is displayed.
-  final Widget child;
-
-  /// The transition duration when the keyboard is displayed or hidden.
-  final Duration transitionDuration;
-
-  @override
-  Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    return Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: MediaQuery(
-            data: !isEnabled
-                ? mediaQuery
-                : SoftwareKeyboard.mediaQuery(mediaQuery),
-            child: child,
-          ),
-        ),
-        Positioned(
-          bottom: -1,
-          left: -1,
-          right: -1,
-          child: AnimatedCrossFade(
-            firstChild: const SizedBox(),
-            secondChild: const _VirtualKeyboard(
-              height: _VirtualKeyboard.minHeight,
-            ),
-            crossFadeState: isEnabled
-                ? CrossFadeState.showSecond
-                : CrossFadeState.showFirst,
-            duration: transitionDuration,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _VirtualKeyboard extends StatelessWidget {
-  const _VirtualKeyboard({
     double? height,
   }) : height = height ?? minHeight;
 
@@ -101,7 +37,7 @@ class _VirtualKeyboard extends StatelessWidget {
               padding: const EdgeInsets.only(
                 right: spacing,
               ),
-              child: SoftwareKeyboardButton(
+              child: KeyboardButton(
                 backgroundColor: backgroundColor,
                 child: Text(
                   x,
@@ -149,7 +85,7 @@ class _VirtualKeyboard extends StatelessWidget {
               padding: const EdgeInsets.only(
                 right: 12,
               ),
-              child: SoftwareKeyboardButton(
+              child: KeyboardButton(
                 backgroundColor: theme.button2BackgroundColor,
                 child: Icon(
                   Icons.keyboard_capslock,
@@ -167,7 +103,7 @@ class _VirtualKeyboard extends StatelessWidget {
               padding: const EdgeInsets.only(
                 right: spacing,
               ),
-              child: SoftwareKeyboardButton(
+              child: KeyboardButton(
                 backgroundColor: theme.button2BackgroundColor,
                 child: Icon(
                   Icons.backspace,
@@ -183,7 +119,7 @@ class _VirtualKeyboard extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   right: spacing,
                 ),
-                child: SoftwareKeyboardButton(
+                child: KeyboardButton(
                   backgroundColor: theme.button2BackgroundColor,
                   child: Text(
                     '123',
@@ -198,7 +134,7 @@ class _VirtualKeyboard extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   right: spacing,
                 ),
-                child: SoftwareKeyboardButton(
+                child: KeyboardButton(
                   backgroundColor: theme.button2BackgroundColor,
                   child: Icon(
                     Icons.insert_emoticon,
@@ -212,7 +148,7 @@ class _VirtualKeyboard extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     right: spacing,
                   ),
-                  child: SoftwareKeyboardButton(
+                  child: KeyboardButton(
                     backgroundColor: theme.button2BackgroundColor,
                     child: Text(
                       'space',
@@ -228,7 +164,7 @@ class _VirtualKeyboard extends StatelessWidget {
                 padding: const EdgeInsets.only(
                   right: spacing,
                 ),
-                child: SoftwareKeyboardButton(
+                child: KeyboardButton(
                   backgroundColor: theme.button2BackgroundColor,
                   child: Text(
                     'return',

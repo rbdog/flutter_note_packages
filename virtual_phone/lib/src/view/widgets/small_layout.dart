@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'bottom_menu_bar.dart';
-import 'device_settings_menu.dart';
+import 'menu.dart';
 
 /// The tool layout when the screen is small.
 class SmallLayout extends StatelessWidget {
@@ -37,9 +37,9 @@ class SmallLayout extends StatelessWidget {
           final sheet = scaffoldKey.currentState?.showBottomSheet(
             (context) => ClipRRect(
               borderRadius: BorderRadius.zero,
-              child: DeviceSettingsMenu(
+              child: Menu(
                 isModal: true,
-                slivers: slivers,
+                sections: slivers,
               ),
             ),
             constraints: BoxConstraints(

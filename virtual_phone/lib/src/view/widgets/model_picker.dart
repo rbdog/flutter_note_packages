@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../dart_assets/devices/index.dart';
-import 'device_model_tile.dart';
+import 'model_tile.dart';
 
-class DeviceModelPicker extends StatelessWidget {
-  const DeviceModelPicker({
+class ModelPicker extends StatelessWidget {
+  const ModelPicker({
     super.key,
     required this.platform,
   });
@@ -27,7 +27,7 @@ class DeviceModelPicker extends StatelessWidget {
     return ListView(
       children: [
         ...devices.map(
-          (it) => DeviceModelTile(
+          (it) => Tile(
             device: it,
           ),
         ),

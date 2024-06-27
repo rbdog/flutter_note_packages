@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
-import 'device_model/types/device_model.dart';
+import '../../device_model/types/device_model.dart';
 
 /// A screenshot from a preview.
 class DeviceScreenshot {

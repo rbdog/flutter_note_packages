@@ -12,7 +12,7 @@ class BottomMenuBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       child: ListTile(
-        title: const Text('Mobile Preview'),
+        title: const Text('Menu'),
         onTap: onTap,
         leading: const Icon(Icons.tune),
       ),

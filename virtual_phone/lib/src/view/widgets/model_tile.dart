@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../logic/device_model/types/device_model.dart';
-import '../../state/device_settings/provider.dart';
+import '../../state/device_model/provider.dart';
 
-class DeviceModelTile extends ConsumerWidget {
-  const DeviceModelTile({
+class Tile extends ConsumerWidget {
+  const Tile({
     super.key,
     required this.device,
   });
@@ -23,7 +23,7 @@ class DeviceModelTile extends ConsumerWidget {
         ),
       ),
       onTap: () {
-        final notifier = ref.read(deviceSettingsProvider.notifier);
+        final notifier = ref.read(deviceModelIdProvider.notifier);
         notifier.selectDevice(device.id);
       },
     );

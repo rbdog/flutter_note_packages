@@ -1,7 +1,7 @@
-import '../../logic/device_settings/types/device_settings.dart';
+import '../../logic/os_settings/types/os_settings.dart';
 
 abstract class PrefsInterface {
-  Future<DeviceSettings?> load();
+  Future<OSSettings?> load();
 
-  Future<void> save(DeviceSettings data);
+  Future<void> save(OSSettings data);
 }

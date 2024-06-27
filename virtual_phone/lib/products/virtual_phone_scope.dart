@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-import '../../dart_assets/devices/index.dart';
-import '../../logic/virtual_phone_config/types/virtual_phone_config.dart';
-import '../../state/device_model/provider.dart';
-import 'config_inherited_widget.dart';
-import 'locale_updated_shell.dart';
+import 'package:virtual_phone/src/state/device_model/notifier.dart';
+import '../src/logic/config/types/config.dart';
+import '../src/state/device_model/provider.dart';
+import '../src/view/router/config_inherited_widget.dart';
+import '../src/view/router/locale_updated_shell.dart';
 
 class VirtualPhoneScope extends StatelessWidget {
   const VirtualPhoneScope({
@@ -14,15 +13,17 @@ class VirtualPhoneScope extends StatelessWidget {
     required this.child,
   });
 
-  final VirtualPhoneConfig? config;
+  final Config? config;
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
       overrides: [
-        defaultDeviceModelProvider.overrideWith((ref) {
-          return config?.initialDeviceModel ?? Devices.all.first;
+        deviceModelIdProvider.overrideWith(() {
+          return DeviceModelIdNotifier(
+            initialModelId: config?.initialDeviceModel?.id,
+          );
         })
       ],
       child: ConfigInheritedWidget(
