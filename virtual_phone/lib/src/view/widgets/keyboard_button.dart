@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 /// A [VirtualKeyboard] button.
-class SoftwareKeyboardButton extends StatelessWidget {
-  const SoftwareKeyboardButton({
+class KeyboardButton extends StatelessWidget {
+  const KeyboardButton({
     super.key,
     required this.backgroundColor,
     required this.child,

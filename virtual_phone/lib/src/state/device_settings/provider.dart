@@ -1,19 +1,23 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../external/locales/default_locales.dart';
-import '../../logic/device_settings/types/device_settings.dart';
+import '../../logic/os_settings/types/os_settings.dart';
 import 'notifier.dart';
 
 final deviceSettingsProvider =
-    AsyncNotifierProvider<DeviceSettingsNotifier, DeviceSettings>(() {
+    NotifierProvider<DeviceSettingsNotifier, OSSettings>(() {
   return DeviceSettingsNotifier();
 });
 
-final localeProvider = FutureProvider((ref) async {
-  final settings = await ref.watch(deviceSettingsProvider.future);
+final localeProvider = Provider((ref) {
+  final locale = ref.watch(
+    deviceSettingsProvider.select(
+      (settings) => settings.locale,
+    ),
+  );
   return availableLocales
       .firstWhere(
-        (x) => x.locale.toString() == settings.locale,
+        (it) => it.locale.toString() == locale,
         orElse: () => availableLocales.first,
       )
       .locale;

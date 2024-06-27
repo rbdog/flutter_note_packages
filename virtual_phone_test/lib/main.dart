@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_phone/virtual_phone.dart';
 
+final config = VirtualPhoneConfig(
+  initialDeviceModel: VirtualPhoneModel.ios.iPhone13,
+);
+
 void main() {
   runApp(
-    const VirtualPhoneScope(
-      child: MyApp(),
+    VirtualPhoneScope(
+      config: config,
+      child: const MyApp(),
     ),
   );
 }

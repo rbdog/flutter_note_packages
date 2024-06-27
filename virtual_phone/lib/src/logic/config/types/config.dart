@@ -1,7 +1,7 @@
 import '../../device_model/types/device_model.dart';
 
-class VirtualPhoneConfig {
-  const VirtualPhoneConfig({
+class Config {
+  const Config({
     this.initialDeviceModel,
   });
 

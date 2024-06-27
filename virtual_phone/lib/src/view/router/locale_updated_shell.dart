@@ -14,25 +14,10 @@ class LocaleUpdatedShell extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncLocale = ref.watch(localeProvider);
-    switch (asyncLocale) {
-      case AsyncData(value: final locale):
-        return LocaleInheritedWidget(
-          locale: locale,
-          child: child,
-        );
-      case AsyncError(:final error):
-        throw error;
-      default:
-        return const MaterialApp(
-          home: HeroControllerScope.none(
-            child: Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            ),
-          ),
-        );
-    }
+    final locale = ref.watch(localeProvider);
+    return LocaleInheritedWidget(
+      locale: locale,
+      child: child,
+    );
   }
 }

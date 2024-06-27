@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter/material.dart';
 
 import '../../logic/device_model/config.dart';
-import 'device_model_picker.dart';
+import 'model_picker.dart';
 import 'platform_icon.dart';
 
 /// A page for picking a simulated device model.
@@ -45,7 +45,7 @@ class PlatformPicker extends HookWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: allPlatforms
             .map(
-              (it) => DeviceModelPicker(
+              (it) => ModelPicker(
                 platform: it,
               ),
             )

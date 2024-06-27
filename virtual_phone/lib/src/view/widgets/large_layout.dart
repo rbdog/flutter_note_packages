@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'device_settings_menu.dart';
+import 'menu.dart';
 
 /// The tool layout when the screen is large.
 class LargeLayout extends StatefulWidget {
   const LargeLayout({
     super.key,
-    required this.slivers,
+    required this.menuSections,
   });
 
-  /// The sections containing the tools.
-  ///
-  /// They must be [Sliver]s.
-  final List<Widget> slivers;
+  final List<Widget> menuSections;
 
   @override
   LargeLayoutState createState() => LargeLayoutState();
@@ -47,7 +44,7 @@ class LargeLayoutState extends State<LargeLayout> {
               top: 0,
               right: 0,
               bottom: 0,
-              width: DeviceSettingsMenu.panelWidth,
+              width: 320,
               child: MediaQuery(
                 data: mediaQuery.copyWith(
                   padding: mediaQuery.padding.copyWith(left: 0) +
@@ -57,8 +54,8 @@ class LargeLayoutState extends State<LargeLayout> {
                   onGenerateInitialRoutes: (navigator, initialRoute) {
                     return [
                       MaterialPageRoute(
-                        builder: (context) => DeviceSettingsMenu(
-                          slivers: widget.slivers,
+                        builder: (context) => Menu(
+                          sections: widget.menuSections,
                         ),
                       ),
                     ];

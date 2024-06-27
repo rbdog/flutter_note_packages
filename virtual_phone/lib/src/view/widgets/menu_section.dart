@@ -34,7 +34,7 @@ class MenuSection extends StatelessWidget {
                 bottom: 4,
               ),
               child: Text(
-                title.toUpperCase(),
+                title,
                 style: theme.textTheme.titleSmall?.copyWith(
                   color: theme.hintColor,
                 ),
