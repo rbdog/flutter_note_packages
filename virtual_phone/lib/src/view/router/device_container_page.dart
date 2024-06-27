@@ -21,6 +21,7 @@ class DeviceContainerPage extends ConsumerWidget {
 
     return Container(
       color: Colors.grey,
+      alignment: Alignment.center,
       padding: EdgeInsets.only(
         top: 20 + mediaQuery.viewPadding.top,
         right: 20 + mediaQuery.viewPadding.right,

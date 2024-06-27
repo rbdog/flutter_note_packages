@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BottomMenuBar extends StatelessWidget {
-  const BottomMenuBar({
+class MenuBar extends StatelessWidget {
+  const MenuBar({
     super.key,
     required this.onTap,
   });

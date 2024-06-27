@@ -5,3 +5,7 @@
 ## 0.1.1
 
 - under develop
+
+## 0.2.0
+
+- preview release
