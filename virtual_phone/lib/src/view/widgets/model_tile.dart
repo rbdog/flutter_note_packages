@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../logic/device_model/types/device_model.dart';
 import '../../state/device_model/provider.dart';
 
-class Tile extends ConsumerWidget {
-  const Tile({
+class ModelTile extends ConsumerWidget {
+  const ModelTile({
     super.key,
     required this.device,
   });

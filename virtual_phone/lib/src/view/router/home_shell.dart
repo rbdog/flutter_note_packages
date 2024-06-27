@@ -3,8 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:virtual_phone/src/view/widgets/menu.dart';
 
-import '../../dart_assets/devices/index.dart';
-import '../../logic/device_model/types/id.dart';
 import '../../logic/config/types/config.dart';
 
 import 'device_container_page.dart';
@@ -30,7 +28,6 @@ class HomeShell extends ConsumerWidget {
         children: [
           Expanded(
             child: DeviceContainerPage(
-              screenshotKey: screenshotKey,
               child: child,
             ),
           ),
@@ -42,14 +39,4 @@ class HomeShell extends ConsumerWidget {
       ),
     );
   }
-}
-
-// final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-
-/// The repaint key used for rendering screenshots.
-final screenshotKey = GlobalKey();
-
-/// The list of all available device identifiers.
-List<DeviceModelId> availableDeviceIds() {
-  return Devices.all.map((it) => it.id).toList();
 }

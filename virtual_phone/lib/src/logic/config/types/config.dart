@@ -1,9 +1,7 @@
-import '../../device_model/types/device_model.dart';
-
 class Config {
   const Config({
-    this.initialDeviceModel,
+    this.initialModelId,
   });
 
-  final DeviceModel? initialDeviceModel;
+  final String? initialModelId;
 }

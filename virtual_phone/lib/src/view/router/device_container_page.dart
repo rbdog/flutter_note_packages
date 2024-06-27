@@ -6,11 +6,9 @@ import 'package:virtual_phone/src/view/widgets/device_view.dart';
 class DeviceContainerPage extends ConsumerWidget {
   const DeviceContainerPage({
     super.key,
-    required this.screenshotKey,
     required this.child,
   });
 
-  final GlobalKey screenshotKey;
   final Widget child;
 
   @override
@@ -20,7 +18,7 @@ class DeviceContainerPage extends ConsumerWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Container(
-      color: Colors.grey,
+      color: Colors.black87,
       alignment: Alignment.center,
       padding: EdgeInsets.only(
         top: 20 + mediaQuery.viewPadding.top,
@@ -30,12 +28,9 @@ class DeviceContainerPage extends ConsumerWidget {
       ),
       child: FittedBox(
         fit: BoxFit.contain,
-        child: RepaintBoundary(
-          key: screenshotKey,
-          child: DeviceView(
-            deviceModel: deviceModel,
-            child: child,
-          ),
+        child: DeviceView(
+          deviceModel: deviceModel,
+          child: child,
         ),
       ),
     );

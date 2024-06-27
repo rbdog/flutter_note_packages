@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../logic/device_model/types/device_model.dart';
-import '../../../../logic/device_model/types/id.dart';
 
 part 'frame.g.dart';
 part 'screen.g.dart';
 
-final info = DeviceModel(
-  id: const DeviceModelId(
-    TargetPlatform.iOS,
-    'iphone-12-mini',
-  ),
+final model = DeviceModel(
+  id: 'iphone-12-mini',
+  platform: TargetPlatform.iOS,
   name: 'iPhone 12 Mini',
   pixelRatio: 2.0,
   frameSize: const Size(871.0, 1768.0),

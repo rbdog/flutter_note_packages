@@ -2,12 +2,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../logic/screenshot/screenshot.dart';
+import '../../state/device_model/provider.dart';
 import '../../state/device_state/provider.dart';
 import 'menu_section.dart';
 
 /// All the simulated properties for the device.
-class StateSection extends ConsumerWidget {
-  const StateSection({
+class ControllDeviceSection extends ConsumerWidget {
+  const ControllDeviceSection({
     super.key,
   });
 
@@ -59,6 +61,28 @@ class StateSection extends ConsumerWidget {
           onTap: () {
             final notiifer = ref.read(deviceStateProvider.notifier);
             notiifer.toggleVirtualKeyboard();
+          },
+        ),
+        ListTile(
+          key: const Key('Screenshot'),
+          title: const Text('Take a screenshot'),
+          trailing: const Icon(Icons.camera_alt),
+          onTap: () async {
+            final deviceModel = ref.read(deviceModelProvider);
+            final screenshot = await takeAScreenshot(
+              pixelRatio: deviceModel.pixelRatio,
+            );
+            if (!context.mounted) return;
+            showDialog(
+              context: context,
+              builder: (context) {
+                return SimpleDialog(
+                  children: [
+                    Image.memory(screenshot.bytes),
+                  ],
+                );
+              },
+            );
           },
         ),
       ],
