@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../logic/device_model/types/device_model.dart';
-import '../../../../logic/device_model/types/id.dart';
 
 part 'frame.g.dart';
 part 'screen.g.dart';
 
-final info = DeviceModel(
-  id: const DeviceModelId(
-    TargetPlatform.android,
-    'oneplus-8-pro',
-  ),
+final model = DeviceModel(
+  id: 'oneplus-8-pro',
+  platform: TargetPlatform.android,
   name: 'OnePlus 8 Pro',
   pixelRatio: 4.0,
   safeAreas: const EdgeInsets.only(

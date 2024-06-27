@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'menu_bar.dart' as my_menu_bar;
-import '../widgets/state_section.dart';
+import 'controll_device_section.dart';
 import '../widgets/settings_section.dart';
-import 'model_section.dart';
+import 'pick_model_section.dart';
 
 /// The panel which contains all the tools.
 class Menu extends StatelessWidget {
@@ -37,8 +37,8 @@ class Menu extends StatelessWidget {
                       : null,
                   body: const CustomScrollView(
                     slivers: [
-                      ModelSection(),
-                      StateSection(),
+                      PickModelSection(),
+                      ControllDeviceSection(),
                       SettingsSection(),
                     ],
                   ),

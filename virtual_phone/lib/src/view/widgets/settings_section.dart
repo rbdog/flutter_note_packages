@@ -119,8 +119,8 @@ class SettingsSection extends ConsumerWidget {
           },
         ),
         ListTile(
-          key: const Key('text-scaling-factor'),
-          title: const Text('Text scaling factor'),
+          key: const Key('TextScale'),
+          title: const Text('Text Scale'),
           subtitle: Text(settings.textScaleFactor.toString()),
           trailing: Transform(
             alignment: Alignment.center,

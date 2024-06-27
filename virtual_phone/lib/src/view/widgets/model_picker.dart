@@ -12,26 +12,17 @@ class ModelPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final devices = Devices.all
-        .where(
-          (it) => platform == it.id.platform,
-        )
-        .toList()
-      ..sort((x, y) {
-        final result = x.screenSize.width.compareTo(y.screenSize.width);
-        return result == 0
-            ? x.screenSize.height.compareTo(y.screenSize.height)
-            : result;
-      });
-
     return ListView(
-      children: [
-        ...devices.map(
-          (it) => Tile(
-            device: it,
-          ),
-        ),
-      ],
+      children: DeviceModels.all
+          .where(
+            (it) => it.platform == platform,
+          )
+          .map(
+            (it) => ModelTile(
+              device: it,
+            ),
+          )
+          .toList(),
     );
   }
 }

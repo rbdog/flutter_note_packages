@@ -8,8 +8,8 @@ import 'platform_icon.dart';
 import 'platform_picker.dart';
 
 /// All the simulated properties for the device.
-class ModelSection extends ConsumerWidget {
-  const ModelSection({
+class PickModelSection extends ConsumerWidget {
+  const PickModelSection({
     super.key,
   });
 
@@ -27,7 +27,7 @@ class ModelSection extends ConsumerWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               PlatformIcon(
-                platform: deviceModel.id.platform,
+                platform: deviceModel.platform,
               ),
               const SizedBox(
                 width: 8,
@@ -42,7 +42,7 @@ class ModelSection extends ConsumerWidget {
               MaterialPageRoute(
                 builder: (context) => Theme(
                   data: theme,
-                  child: PlatformPicker(platform: deviceModel.id.platform),
+                  child: PlatformPicker(platform: deviceModel.platform),
                 ),
               ),
             );

@@ -26,46 +26,43 @@ class LocalePicker extends HookWidget {
       appBar: AppBar(
         title: const Text('Locale'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 10.0),
-        child: Column(
-          children: [
-            SearchField(
-              hintText: 'Search by locale name or code',
-              text: filterString.value,
-              onTextChanged: (value) {
-                filterString.value = value;
-              },
+      body: Column(
+        children: [
+          SearchField(
+            hintText: 'Search by locale name or code',
+            text: filterString.value,
+            onTextChanged: (value) {
+              filterString.value = value;
+            },
+          ),
+          Expanded(
+            child: ListView(
+              children: availableLocales.where(
+                (it) {
+                  final filter = filterString.value.trim().toLowerCase();
+                  final matchName = it.name.toLowerCase().contains(filter);
+                  final matchCode = it.code.toLowerCase().contains(filter);
+                  return filter.isEmpty || matchName || matchCode;
+                },
+              ).map(
+                (it) {
+                  final isSelected = it.code == locale.code;
+                  final onTap = isSelected
+                      ? null
+                      : () {
+                          onSelected(it);
+                          Navigator.pop(context);
+                        };
+                  return ListTile(
+                    onTap: onTap,
+                    title: Text(it.name),
+                    subtitle: Text(it.code),
+                  );
+                },
+              ).toList(),
             ),
-            Expanded(
-              child: ListView(
-                children: availableLocales.where(
-                  (it) {
-                    final filter = filterString.value.trim().toLowerCase();
-                    final matchName = it.name.toLowerCase().contains(filter);
-                    final matchCode = it.code.toLowerCase().contains(filter);
-                    return filter.isEmpty || matchName || matchCode;
-                  },
-                ).map(
-                  (it) {
-                    final isSelected = it.code == locale.code;
-                    final onTap = isSelected
-                        ? null
-                        : () {
-                            onSelected(it);
-                            Navigator.pop(context);
-                          };
-                    return ListTile(
-                      onTap: onTap,
-                      title: Text(it.name),
-                      subtitle: Text(it.code),
-                    );
-                  },
-                ).toList(),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../logic/device_model/types/device_model.dart';
-import '../../../../logic/device_model/types/id.dart';
 
 part 'frame.g.dart';
 part 'screen.g.dart';
 
-final info = DeviceModel(
-  id: const DeviceModelId(
-    TargetPlatform.android,
-    'samsung-galaxy-s20',
-  ),
+final model = DeviceModel(
+  id: 'samsung-galaxy-s20',
+  platform: TargetPlatform.android,
   name: 'Samsung Galaxy S20',
   pixelRatio: 4.0,
   safeAreas: const EdgeInsets.only(

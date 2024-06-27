@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 import '../../../../logic/device_model/types/device_model.dart';
-import '../../../../logic/device_model/types/id.dart';
 
 part 'frame.g.dart';
 part 'screen.g.dart';
 
-final info = DeviceModel(
-  id: const DeviceModelId(
-    TargetPlatform.android,
-    'sony-xperia-1-ii',
-  ),
+final model = DeviceModel(
+  id: 'sony-xperia-1-ii',
+  platform: TargetPlatform.android,
   name: 'Sony Xperia 1 II',
   pixelRatio: 4.0,
   safeAreas: const EdgeInsets.only(

@@ -16,15 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DeviceModel {
-  DeviceModelId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  TargetPlatform get platform => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  EdgeInsets? get rotatedSafeAreas => throw _privateConstructorUsedError;
+  EdgeInsets get rotatedSafeAreas => throw _privateConstructorUsedError;
   EdgeInsets get safeAreas => throw _privateConstructorUsedError;
-  Path get screenPath => throw _privateConstructorUsedError;
-  double get pixelRatio => throw _privateConstructorUsedError;
   CustomPainter get framePainter => throw _privateConstructorUsedError;
   Size get frameSize => throw _privateConstructorUsedError;
+  Path get screenPath => throw _privateConstructorUsedError;
   Size get screenSize => throw _privateConstructorUsedError;
+  double get pixelRatio => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DeviceModelCopyWith<DeviceModel> get copyWith =>
@@ -38,15 +39,16 @@ abstract class $DeviceModelCopyWith<$Res> {
       _$DeviceModelCopyWithImpl<$Res, DeviceModel>;
   @useResult
   $Res call(
-      {DeviceModelId id,
+      {String id,
+      TargetPlatform platform,
       String name,
-      EdgeInsets? rotatedSafeAreas,
+      EdgeInsets rotatedSafeAreas,
       EdgeInsets safeAreas,
-      Path screenPath,
-      double pixelRatio,
       CustomPainter framePainter,
       Size frameSize,
-      Size screenSize});
+      Path screenPath,
+      Size screenSize,
+      double pixelRatio});
 }
 
 /// @nodoc
@@ -63,40 +65,37 @@ class _$DeviceModelCopyWithImpl<$Res, $Val extends DeviceModel>
   @override
   $Res call({
     Object? id = null,
+    Object? platform = null,
     Object? name = null,
-    Object? rotatedSafeAreas = freezed,
+    Object? rotatedSafeAreas = null,
     Object? safeAreas = null,
-    Object? screenPath = null,
-    Object? pixelRatio = null,
     Object? framePainter = null,
     Object? frameSize = null,
+    Object? screenPath = null,
     Object? screenSize = null,
+    Object? pixelRatio = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as DeviceModelId,
+              as String,
+      platform: null == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as TargetPlatform,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      rotatedSafeAreas: freezed == rotatedSafeAreas
+      rotatedSafeAreas: null == rotatedSafeAreas
           ? _value.rotatedSafeAreas
           : rotatedSafeAreas // ignore: cast_nullable_to_non_nullable
-              as EdgeInsets?,
+              as EdgeInsets,
       safeAreas: null == safeAreas
           ? _value.safeAreas
           : safeAreas // ignore: cast_nullable_to_non_nullable
               as EdgeInsets,
-      screenPath: null == screenPath
-          ? _value.screenPath
-          : screenPath // ignore: cast_nullable_to_non_nullable
-              as Path,
-      pixelRatio: null == pixelRatio
-          ? _value.pixelRatio
-          : pixelRatio // ignore: cast_nullable_to_non_nullable
-              as double,
       framePainter: null == framePainter
           ? _value.framePainter
           : framePainter // ignore: cast_nullable_to_non_nullable
@@ -105,10 +104,18 @@ class _$DeviceModelCopyWithImpl<$Res, $Val extends DeviceModel>
           ? _value.frameSize
           : frameSize // ignore: cast_nullable_to_non_nullable
               as Size,
+      screenPath: null == screenPath
+          ? _value.screenPath
+          : screenPath // ignore: cast_nullable_to_non_nullable
+              as Path,
       screenSize: null == screenSize
           ? _value.screenSize
           : screenSize // ignore: cast_nullable_to_non_nullable
               as Size,
+      pixelRatio: null == pixelRatio
+          ? _value.pixelRatio
+          : pixelRatio // ignore: cast_nullable_to_non_nullable
+              as double,
     ) as $Val);
   }
 }
@@ -122,15 +129,16 @@ abstract class _$$DeviceModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DeviceModelId id,
+      {String id,
+      TargetPlatform platform,
       String name,
-      EdgeInsets? rotatedSafeAreas,
+      EdgeInsets rotatedSafeAreas,
       EdgeInsets safeAreas,
-      Path screenPath,
-      double pixelRatio,
       CustomPainter framePainter,
       Size frameSize,
-      Size screenSize});
+      Path screenPath,
+      Size screenSize,
+      double pixelRatio});
 }
 
 /// @nodoc
@@ -145,40 +153,37 @@ class __$$DeviceModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? platform = null,
     Object? name = null,
-    Object? rotatedSafeAreas = freezed,
+    Object? rotatedSafeAreas = null,
     Object? safeAreas = null,
-    Object? screenPath = null,
-    Object? pixelRatio = null,
     Object? framePainter = null,
     Object? frameSize = null,
+    Object? screenPath = null,
     Object? screenSize = null,
+    Object? pixelRatio = null,
   }) {
     return _then(_$DeviceModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as DeviceModelId,
+              as String,
+      platform: null == platform
+          ? _value.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as TargetPlatform,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      rotatedSafeAreas: freezed == rotatedSafeAreas
+      rotatedSafeAreas: null == rotatedSafeAreas
           ? _value.rotatedSafeAreas
           : rotatedSafeAreas // ignore: cast_nullable_to_non_nullable
-              as EdgeInsets?,
+              as EdgeInsets,
       safeAreas: null == safeAreas
           ? _value.safeAreas
           : safeAreas // ignore: cast_nullable_to_non_nullable
               as EdgeInsets,
-      screenPath: null == screenPath
-          ? _value.screenPath
-          : screenPath // ignore: cast_nullable_to_non_nullable
-              as Path,
-      pixelRatio: null == pixelRatio
-          ? _value.pixelRatio
-          : pixelRatio // ignore: cast_nullable_to_non_nullable
-              as double,
       framePainter: null == framePainter
           ? _value.framePainter
           : framePainter // ignore: cast_nullable_to_non_nullable
@@ -187,10 +192,18 @@ class __$$DeviceModelImplCopyWithImpl<$Res>
           ? _value.frameSize
           : frameSize // ignore: cast_nullable_to_non_nullable
               as Size,
+      screenPath: null == screenPath
+          ? _value.screenPath
+          : screenPath // ignore: cast_nullable_to_non_nullable
+              as Path,
       screenSize: null == screenSize
           ? _value.screenSize
           : screenSize // ignore: cast_nullable_to_non_nullable
               as Size,
+      pixelRatio: null == pixelRatio
+          ? _value.pixelRatio
+          : pixelRatio // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -200,38 +213,40 @@ class __$$DeviceModelImplCopyWithImpl<$Res>
 class _$DeviceModelImpl with DiagnosticableTreeMixin implements _DeviceModel {
   const _$DeviceModelImpl(
       {required this.id,
+      required this.platform,
       required this.name,
-      this.rotatedSafeAreas = null,
+      required this.rotatedSafeAreas,
       required this.safeAreas,
-      required this.screenPath,
-      required this.pixelRatio,
       required this.framePainter,
       required this.frameSize,
-      required this.screenSize});
+      required this.screenPath,
+      required this.screenSize,
+      required this.pixelRatio});
 
   @override
-  final DeviceModelId id;
+  final String id;
+  @override
+  final TargetPlatform platform;
   @override
   final String name;
   @override
-  @JsonKey()
-  final EdgeInsets? rotatedSafeAreas;
+  final EdgeInsets rotatedSafeAreas;
   @override
   final EdgeInsets safeAreas;
-  @override
-  final Path screenPath;
-  @override
-  final double pixelRatio;
   @override
   final CustomPainter framePainter;
   @override
   final Size frameSize;
   @override
+  final Path screenPath;
+  @override
   final Size screenSize;
+  @override
+  final double pixelRatio;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DeviceModel(id: $id, name: $name, rotatedSafeAreas: $rotatedSafeAreas, safeAreas: $safeAreas, screenPath: $screenPath, pixelRatio: $pixelRatio, framePainter: $framePainter, frameSize: $frameSize, screenSize: $screenSize)';
+    return 'DeviceModel(id: $id, platform: $platform, name: $name, rotatedSafeAreas: $rotatedSafeAreas, safeAreas: $safeAreas, framePainter: $framePainter, frameSize: $frameSize, screenPath: $screenPath, screenSize: $screenSize, pixelRatio: $pixelRatio)';
   }
 
   @override
@@ -240,14 +255,15 @@ class _$DeviceModelImpl with DiagnosticableTreeMixin implements _DeviceModel {
     properties
       ..add(DiagnosticsProperty('type', 'DeviceModel'))
       ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('platform', platform))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('rotatedSafeAreas', rotatedSafeAreas))
       ..add(DiagnosticsProperty('safeAreas', safeAreas))
-      ..add(DiagnosticsProperty('screenPath', screenPath))
-      ..add(DiagnosticsProperty('pixelRatio', pixelRatio))
       ..add(DiagnosticsProperty('framePainter', framePainter))
       ..add(DiagnosticsProperty('frameSize', frameSize))
-      ..add(DiagnosticsProperty('screenSize', screenSize));
+      ..add(DiagnosticsProperty('screenPath', screenPath))
+      ..add(DiagnosticsProperty('screenSize', screenSize))
+      ..add(DiagnosticsProperty('pixelRatio', pixelRatio));
   }
 
   @override
@@ -256,26 +272,38 @@ class _$DeviceModelImpl with DiagnosticableTreeMixin implements _DeviceModel {
         (other.runtimeType == runtimeType &&
             other is _$DeviceModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.platform, platform) ||
+                other.platform == platform) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.rotatedSafeAreas, rotatedSafeAreas) ||
                 other.rotatedSafeAreas == rotatedSafeAreas) &&
             (identical(other.safeAreas, safeAreas) ||
                 other.safeAreas == safeAreas) &&
-            (identical(other.screenPath, screenPath) ||
-                other.screenPath == screenPath) &&
-            (identical(other.pixelRatio, pixelRatio) ||
-                other.pixelRatio == pixelRatio) &&
             (identical(other.framePainter, framePainter) ||
                 other.framePainter == framePainter) &&
             (identical(other.frameSize, frameSize) ||
                 other.frameSize == frameSize) &&
+            (identical(other.screenPath, screenPath) ||
+                other.screenPath == screenPath) &&
             (identical(other.screenSize, screenSize) ||
-                other.screenSize == screenSize));
+                other.screenSize == screenSize) &&
+            (identical(other.pixelRatio, pixelRatio) ||
+                other.pixelRatio == pixelRatio));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, rotatedSafeAreas,
-      safeAreas, screenPath, pixelRatio, framePainter, frameSize, screenSize);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      platform,
+      name,
+      rotatedSafeAreas,
+      safeAreas,
+      framePainter,
+      frameSize,
+      screenPath,
+      screenSize,
+      pixelRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -286,34 +314,37 @@ class _$DeviceModelImpl with DiagnosticableTreeMixin implements _DeviceModel {
 
 abstract class _DeviceModel implements DeviceModel {
   const factory _DeviceModel(
-      {required final DeviceModelId id,
+      {required final String id,
+      required final TargetPlatform platform,
       required final String name,
-      final EdgeInsets? rotatedSafeAreas,
+      required final EdgeInsets rotatedSafeAreas,
       required final EdgeInsets safeAreas,
-      required final Path screenPath,
-      required final double pixelRatio,
       required final CustomPainter framePainter,
       required final Size frameSize,
-      required final Size screenSize}) = _$DeviceModelImpl;
+      required final Path screenPath,
+      required final Size screenSize,
+      required final double pixelRatio}) = _$DeviceModelImpl;
 
   @override
-  DeviceModelId get id;
+  String get id;
+  @override
+  TargetPlatform get platform;
   @override
   String get name;
   @override
-  EdgeInsets? get rotatedSafeAreas;
+  EdgeInsets get rotatedSafeAreas;
   @override
   EdgeInsets get safeAreas;
-  @override
-  Path get screenPath;
-  @override
-  double get pixelRatio;
   @override
   CustomPainter get framePainter;
   @override
   Size get frameSize;
   @override
+  Path get screenPath;
+  @override
   Size get screenSize;
+  @override
+  double get pixelRatio;
   @override
   @JsonKey(ignore: true)
   _$$DeviceModelImplCopyWith<_$DeviceModelImpl> get copyWith =>

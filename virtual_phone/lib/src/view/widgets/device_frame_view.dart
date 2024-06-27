@@ -8,7 +8,7 @@ class DeviceFrameView extends StatelessWidget {
   const DeviceFrameView({
     super.key,
     required this.deviceModel,
-    this.orientation = Orientation.portrait,
+    required this.orientation,
     required this.child,
   });
 
@@ -16,8 +16,6 @@ class DeviceFrameView extends StatelessWidget {
   final DeviceModel deviceModel;
 
   /// The current frame simulated orientation.
-  ///
-  /// It will also affect the media query.
   final Orientation orientation;
 
   /// The screen that should be inserted into the simulated
@@ -32,9 +30,8 @@ class DeviceFrameView extends StatelessWidget {
     final screenSize = deviceModel.screenSize;
     final width = isRotated ? screenSize.height : screenSize.width;
     final height = isRotated ? screenSize.width : screenSize.height;
-    final viewPadding = isRotated
-        ? (deviceModel.rotatedSafeAreas ?? deviceModel.safeAreas)
-        : deviceModel.safeAreas;
+    final viewPadding =
+        isRotated ? deviceModel.rotatedSafeAreas : deviceModel.safeAreas;
 
     final stack = SizedBox(
       width: frameSize.width,
