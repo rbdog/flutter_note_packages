@@ -19,7 +19,7 @@ class VirtualPhoneScope extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) {
+    if (!kIsWeb) {
       return child;
     }
 

@@ -26,7 +26,7 @@ class PlatformPicker extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Device'),
+        title: const Text('Platforms'),
         bottom: TabBar(
           controller: tabController,
           isScrollable: true,
