@@ -19,7 +19,7 @@ class LocalePicker extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final filter = useState('');
+    final filterString = useState('');
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -32,36 +32,33 @@ class LocalePicker extends HookWidget {
           children: [
             SearchField(
               hintText: 'Search by locale name or code',
-              text: filter.value,
+              text: filterString.value,
               onTextChanged: (value) {
-                filter.value = value;
+                filterString.value = value;
               },
             ),
             Expanded(
               child: ListView(
                 children: availableLocales.where(
-                  (locale) {
-                    final optFilter = filter.value.trim().toLowerCase();
-                    return optFilter.isEmpty ||
-                        locale.name.toLowerCase().contains(optFilter) ||
-                        locale.code.toLowerCase().contains(optFilter);
+                  (it) {
+                    final filter = filterString.value.trim().toLowerCase();
+                    final matchName = it.name.toLowerCase().contains(filter);
+                    final matchCode = it.code.toLowerCase().contains(filter);
+                    return filter.isEmpty || matchName || matchCode;
                   },
                 ).map(
-                  (locale) {
-                    final isSelected = locale.code == locale.code;
+                  (it) {
+                    final isSelected = it.code == locale.code;
+                    final onTap = isSelected
+                        ? null
+                        : () {
+                            onSelected(it);
+                            Navigator.pop(context);
+                          };
                     return ListTile(
-                      onTap: !isSelected
-                          ? () {
-                              onSelected(locale);
-                              Navigator.pop(context);
-                            }
-                          : null,
-                      title: Text(
-                        locale.name,
-                      ),
-                      subtitle: Text(
-                        locale.code,
-                      ),
+                      onTap: onTap,
+                      title: Text(it.name),
+                      subtitle: Text(it.code),
                     );
                   },
                 ).toList(),

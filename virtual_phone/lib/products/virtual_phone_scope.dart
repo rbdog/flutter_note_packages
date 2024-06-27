@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:virtual_phone/src/state/device_model/notifier.dart';
@@ -18,6 +19,10 @@ class VirtualPhoneScope extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (kIsWeb) {
+      return child;
+    }
+
     return ProviderScope(
       overrides: [
         deviceModelIdProvider.overrideWith(() {
