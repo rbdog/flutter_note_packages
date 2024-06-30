@@ -8,17 +8,14 @@ part of 'device_state.dart';
 
 _$DeviceStateImpl _$$DeviceStateImplFromJson(Map<String, dynamic> json) =>
     _$DeviceStateImpl(
-      orientation:
-          $enumDecodeNullable(_$OrientationEnumMap, json['orientation']) ??
-              Orientation.portrait,
-      isVirtualKeyboardVisible:
-          json['isVirtualKeyboardVisible'] as bool? ?? false,
+      orientation: $enumDecode(_$OrientationEnumMap, json['orientation']),
+      showKeyboard: json['showKeyboard'] as bool,
     );
 
 Map<String, dynamic> _$$DeviceStateImplToJson(_$DeviceStateImpl instance) =>
     <String, dynamic>{
       'orientation': _$OrientationEnumMap[instance.orientation]!,
-      'isVirtualKeyboardVisible': instance.isVirtualKeyboardVisible,
+      'showKeyboard': instance.showKeyboard,
     };
 
 const _$OrientationEnumMap = {

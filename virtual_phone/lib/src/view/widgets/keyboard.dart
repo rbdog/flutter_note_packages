@@ -6,10 +6,9 @@ import 'keyboard_button.dart';
 class Keyboard extends StatelessWidget {
   const Keyboard({
     super.key,
-    double? height,
-  }) : height = height ?? minHeight;
+    required this.height,
+  });
 
-  static const double minHeight = 214;
   final double height;
   static const double spacing = 12;
 

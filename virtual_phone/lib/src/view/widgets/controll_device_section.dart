@@ -48,12 +48,11 @@ class ControllDeviceSection extends ConsumerWidget {
         ListTile(
           key: const Key('Keyboard'),
           title: const Text('Keyboard'),
-          subtitle:
-              Text(deviceState.isVirtualKeyboardVisible ? 'Visible' : 'Hidden'),
+          subtitle: Text(deviceState.showKeyboard ? 'Visible' : 'Hidden'),
           trailing: Opacity(
-            opacity: deviceState.isVirtualKeyboardVisible ? 1.0 : 0.3,
+            opacity: deviceState.showKeyboard ? 1.0 : 0.3,
             child: Icon(
-              deviceState.isVirtualKeyboardVisible
+              deviceState.showKeyboard
                   ? Icons.keyboard
                   : Icons.keyboard_outlined,
             ),
@@ -70,7 +69,7 @@ class ControllDeviceSection extends ConsumerWidget {
           onTap: () async {
             final deviceModel = ref.read(deviceModelProvider);
             final screenshot = await takeAScreenshot(
-              pixelRatio: deviceModel.pixelRatio,
+              pixelRatio: deviceModel.screen.pixelRatio,
             );
             if (!context.mounted) return;
             showDialog(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../logic/device_model/types/device_model.dart';
+
 /// An icon for a [TargetPlatform].
 class PlatformIcon extends StatelessWidget {
   const PlatformIcon({
@@ -9,7 +11,7 @@ class PlatformIcon extends StatelessWidget {
   });
 
   final Color? color;
-  final TargetPlatform platform;
+  final Platform platform;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class PlatformIcon extends StatelessWidget {
 class _PathPainter extends CustomPainter {
   const _PathPainter(this.target, this.color);
 
-  final TargetPlatform target;
+  final Platform target;
   final Color color;
 
   @override
@@ -49,8 +51,8 @@ class _PathPainter extends CustomPainter {
 }
 
 /// Genereted from https://simpleicons.org/ with https://fluttershapemaker.com/
-final _paths = <TargetPlatform, Path>{
-  TargetPlatform.iOS: Path()
+final _paths = <Platform, Path>{
+  Platform.ios: Path()
     ..moveTo(
       12.152,
       6.896,
@@ -188,7 +190,7 @@ final _paths = <TargetPlatform, Path>{
       15.529,
       3.831,
     ),
-  TargetPlatform.android: Path()
+  Platform.android: Path()
     ..moveTo(17.523, 15.3413)
     ..cubicTo(16.9719, 15.3413, 16.5237, 14.8927, 16.5237, 14.3416)
     ..cubicTo(16.5237, 13.7905, 16.972, 13.3423, 17.523, 13.3423)

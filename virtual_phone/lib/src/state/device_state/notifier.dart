@@ -6,12 +6,15 @@ import '../../logic/device_state/types/device_state.dart';
 class DeviceStateNotifier extends Notifier<DeviceState> {
   @override
   DeviceState build() {
-    return const DeviceState();
+    return const DeviceState(
+      orientation: Orientation.portrait,
+      showKeyboard: false,
+    );
   }
 
   void toggleVirtualKeyboard() {
     state = state.copyWith(
-      isVirtualKeyboardVisible: !state.isVirtualKeyboardVisible,
+      showKeyboard: !state.showKeyboard,
     );
   }
 
