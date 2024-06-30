@@ -5,8 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'device_model.freezed.dart';
 
 @freezed
-abstract class DeviceModel with _$DeviceModel {
-  const factory DeviceModel({
+abstract class OldDeviceModel with _$DeviceModel {
+  const factory OldDeviceModel({
     required String id,
     required TargetPlatform platform,
     required String name,

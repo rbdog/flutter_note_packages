@@ -13,7 +13,7 @@ class DeviceFrameView extends StatelessWidget {
   });
 
   /// All information related to the device.
-  final DeviceModel deviceModel;
+  final OldDeviceModel deviceModel;
 
   /// The current frame simulated orientation.
   final Orientation orientation;
