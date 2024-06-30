@@ -8,14 +8,14 @@ part of 'os_settings.dart';
 
 _$DeviceSettingsImpl _$$DeviceSettingsImplFromJson(Map<String, dynamic> json) =>
     _$DeviceSettingsImpl(
-      locale: json['locale'] as String? ?? 'en-US',
-      isDarkMode: json['isDarkMode'] as bool? ?? false,
-      boldText: json['boldText'] as bool? ?? false,
-      disableAnimations: json['disableAnimations'] as bool? ?? false,
-      highContrast: json['highContrast'] as bool? ?? false,
-      accessibleNavigation: json['accessibleNavigation'] as bool? ?? false,
-      invertColors: json['invertColors'] as bool? ?? false,
-      textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble() ?? 1.0,
+      locale: json['locale'] as String,
+      isDarkMode: json['isDarkMode'] as bool,
+      boldText: json['boldText'] as bool,
+      disableAnimations: json['disableAnimations'] as bool,
+      highContrast: json['highContrast'] as bool,
+      accessibleNavigation: json['accessibleNavigation'] as bool,
+      invertColors: json['invertColors'] as bool,
+      textScale: (json['textScale'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$$DeviceSettingsImplToJson(
@@ -28,5 +28,5 @@ Map<String, dynamic> _$$DeviceSettingsImplToJson(
       'highContrast': instance.highContrast,
       'accessibleNavigation': instance.accessibleNavigation,
       'invertColors': instance.invertColors,
-      'textScaleFactor': instance.textScaleFactor,
+      'textScale': instance.textScale,
     };

@@ -12,11 +12,11 @@ class HomeShell extends ConsumerWidget {
   const HomeShell({
     super.key,
     this.config,
-    required this.child,
+    required this.app,
   });
 
   /// The previewed widget.
-  final Widget child;
+  final Widget app;
 
   /// The default selected device for the first time.
   final Config? config;
@@ -28,7 +28,7 @@ class HomeShell extends ConsumerWidget {
         children: [
           Expanded(
             child: DeviceContainerPage(
-              child: child,
+              app: app,
             ),
           ),
           const SizedBox(

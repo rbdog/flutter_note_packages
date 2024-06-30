@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:virtual_phone/virtual_phone.dart';
 
 final config = VirtualPhoneConfig(
-  initialModelId: VirtualPhoneModelId.iphone14.toString(),
+  initialModelId: VirtualPhoneModelId.classicIphone.id,
 );
 
 void main() {

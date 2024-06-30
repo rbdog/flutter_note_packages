@@ -20,11 +20,8 @@ DeviceState _$DeviceStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeviceState {
-  /// The current orientation of the device
   Orientation get orientation => throw _privateConstructorUsedError;
-
-  /// Indicate whether the virtual keyboard is visible.
-  bool get isVirtualKeyboardVisible => throw _privateConstructorUsedError;
+  bool get showKeyboard => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +35,7 @@ abstract class $DeviceStateCopyWith<$Res> {
           DeviceState value, $Res Function(DeviceState) then) =
       _$DeviceStateCopyWithImpl<$Res, DeviceState>;
   @useResult
-  $Res call({Orientation orientation, bool isVirtualKeyboardVisible});
+  $Res call({Orientation orientation, bool showKeyboard});
 }
 
 /// @nodoc
@@ -55,16 +52,16 @@ class _$DeviceStateCopyWithImpl<$Res, $Val extends DeviceState>
   @override
   $Res call({
     Object? orientation = null,
-    Object? isVirtualKeyboardVisible = null,
+    Object? showKeyboard = null,
   }) {
     return _then(_value.copyWith(
       orientation: null == orientation
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      isVirtualKeyboardVisible: null == isVirtualKeyboardVisible
-          ? _value.isVirtualKeyboardVisible
-          : isVirtualKeyboardVisible // ignore: cast_nullable_to_non_nullable
+      showKeyboard: null == showKeyboard
+          ? _value.showKeyboard
+          : showKeyboard // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -78,7 +75,7 @@ abstract class _$$DeviceStateImplCopyWith<$Res>
       __$$DeviceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Orientation orientation, bool isVirtualKeyboardVisible});
+  $Res call({Orientation orientation, bool showKeyboard});
 }
 
 /// @nodoc
@@ -93,16 +90,16 @@ class __$$DeviceStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? orientation = null,
-    Object? isVirtualKeyboardVisible = null,
+    Object? showKeyboard = null,
   }) {
     return _then(_$DeviceStateImpl(
       orientation: null == orientation
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
               as Orientation,
-      isVirtualKeyboardVisible: null == isVirtualKeyboardVisible
-          ? _value.isVirtualKeyboardVisible
-          : isVirtualKeyboardVisible // ignore: cast_nullable_to_non_nullable
+      showKeyboard: null == showKeyboard
+          ? _value.showKeyboard
+          : showKeyboard // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -112,25 +109,19 @@ class __$$DeviceStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DeviceStateImpl implements _DeviceState {
   const _$DeviceStateImpl(
-      {this.orientation = Orientation.portrait,
-      this.isVirtualKeyboardVisible = false});
+      {required this.orientation, required this.showKeyboard});
 
   factory _$DeviceStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceStateImplFromJson(json);
 
-  /// The current orientation of the device
   @override
-  @JsonKey()
   final Orientation orientation;
-
-  /// Indicate whether the virtual keyboard is visible.
   @override
-  @JsonKey()
-  final bool isVirtualKeyboardVisible;
+  final bool showKeyboard;
 
   @override
   String toString() {
-    return 'DeviceState(orientation: $orientation, isVirtualKeyboardVisible: $isVirtualKeyboardVisible)';
+    return 'DeviceState(orientation: $orientation, showKeyboard: $showKeyboard)';
   }
 
   @override
@@ -140,15 +131,13 @@ class _$DeviceStateImpl implements _DeviceState {
             other is _$DeviceStateImpl &&
             (identical(other.orientation, orientation) ||
                 other.orientation == orientation) &&
-            (identical(
-                    other.isVirtualKeyboardVisible, isVirtualKeyboardVisible) ||
-                other.isVirtualKeyboardVisible == isVirtualKeyboardVisible));
+            (identical(other.showKeyboard, showKeyboard) ||
+                other.showKeyboard == showKeyboard));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, orientation, isVirtualKeyboardVisible);
+  int get hashCode => Object.hash(runtimeType, orientation, showKeyboard);
 
   @JsonKey(ignore: true)
   @override
@@ -166,20 +155,16 @@ class _$DeviceStateImpl implements _DeviceState {
 
 abstract class _DeviceState implements DeviceState {
   const factory _DeviceState(
-      {final Orientation orientation,
-      final bool isVirtualKeyboardVisible}) = _$DeviceStateImpl;
+      {required final Orientation orientation,
+      required final bool showKeyboard}) = _$DeviceStateImpl;
 
   factory _DeviceState.fromJson(Map<String, dynamic> json) =
       _$DeviceStateImpl.fromJson;
 
   @override
-
-  /// The current orientation of the device
   Orientation get orientation;
   @override
-
-  /// Indicate whether the virtual keyboard is visible.
-  bool get isVirtualKeyboardVisible;
+  bool get showKeyboard;
   @override
   @JsonKey(ignore: true)
   _$$DeviceStateImplCopyWith<_$DeviceStateImpl> get copyWith =>

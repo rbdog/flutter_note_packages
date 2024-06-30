@@ -121,14 +121,14 @@ class SettingsSection extends ConsumerWidget {
         ListTile(
           key: const Key('TextScale'),
           title: const Text('Text Scale'),
-          subtitle: Text(settings.textScaleFactor.toString()),
+          subtitle: Text(settings.textScale.toString()),
           trailing: Transform(
             alignment: Alignment.center,
             transform: (Matrix4.identity()
               ..scale(
-                settings.textScaleFactor >= 2
+                settings.textScale >= 2
                     ? 1.0
-                    : (settings.textScaleFactor < 1 ? 0.25 : 0.6),
+                    : (settings.textScale < 1 ? 0.25 : 0.6),
               )),
             child: const Icon(Icons.text_format),
           ),
@@ -136,7 +136,7 @@ class SettingsSection extends ConsumerWidget {
         ListTile(
           key: const Key('text-scaling-slider'),
           title: Slider(
-            value: settings.textScaleFactor,
+            value: settings.textScale,
             onChanged: (scale) {
               final notifier = ref.read(deviceSettingsProvider.notifier);
               notifier.setTextScale(scale);

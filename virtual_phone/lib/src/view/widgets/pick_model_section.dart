@@ -22,12 +22,12 @@ class PickModelSection extends ConsumerWidget {
       children: [
         ListTile(
           key: const Key('Model'),
-          title: Text(deviceModel.name),
+          title: Text(deviceModel.label.name),
           trailing: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               PlatformIcon(
-                platform: deviceModel.platform,
+                platform: deviceModel.label.platform,
               ),
               const SizedBox(
                 width: 8,
@@ -42,7 +42,7 @@ class PickModelSection extends ConsumerWidget {
               MaterialPageRoute(
                 builder: (context) => Theme(
                   data: theme,
-                  child: PlatformPicker(platform: deviceModel.platform),
+                  child: PlatformPicker(platform: deviceModel.label.platform),
                 ),
               ),
             );

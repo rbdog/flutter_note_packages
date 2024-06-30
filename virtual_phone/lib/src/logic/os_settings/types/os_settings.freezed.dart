@@ -20,29 +20,14 @@ OSSettings _$OSSettingsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OSSettings {
-  /// The currently selected device locale.
   String get locale => throw _privateConstructorUsedError;
-
-  /// Indicate whether the mode is currently dark.
   bool get isDarkMode => throw _privateConstructorUsedError;
-
-  /// Indicate whether texts are forced to bold.
   bool get boldText => throw _privateConstructorUsedError;
-
-  /// Indicate whether animations are disabled.
   bool get disableAnimations => throw _privateConstructorUsedError;
-
-  /// Indicate whether the highcontrast mode is activated.
   bool get highContrast => throw _privateConstructorUsedError;
-
-  /// Indicate whether the navigation is in accessible mode.
   bool get accessibleNavigation => throw _privateConstructorUsedError;
-
-  /// Indicate whether image colors are inverted.
   bool get invertColors => throw _privateConstructorUsedError;
-
-  /// The current text scaling factor.
-  double get textScaleFactor => throw _privateConstructorUsedError;
+  double get textScale => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +49,7 @@ abstract class $OSSettingsCopyWith<$Res> {
       bool highContrast,
       bool accessibleNavigation,
       bool invertColors,
-      double textScaleFactor});
+      double textScale});
 }
 
 /// @nodoc
@@ -87,7 +72,7 @@ class _$OSSettingsCopyWithImpl<$Res, $Val extends OSSettings>
     Object? highContrast = null,
     Object? accessibleNavigation = null,
     Object? invertColors = null,
-    Object? textScaleFactor = null,
+    Object? textScale = null,
   }) {
     return _then(_value.copyWith(
       locale: null == locale
@@ -118,9 +103,9 @@ class _$OSSettingsCopyWithImpl<$Res, $Val extends OSSettings>
           ? _value.invertColors
           : invertColors // ignore: cast_nullable_to_non_nullable
               as bool,
-      textScaleFactor: null == textScaleFactor
-          ? _value.textScaleFactor
-          : textScaleFactor // ignore: cast_nullable_to_non_nullable
+      textScale: null == textScale
+          ? _value.textScale
+          : textScale // ignore: cast_nullable_to_non_nullable
               as double,
     ) as $Val);
   }
@@ -142,7 +127,7 @@ abstract class _$$DeviceSettingsImplCopyWith<$Res>
       bool highContrast,
       bool accessibleNavigation,
       bool invertColors,
-      double textScaleFactor});
+      double textScale});
 }
 
 /// @nodoc
@@ -163,7 +148,7 @@ class __$$DeviceSettingsImplCopyWithImpl<$Res>
     Object? highContrast = null,
     Object? accessibleNavigation = null,
     Object? invertColors = null,
-    Object? textScaleFactor = null,
+    Object? textScale = null,
   }) {
     return _then(_$DeviceSettingsImpl(
       locale: null == locale
@@ -194,9 +179,9 @@ class __$$DeviceSettingsImplCopyWithImpl<$Res>
           ? _value.invertColors
           : invertColors // ignore: cast_nullable_to_non_nullable
               as bool,
-      textScaleFactor: null == textScaleFactor
-          ? _value.textScaleFactor
-          : textScaleFactor // ignore: cast_nullable_to_non_nullable
+      textScale: null == textScale
+          ? _value.textScale
+          : textScale // ignore: cast_nullable_to_non_nullable
               as double,
     ));
   }
@@ -206,61 +191,38 @@ class __$$DeviceSettingsImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DeviceSettingsImpl implements _DeviceSettings {
   const _$DeviceSettingsImpl(
-      {this.locale = 'en-US',
-      this.isDarkMode = false,
-      this.boldText = false,
-      this.disableAnimations = false,
-      this.highContrast = false,
-      this.accessibleNavigation = false,
-      this.invertColors = false,
-      this.textScaleFactor = 1.0});
+      {required this.locale,
+      required this.isDarkMode,
+      required this.boldText,
+      required this.disableAnimations,
+      required this.highContrast,
+      required this.accessibleNavigation,
+      required this.invertColors,
+      required this.textScale});
 
   factory _$DeviceSettingsImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceSettingsImplFromJson(json);
 
-  /// The currently selected device locale.
   @override
-  @JsonKey()
   final String locale;
-
-  /// Indicate whether the mode is currently dark.
   @override
-  @JsonKey()
   final bool isDarkMode;
-
-  /// Indicate whether texts are forced to bold.
   @override
-  @JsonKey()
   final bool boldText;
-
-  /// Indicate whether animations are disabled.
   @override
-  @JsonKey()
   final bool disableAnimations;
-
-  /// Indicate whether the highcontrast mode is activated.
   @override
-  @JsonKey()
   final bool highContrast;
-
-  /// Indicate whether the navigation is in accessible mode.
   @override
-  @JsonKey()
   final bool accessibleNavigation;
-
-  /// Indicate whether image colors are inverted.
   @override
-  @JsonKey()
   final bool invertColors;
-
-  /// The current text scaling factor.
   @override
-  @JsonKey()
-  final double textScaleFactor;
+  final double textScale;
 
   @override
   String toString() {
-    return 'OSSettings(locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, textScaleFactor: $textScaleFactor)';
+    return 'OSSettings(locale: $locale, isDarkMode: $isDarkMode, boldText: $boldText, disableAnimations: $disableAnimations, highContrast: $highContrast, accessibleNavigation: $accessibleNavigation, invertColors: $invertColors, textScale: $textScale)';
   }
 
   @override
@@ -281,8 +243,8 @@ class _$DeviceSettingsImpl implements _DeviceSettings {
                 other.accessibleNavigation == accessibleNavigation) &&
             (identical(other.invertColors, invertColors) ||
                 other.invertColors == invertColors) &&
-            (identical(other.textScaleFactor, textScaleFactor) ||
-                other.textScaleFactor == textScaleFactor));
+            (identical(other.textScale, textScale) ||
+                other.textScale == textScale));
   }
 
   @JsonKey(ignore: true)
@@ -296,7 +258,7 @@ class _$DeviceSettingsImpl implements _DeviceSettings {
       highContrast,
       accessibleNavigation,
       invertColors,
-      textScaleFactor);
+      textScale);
 
   @JsonKey(ignore: true)
   @override
@@ -315,50 +277,34 @@ class _$DeviceSettingsImpl implements _DeviceSettings {
 
 abstract class _DeviceSettings implements OSSettings {
   const factory _DeviceSettings(
-      {final String locale,
-      final bool isDarkMode,
-      final bool boldText,
-      final bool disableAnimations,
-      final bool highContrast,
-      final bool accessibleNavigation,
-      final bool invertColors,
-      final double textScaleFactor}) = _$DeviceSettingsImpl;
+      {required final String locale,
+      required final bool isDarkMode,
+      required final bool boldText,
+      required final bool disableAnimations,
+      required final bool highContrast,
+      required final bool accessibleNavigation,
+      required final bool invertColors,
+      required final double textScale}) = _$DeviceSettingsImpl;
 
   factory _DeviceSettings.fromJson(Map<String, dynamic> json) =
       _$DeviceSettingsImpl.fromJson;
 
   @override
-
-  /// The currently selected device locale.
   String get locale;
   @override
-
-  /// Indicate whether the mode is currently dark.
   bool get isDarkMode;
   @override
-
-  /// Indicate whether texts are forced to bold.
   bool get boldText;
   @override
-
-  /// Indicate whether animations are disabled.
   bool get disableAnimations;
   @override
-
-  /// Indicate whether the highcontrast mode is activated.
   bool get highContrast;
   @override
-
-  /// Indicate whether the navigation is in accessible mode.
   bool get accessibleNavigation;
   @override
-
-  /// Indicate whether image colors are inverted.
   bool get invertColors;
   @override
-
-  /// The current text scaling factor.
-  double get textScaleFactor;
+  double get textScale;
   @override
   @JsonKey(ignore: true)
   _$$DeviceSettingsImplCopyWith<_$DeviceSettingsImpl> get copyWith =>

@@ -24,3 +24,7 @@ dev_dependencies:
   build_runner:
   freezed:
   json_serializable:
+
+flutter:
+  assets:
+    - assets/images/

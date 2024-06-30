@@ -16,6 +16,13 @@ class DeviceSettingsNotifier extends Notifier<OSSettings> {
 
     return OSSettings(
       locale: defaultLocale,
+      isDarkMode: false,
+      boldText: false,
+      disableAnimations: false,
+      highContrast: false,
+      accessibleNavigation: false,
+      invertColors: false,
+      textScale: 1.0,
     );
   }
 
@@ -46,7 +53,7 @@ class DeviceSettingsNotifier extends Notifier<OSSettings> {
 
   void setTextScale(double scale) {
     state = state.copyWith(
-      textScaleFactor: scale,
+      textScale: scale,
     );
   }
 

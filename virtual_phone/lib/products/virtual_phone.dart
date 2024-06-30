@@ -21,7 +21,7 @@ abstract class VirtualPhone {
         context.dependOnInheritedWidgetOfExactType<ConfigInheritedWidget>();
     return HomeShell(
       config: configWidget?.config,
-      child: child ?? const SizedBox.shrink(),
+      app: child ?? const SizedBox.shrink(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../dart_assets/devices/index.dart';
+import 'package:virtual_phone/src/logic/device_model/config.dart';
+import '../../logic/device_model/types/device_model.dart';
 import 'model_tile.dart';
 
 class ModelPicker extends StatelessWidget {
@@ -8,14 +9,14 @@ class ModelPicker extends StatelessWidget {
     required this.platform,
   });
 
-  final TargetPlatform platform;
+  final Platform platform;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: DeviceModels.all
+      children: presetDevices
           .where(
-            (it) => it.platform == platform,
+            (it) => it.label.platform == platform,
           )
           .map(
             (it) => ModelTile(

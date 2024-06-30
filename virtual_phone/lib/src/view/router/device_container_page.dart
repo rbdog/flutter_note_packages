@@ -1,38 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:virtual_phone/src/state/device_model/provider.dart';
-import 'package:virtual_phone/src/view/widgets/device_view.dart';
+
+import '../../state/device_model/provider.dart';
+import '../widgets/device.dart';
 
 class DeviceContainerPage extends ConsumerWidget {
   const DeviceContainerPage({
     super.key,
-    required this.child,
+    required this.app,
   });
 
-  final Widget child;
+  final Widget app;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final deviceModel = ref.watch(deviceModelProvider);
 
-    final mediaQuery = MediaQuery.of(context);
-
-    return Container(
-      color: Colors.black87,
+    return Stack(
       alignment: Alignment.center,
-      padding: EdgeInsets.only(
-        top: 20 + mediaQuery.viewPadding.top,
-        right: 20 + mediaQuery.viewPadding.right,
-        left: 20 + mediaQuery.viewPadding.left,
-        bottom: 20,
-      ),
-      child: FittedBox(
-        fit: BoxFit.contain,
-        child: DeviceView(
-          deviceModel: deviceModel,
-          child: child,
+      children: [
+        Positioned.fill(
+          child: Image.asset(
+            'assets/images/grid-square.png',
+            package: 'virtual_phone',
+            fit: BoxFit.cover,
+          ),
         ),
-      ),
+        Container(
+          padding: const EdgeInsets.all(20),
+          alignment: Alignment.center,
+          child: DeviceView(
+            model: deviceModel,
+            app: app,
+          ),
+        ),
+      ],
     );
   }
 }

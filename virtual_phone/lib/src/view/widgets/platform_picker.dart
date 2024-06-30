@@ -2,7 +2,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import 'package:flutter/material.dart';
 
-import '../../logic/device_model/config.dart';
+import '../../logic/device_model/types/device_model.dart';
 import 'model_picker.dart';
 import 'platform_icon.dart';
 
@@ -13,14 +13,14 @@ class PlatformPicker extends HookWidget {
     required this.platform,
   });
 
-  final TargetPlatform platform;
+  final Platform platform;
 
   @override
   Widget build(BuildContext context) {
     final TabController tabController = useTabController(
-      initialLength: allPlatforms.length,
+      initialLength: Platform.values.length,
       initialIndex: () {
-        return allPlatforms.indexOf(platform);
+        return Platform.values.indexOf(platform);
       }(),
     );
 
@@ -30,7 +30,7 @@ class PlatformPicker extends HookWidget {
         bottom: TabBar(
           controller: tabController,
           isScrollable: true,
-          tabs: allPlatforms
+          tabs: Platform.values
               .map(
                 (it) => Tab(
                   icon: PlatformIcon(platform: it),
@@ -43,7 +43,7 @@ class PlatformPicker extends HookWidget {
       body: TabBarView(
         controller: tabController,
         physics: const NeverScrollableScrollPhysics(),
-        children: allPlatforms
+        children: Platform.values
             .map(
               (it) => ModelPicker(
                 platform: it,
