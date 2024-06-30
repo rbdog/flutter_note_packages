@@ -10,7 +10,7 @@ class ModelTile extends ConsumerWidget {
     required this.device,
   });
 
-  final DeviceModel device;
+  final OldDeviceModel device;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

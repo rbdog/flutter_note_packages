@@ -28,15 +28,15 @@ mixin _$DeviceModel {
   double get pixelRatio => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $DeviceModelCopyWith<DeviceModel> get copyWith =>
+  $DeviceModelCopyWith<OldDeviceModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DeviceModelCopyWith<$Res> {
   factory $DeviceModelCopyWith(
-          DeviceModel value, $Res Function(DeviceModel) then) =
-      _$DeviceModelCopyWithImpl<$Res, DeviceModel>;
+          OldDeviceModel value, $Res Function(OldDeviceModel) then) =
+      _$DeviceModelCopyWithImpl<$Res, OldDeviceModel>;
   @useResult
   $Res call(
       {String id,
@@ -52,7 +52,7 @@ abstract class $DeviceModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$DeviceModelCopyWithImpl<$Res, $Val extends DeviceModel>
+class _$DeviceModelCopyWithImpl<$Res, $Val extends OldDeviceModel>
     implements $DeviceModelCopyWith<$Res> {
   _$DeviceModelCopyWithImpl(this._value, this._then);
 
@@ -312,7 +312,7 @@ class _$DeviceModelImpl with DiagnosticableTreeMixin implements _DeviceModel {
       __$$DeviceModelImplCopyWithImpl<_$DeviceModelImpl>(this, _$identity);
 }
 
-abstract class _DeviceModel implements DeviceModel {
+abstract class _DeviceModel implements OldDeviceModel {
   const factory _DeviceModel(
       {required final String id,
       required final TargetPlatform platform,

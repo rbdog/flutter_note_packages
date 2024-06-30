@@ -14,7 +14,7 @@ class DeviceView extends ConsumerWidget {
     required this.child,
   });
 
-  final DeviceModel deviceModel;
+  final OldDeviceModel deviceModel;
   final Widget child;
 
   @override
