@@ -46,12 +46,12 @@ class RatioPosition {
 
 class OS {
   const OS({
-    required this.portRaitSafeAreaInset,
+    required this.portraitSafeAreaInset,
     required this.landscapeSafeAreaInset,
     required this.keyboardHeight,
   });
 
-  final Inset portRaitSafeAreaInset;
+  final Inset portraitSafeAreaInset;
   final Inset landscapeSafeAreaInset;
   final double keyboardHeight;
 }

@@ -14,6 +14,9 @@ enum PresetDevice {
   /// vPhone (large)
   vphoneLarge('vphone-large'),
 
+  /// rotom
+  rotom('rotom'),
+
   /* 2022 */
 
   iphone14('iphone-14'),

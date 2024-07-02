@@ -75,10 +75,9 @@ class ControllDeviceSection extends ConsumerWidget {
             showDialog(
               context: context,
               builder: (context) {
-                return SimpleDialog(
-                  children: [
-                    Image.memory(screenshot.bytes),
-                  ],
+                return Dialog(
+                  insetPadding: const EdgeInsets.all(10),
+                  child: Image.memory(screenshot.bytes),
                 );
               },
             );

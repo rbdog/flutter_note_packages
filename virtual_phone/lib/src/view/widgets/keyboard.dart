@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:virtual_phone/src/view/theme/keyboard_style.dart';
+import 'package:virtual_phone/src/view/widgets/dynamic_row.dart';
 
 import 'keyboard_button.dart';
+
+final _letters1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
+final _letters2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
+final _letters3 = ['Z', 'X', 'C', 'V', 'B', 'N', 'M'];
+
+Widget _letterButton(
+  String letter,
+  Color backgroundColor,
+  Color foregroundColor,
+) {
+  return Flexible(
+    child: KeyboardButton(
+      backgroundColor: backgroundColor,
+      child: Text(
+        letter,
+        style: TextStyle(
+          fontSize: 14,
+          color: foregroundColor,
+        ),
+      ),
+    ),
+  );
+}
 
 class Keyboard extends StatelessWidget {
   const Keyboard({
@@ -10,81 +34,47 @@ class Keyboard extends StatelessWidget {
   });
 
   final double height;
+  static const double halfSpacing = 6;
   static const double spacing = 12;
-
-  Widget _row(List<Widget> children) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: spacing,
-        left: spacing,
-      ),
-      child: Row(
-        children: children,
-      ),
-    );
-  }
-
-  List<Widget> _letters(
-    List<String> letters,
-    Color backgroundColor,
-    Color foregroundColor,
-  ) {
-    return letters
-        .map<Widget>(
-          (x) => Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                right: spacing,
-              ),
-              child: KeyboardButton(
-                backgroundColor: backgroundColor,
-                child: Text(
-                  x,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: foregroundColor,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        )
-        .toList();
-  }
 
   @override
   Widget build(BuildContext context) {
     final style = KeyboardStyle.dark();
     final mediaQuery = MediaQuery.of(context);
     return Container(
-      height: height + mediaQuery.padding.bottom,
+      height: height,
       padding: EdgeInsets.only(
-        left: mediaQuery.padding.left + 1,
-        right: mediaQuery.padding.right + 1,
+        top: spacing,
+        left: mediaQuery.padding.left + halfSpacing,
+        right: mediaQuery.padding.right + halfSpacing,
+        bottom: mediaQuery.viewPadding.bottom + halfSpacing,
       ),
       color: style.backgroundColor,
       child: Column(
-        children: <Widget>[
-          _row(
-            _letters(
-              ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+        children: [
+          DynamicRow(
+            itemCount: _letters1.length,
+            builder: (i) => _letterButton(
+              _letters1[i],
               style.button1BackgroundColor,
               style.button1ForegroundColor,
             ),
+            spacing: halfSpacing,
           ),
-          _row(
-            _letters(
-              ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+          const SizedBox(height: spacing),
+          DynamicRow(
+            itemCount: _letters2.length,
+            builder: (i) => _letterButton(
+              _letters2[i],
               style.button1BackgroundColor,
               style.button1ForegroundColor,
             ),
+            spacing: halfSpacing,
           ),
-          _row([
-            Padding(
-              padding: const EdgeInsets.only(
-                right: 12,
-              ),
-              child: KeyboardButton(
+          const SizedBox(height: spacing),
+          Row(
+            children: [
+              KeyboardButton(
                 backgroundColor: style.button2BackgroundColor,
                 child: Icon(
                   Icons.keyboard_capslock,
@@ -92,17 +82,20 @@ class Keyboard extends StatelessWidget {
                   size: 16,
                 ),
               ),
-            ),
-            ..._letters(
-              ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
-              style.button1BackgroundColor,
-              style.button1ForegroundColor,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                right: spacing,
+              const SizedBox(width: halfSpacing),
+              Expanded(
+                child: DynamicRow(
+                  itemCount: _letters3.length,
+                  builder: (i) => _letterButton(
+                    _letters3[i],
+                    style.button1BackgroundColor,
+                    style.button1ForegroundColor,
+                  ),
+                  spacing: halfSpacing,
+                ),
               ),
-              child: KeyboardButton(
+              const SizedBox(width: halfSpacing),
+              KeyboardButton(
                 backgroundColor: style.button2BackgroundColor,
                 child: Icon(
                   Icons.backspace,
@@ -110,67 +103,51 @@ class Keyboard extends StatelessWidget {
                   size: 16,
                 ),
               ),
-            ),
-          ]),
-          _row(
-            [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: spacing,
-                ),
-                child: KeyboardButton(
-                  backgroundColor: style.button2BackgroundColor,
-                  child: Text(
-                    '123',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: style.button2ForegroundColor,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: spacing,
-                ),
-                child: KeyboardButton(
-                  backgroundColor: style.button2BackgroundColor,
-                  child: Icon(
-                    Icons.insert_emoticon,
+            ],
+          ),
+          const SizedBox(height: spacing),
+          Row(
+            children: [
+              KeyboardButton(
+                backgroundColor: style.button2BackgroundColor,
+                child: Text(
+                  '123',
+                  style: TextStyle(
+                    fontSize: 14,
                     color: style.button2ForegroundColor,
-                    size: 16,
                   ),
                 ),
               ),
+              const SizedBox(width: halfSpacing),
+              KeyboardButton(
+                backgroundColor: style.button2BackgroundColor,
+                child: Icon(
+                  Icons.insert_emoticon,
+                  color: style.button2ForegroundColor,
+                  size: 16,
+                ),
+              ),
+              const SizedBox(width: halfSpacing),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    right: spacing,
-                  ),
-                  child: KeyboardButton(
-                    backgroundColor: style.button2BackgroundColor,
-                    child: Text(
-                      'space',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: style.button2ForegroundColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: spacing,
-                ),
                 child: KeyboardButton(
                   backgroundColor: style.button2BackgroundColor,
                   child: Text(
-                    'return',
+                    'space',
                     style: TextStyle(
                       fontSize: 14,
                       color: style.button2ForegroundColor,
                     ),
+                  ),
+                ),
+              ),
+              const SizedBox(width: halfSpacing),
+              KeyboardButton(
+                backgroundColor: style.button2BackgroundColor,
+                child: Text(
+                  'return',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: style.button2ForegroundColor,
                   ),
                 ),
               ),

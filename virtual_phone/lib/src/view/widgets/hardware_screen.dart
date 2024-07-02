@@ -18,37 +18,42 @@ class HardwareScreenView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
-      final isPortrait = orientation == Orientation.portrait;
       final mediaQuery = MediaQuery.of(context);
-      final expectedW =
-          isPortrait ? deviceModel.screen.width : deviceModel.screen.height;
-      final expectedH =
-          isPortrait ? deviceModel.screen.height : deviceModel.screen.width;
+      final modelScreen = deviceModel.screen;
+      final isPortrait = orientation == Orientation.portrait;
+      final expectedW = isPortrait ? modelScreen.width : modelScreen.height;
+      final expectedH = isPortrait ? modelScreen.height : modelScreen.width;
       final actualW = constraints.maxWidth;
-      final ratio = actualW / expectedW;
+      final actualH = constraints.maxHeight;
+      final ratioW = actualW / expectedW;
+      final ratioH = actualH / expectedH;
 
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(deviceModel.screen.cornerRadius),
-        child: SizedBox(
-          width: deviceModel.screen.width,
-          height: deviceModel.screen.height,
-          child: MediaQuery(
-            data: mediaQuery.copyWith(
-              size: Size(
-                expectedW,
-                expectedH,
-              ),
-              devicePixelRatio: deviceModel.screen.pixelRatio,
+      return OverflowBox(
+        alignment: Alignment.topLeft,
+        minWidth: expectedW,
+        maxWidth: expectedW,
+        minHeight: expectedH,
+        maxHeight: expectedH,
+        child: Transform.scale(
+          alignment: Alignment.topLeft,
+          scaleX: ratioW,
+          scaleY: ratioH,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(
+              deviceModel.screen.cornerRadius,
             ),
-            child: ScreenshotView(
-              child: OverflowBox(
-                alignment: Alignment.center,
-                minWidth: expectedW,
-                maxWidth: expectedW,
-                minHeight: expectedH,
-                maxHeight: expectedH,
-                child: Transform.scale(
-                  scale: ratio,
+            child: SizedBox(
+              width: expectedW,
+              height: expectedH,
+              child: ScreenshotView(
+                child: MediaQuery(
+                  data: mediaQuery.copyWith(
+                    size: Size(
+                      expectedW,
+                      expectedH,
+                    ),
+                    devicePixelRatio: deviceModel.screen.pixelRatio,
+                  ),
                   child: builder(
                     Size(
                       expectedW,

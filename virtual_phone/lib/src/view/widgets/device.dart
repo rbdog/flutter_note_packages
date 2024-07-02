@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:virtual_phone/src/view/theme/platform.dart';
-import 'package:virtual_phone/src/view/widgets/os.dart';
 import 'package:virtual_phone/src/view/widgets/hardware_screen.dart';
+import 'package:virtual_phone/src/view/widgets/os.dart';
 
 import '../../logic/device_model/types/device_model.dart';
 import '../../state/device_state/provider.dart';
@@ -37,7 +37,6 @@ class DeviceView extends ConsumerWidget {
           builder: (size) {
             return OSView(
               os: model.os,
-              showKeyboard: state.showKeyboard,
               screenWidth: size.width,
               screenHeight: size.height,
               app: app,

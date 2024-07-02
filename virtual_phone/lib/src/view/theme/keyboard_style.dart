@@ -16,7 +16,7 @@ abstract class KeyboardStyle with _$KeyboardStyle {
 
   /// A default dark theme for the virtual keyboard.
   factory KeyboardStyle.dark() => const KeyboardStyle(
-        backgroundColor: Color(0xDD2B2B2D),
+        backgroundColor: Colors.black26,
         button1BackgroundColor: Color(0xFF6D6D6E),
         button1ForegroundColor: Colors.white,
         button2BackgroundColor: Color(0xFF4A4A4B),
