@@ -1,34 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:virtual_phone/src/view/widgets/keyboard_anchor.dart';
-import 'package:virtual_phone/src/view/widgets/os_setings_shell.dart';
 
-import '../../logic/device_model/types/device_model.dart';
+import '../../logic/device_model/types/index.dart';
 import '../../state/device_state/provider.dart';
 import 'keyboard.dart';
+import 'keyboard_anchor.dart';
+import 'os_setings_shell.dart';
 
 /// Display a simulated on screen keyboard at the bottom of a [child] widget.
 class OSSafeAreaShell extends ConsumerWidget {
   const OSSafeAreaShell({
     super.key,
-    required this.screenWidth,
-    required this.screenHeight,
     required this.os,
+    required this.screen,
     required this.child,
   });
 
-  final OS os;
-  final double screenWidth;
-  final double screenHeight;
+  final SoftwareOS os;
+  final SoftwareScreen screen;
   final Widget child;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(deviceStateProvider);
     var mediaQuery = MediaQuery.of(context);
-    final isPortrait = mediaQuery.orientation == Orientation.portrait;
-    final safeAreaInsets =
-        isPortrait ? os.portraitSafeAreaInset : os.landscapeSafeAreaInset;
+
+    final safeAreaInsets = screen.safeAreaInset;
 
     // viewInsets...スクリーンの端からデンジャーエリアの端まで
     late final EdgeInsets dangerAreaInsets;
@@ -87,8 +84,8 @@ class OSSafeAreaShell extends ConsumerWidget {
           Positioned(
             left: 0,
             top: 0,
-            width: screenWidth,
-            height: screenHeight,
+            width: screen.width,
+            height: screen.height,
             child: OSSettingsShell(
               os: os,
               child: child,

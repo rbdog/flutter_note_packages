@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../src/view/router/config_inherited_widget.dart';
-import '../src/view/router/locale_inherited_widget.dart';
-import '../src/view/router/home_shell.dart';
+import '../src/view/router/config_inherited.dart';
+import '../src/view/router/locale_inherited.dart';
+import '../src/view/pages/home.dart';
 
 abstract class VirtualPhone {
   static Locale? locale(
     BuildContext context,
   ) {
     final localeInheritedWidget =
-        context.dependOnInheritedWidgetOfExactType<LocaleInheritedWidget>();
+        context.dependOnInheritedWidgetOfExactType<LocaleInherited>();
     return localeInheritedWidget?.locale;
   }
 
@@ -18,8 +18,8 @@ abstract class VirtualPhone {
     Widget? child,
   ) {
     final configWidget =
-        context.dependOnInheritedWidgetOfExactType<ConfigInheritedWidget>();
-    return HomeShell(
+        context.dependOnInheritedWidgetOfExactType<ConfigInherited>();
+    return HomePage(
       config: configWidget?.config,
       app: child ?? const SizedBox.shrink(),
     );

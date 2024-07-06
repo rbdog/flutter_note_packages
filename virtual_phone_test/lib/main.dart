@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:virtual_phone/virtual_phone.dart';
 
 final config = VirtualPhoneConfig(
-  initialModelId: VirtualPhoneModelId.rotom.id,
+  initialModelId: VirtualPhonePresetModel.rotom.id,
 );
 
 void main() {
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       locale: VirtualPhone.locale(context),
       builder: VirtualPhone.builder,
       home: const HomePage(),
@@ -39,6 +40,7 @@ class HomePage extends StatelessWidget {
           : Colors.grey[200],
       body: SafeArea(
         child: Container(
+          alignment: Alignment.center,
           color: Colors.grey[200],
           child: ListView(
             children: List.generate(
@@ -90,8 +92,9 @@ class FlutterLogoPage extends StatelessWidget {
       appBar: AppBar(),
       body: SafeArea(
         child: Container(
+          alignment: Alignment.center,
           color: Colors.green,
-          child: FlutterLogo(
+          child: const FlutterLogo(
             size: 120,
           ),
         ),

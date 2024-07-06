@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../logic/device_model/types/device_model.dart';
+import '../../logic/device_model/types/index.dart';
 import '../../state/device_settings/provider.dart';
 
 /// Display a simulated on screen keyboard at the bottom of a [child] widget.
@@ -12,7 +12,7 @@ class OSSettingsShell extends ConsumerWidget {
     required this.child,
   });
 
-  final OS os;
+  final SoftwareOS os;
   final Widget child;
 
   @override

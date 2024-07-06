@@ -2,8 +2,8 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 /// A screenshot from a preview.
-class DeviceScreenshot {
-  const DeviceScreenshot({
+class Screenshot {
+  const Screenshot({
     required this.bytes,
     required this.format,
   });

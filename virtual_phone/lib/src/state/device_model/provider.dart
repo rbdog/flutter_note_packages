@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../logic/device_model/config.dart';
+import '../../logic/device_model/config/preset_models.dart';
 import 'notifier.dart';
 
 final deviceModelIdProvider = NotifierProvider<DeviceModelIdNotifier, String>(
@@ -9,7 +9,11 @@ final deviceModelIdProvider = NotifierProvider<DeviceModelIdNotifier, String>(
   },
 );
 
-final deviceModelProvider = Provider((ref) {
-  final modelId = ref.watch(deviceModelIdProvider);
-  return presetDevices.firstWhere((it) => it.id == modelId);
-});
+final deviceModelProvider = Provider(
+  (ref) {
+    final modelId = ref.watch(deviceModelIdProvider);
+    return presetModels.firstWhere(
+      (it) => it.id == modelId,
+    );
+  },
+);

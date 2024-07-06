@@ -1,3 +1,3 @@
-import '../src/logic/device_model/types/preset_device.dart';
+import '../src/logic/device_model/types/preset_model.dart';
 
-typedef VirtualPhoneModelId = PresetDevice;
+typedef VirtualPhonePresetModel = PresetModel;

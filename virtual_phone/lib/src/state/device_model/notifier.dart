@@ -13,7 +13,7 @@ class DeviceModelIdNotifier extends Notifier<String> {
   }
 
   /// Select the current device.
-  void selectDevice(String id) {
+  void setId(String id) {
     state = id;
   }
 }
