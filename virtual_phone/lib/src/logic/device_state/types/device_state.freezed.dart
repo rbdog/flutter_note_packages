@@ -20,7 +20,7 @@ DeviceState _$DeviceStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeviceState {
-  Orientation get orientation => throw _privateConstructorUsedError;
+  bool get isPortrait => throw _privateConstructorUsedError;
   bool get showKeyboard => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $DeviceStateCopyWith<$Res> {
           DeviceState value, $Res Function(DeviceState) then) =
       _$DeviceStateCopyWithImpl<$Res, DeviceState>;
   @useResult
-  $Res call({Orientation orientation, bool showKeyboard});
+  $Res call({bool isPortrait, bool showKeyboard});
 }
 
 /// @nodoc
@@ -51,14 +51,14 @@ class _$DeviceStateCopyWithImpl<$Res, $Val extends DeviceState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orientation = null,
+    Object? isPortrait = null,
     Object? showKeyboard = null,
   }) {
     return _then(_value.copyWith(
-      orientation: null == orientation
-          ? _value.orientation
-          : orientation // ignore: cast_nullable_to_non_nullable
-              as Orientation,
+      isPortrait: null == isPortrait
+          ? _value.isPortrait
+          : isPortrait // ignore: cast_nullable_to_non_nullable
+              as bool,
       showKeyboard: null == showKeyboard
           ? _value.showKeyboard
           : showKeyboard // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$DeviceStateImplCopyWith<$Res>
       __$$DeviceStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Orientation orientation, bool showKeyboard});
+  $Res call({bool isPortrait, bool showKeyboard});
 }
 
 /// @nodoc
@@ -89,14 +89,14 @@ class __$$DeviceStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? orientation = null,
+    Object? isPortrait = null,
     Object? showKeyboard = null,
   }) {
     return _then(_$DeviceStateImpl(
-      orientation: null == orientation
-          ? _value.orientation
-          : orientation // ignore: cast_nullable_to_non_nullable
-              as Orientation,
+      isPortrait: null == isPortrait
+          ? _value.isPortrait
+          : isPortrait // ignore: cast_nullable_to_non_nullable
+              as bool,
       showKeyboard: null == showKeyboard
           ? _value.showKeyboard
           : showKeyboard // ignore: cast_nullable_to_non_nullable
@@ -109,19 +109,19 @@ class __$$DeviceStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$DeviceStateImpl implements _DeviceState {
   const _$DeviceStateImpl(
-      {required this.orientation, required this.showKeyboard});
+      {required this.isPortrait, required this.showKeyboard});
 
   factory _$DeviceStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeviceStateImplFromJson(json);
 
   @override
-  final Orientation orientation;
+  final bool isPortrait;
   @override
   final bool showKeyboard;
 
   @override
   String toString() {
-    return 'DeviceState(orientation: $orientation, showKeyboard: $showKeyboard)';
+    return 'DeviceState(isPortrait: $isPortrait, showKeyboard: $showKeyboard)';
   }
 
   @override
@@ -129,15 +129,15 @@ class _$DeviceStateImpl implements _DeviceState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceStateImpl &&
-            (identical(other.orientation, orientation) ||
-                other.orientation == orientation) &&
+            (identical(other.isPortrait, isPortrait) ||
+                other.isPortrait == isPortrait) &&
             (identical(other.showKeyboard, showKeyboard) ||
                 other.showKeyboard == showKeyboard));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, orientation, showKeyboard);
+  int get hashCode => Object.hash(runtimeType, isPortrait, showKeyboard);
 
   @JsonKey(ignore: true)
   @override
@@ -155,14 +155,14 @@ class _$DeviceStateImpl implements _DeviceState {
 
 abstract class _DeviceState implements DeviceState {
   const factory _DeviceState(
-      {required final Orientation orientation,
+      {required final bool isPortrait,
       required final bool showKeyboard}) = _$DeviceStateImpl;
 
   factory _DeviceState.fromJson(Map<String, dynamic> json) =
       _$DeviceStateImpl.fromJson;
 
   @override
-  Orientation get orientation;
+  bool get isPortrait;
   @override
   bool get showKeyboard;
   @override

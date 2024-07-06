@@ -1,28 +1,32 @@
 import 'package:flutter/material.dart';
 
-import '../../logic/device_model/types/device_model.dart';
-import 'screenshot_view.dart';
+import '../../logic/device_model/types/index.dart';
+import 'screenshot_rect.dart';
 
 class HardwareScreenView extends StatelessWidget {
   const HardwareScreenView({
     super.key,
     required this.deviceModel,
-    required this.orientation,
+    required this.isPortrait,
     required this.builder,
   });
 
   final DeviceModel deviceModel;
-  final Orientation orientation;
-  final Widget Function(Size screenSize) builder;
+  final bool isPortrait;
+  final Widget Function(SoftwareScreen screen) builder;
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       final mediaQuery = MediaQuery.of(context);
-      final modelScreen = deviceModel.screen;
-      final isPortrait = orientation == Orientation.portrait;
-      final expectedW = isPortrait ? modelScreen.width : modelScreen.height;
-      final expectedH = isPortrait ? modelScreen.height : modelScreen.width;
+      final modelScreen = deviceModel.hardwareScreen;
+      final expectedW =
+          isPortrait ? modelScreen.logicalWidth : modelScreen.logicalHeight;
+      final expectedH =
+          isPortrait ? modelScreen.logicalHeight : modelScreen.logicalWidth;
+      final safeAreaInset = isPortrait
+          ? modelScreen.safeAreaInset.portrait
+          : modelScreen.safeAreaInset.landscape;
       final actualW = constraints.maxWidth;
       final actualH = constraints.maxHeight;
       final ratioW = actualW / expectedW;
@@ -40,24 +44,32 @@ class HardwareScreenView extends StatelessWidget {
           scaleY: ratioH,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(
-              deviceModel.screen.cornerRadius,
+              deviceModel.hardwareScreen.logicalCornerRadius,
             ),
             child: SizedBox(
               width: expectedW,
               height: expectedH,
-              child: ScreenshotView(
+              child: ScreenshotRect(
                 child: MediaQuery(
                   data: mediaQuery.copyWith(
                     size: Size(
                       expectedW,
                       expectedH,
                     ),
-                    devicePixelRatio: deviceModel.screen.pixelRatio,
+                    devicePixelRatio: deviceModel.hardwareScreen.pixelRatio,
                   ),
                   child: builder(
-                    Size(
-                      expectedW,
-                      expectedH,
+                    SoftwareScreen(
+                      width: expectedW,
+                      height: expectedH,
+                      cornerRadius:
+                          deviceModel.hardwareScreen.logicalCornerRadius,
+                      safeAreaInset: SoftwareSafeAreaInset(
+                        left: safeAreaInset.left,
+                        top: safeAreaInset.top,
+                        right: safeAreaInset.right,
+                        bottom: safeAreaInset.bottom,
+                      ),
                     ),
                   ),
                 ),

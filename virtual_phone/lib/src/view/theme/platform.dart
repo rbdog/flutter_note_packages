@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../logic/device_model/types/device_model.dart' as logic;
+import '../../logic/device_model/types/index.dart' as logic;
 
-TargetPlatform toFlutterPlatform(logic.Platform platform) {
+TargetPlatform toFlutterPlatform(logic.SoftwarePlatform platform) {
   return switch (platform) {
-    logic.Platform.ios => TargetPlatform.iOS,
-    logic.Platform.android => TargetPlatform.android,
+    logic.SoftwarePlatform.ios => TargetPlatform.iOS,
+    logic.SoftwarePlatform.android => TargetPlatform.android,
+    logic.SoftwarePlatform.fantasy => TargetPlatform.android,
   };
 }

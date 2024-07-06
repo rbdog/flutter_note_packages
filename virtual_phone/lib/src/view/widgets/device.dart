@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:virtual_phone/src/view/theme/platform.dart';
-import 'package:virtual_phone/src/view/widgets/hardware_screen.dart';
-import 'package:virtual_phone/src/view/widgets/os.dart';
 
 import '../../logic/device_model/types/device_model.dart';
 import '../../state/device_state/provider.dart';
+import '../theme/platform.dart';
 import 'hardware_device.dart';
+import 'hardware_screen.dart';
+import 'os.dart';
 
 class DeviceView extends ConsumerWidget {
   const DeviceView({
@@ -25,20 +25,19 @@ class DeviceView extends ConsumerWidget {
 
     return Theme(
       data: theme.copyWith(
-        platform: toFlutterPlatform(model.label.platform),
+        platform: toFlutterPlatform(model.os.platform),
         visualDensity: VisualDensity.standard,
       ),
       child: HardwareDeviceView(
         deviceModel: model,
-        orientation: state.orientation,
+        isPortrait: state.isPortrait,
         screen: HardwareScreenView(
           deviceModel: model,
-          orientation: state.orientation,
-          builder: (size) {
+          isPortrait: state.isPortrait,
+          builder: (screen) {
             return OSView(
               os: model.os,
-              screenWidth: size.width,
-              screenHeight: size.height,
+              screen: screen,
               app: app,
             );
           },

@@ -14,7 +14,7 @@ class DynamicRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> widgets = [];
+    final List<Widget> widgets = [];
 
     for (int i = 0; i < itemCount; i++) {
       final child = builder(i);

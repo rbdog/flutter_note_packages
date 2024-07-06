@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:virtual_phone/src/view/router/orientation_updated_shell.dart';
 
 import '../../logic/device_model/types/device_model.dart';
+import '../router/rotation_observer.dart';
 import 'hardware_screen.dart';
 
 /// Simulate a physical device and embedding a virtual
@@ -9,7 +9,7 @@ class HardwareDeviceView extends StatelessWidget {
   const HardwareDeviceView({
     super.key,
     required this.deviceModel,
-    required this.orientation,
+    required this.isPortrait,
     required this.screen,
   });
 
@@ -17,15 +17,14 @@ class HardwareDeviceView extends StatelessWidget {
   final DeviceModel deviceModel;
 
   /// The current frame simulated orientation.
-  final Orientation orientation;
+  final bool isPortrait;
 
   /// The screen that should be inserted into the simulated
   final HardwareScreenView screen;
 
   @override
   Widget build(BuildContext context) {
-    final screenPos = deviceModel.screen.position;
-    final isPortrait = orientation == Orientation.portrait;
+    final screenPos = deviceModel.hardwareScreen.position;
 
     final stack = Stack(
       children: [
@@ -58,7 +57,7 @@ class HardwareDeviceView extends StatelessWidget {
             quarterTurns: isPortrait ? 0 : -1,
             child: Image.asset(
               package: 'virtual_phone',
-              deviceModel.imageUri,
+              deviceModel.hardwareImageUri,
               fit: BoxFit.contain,
             ),
           ),
@@ -66,7 +65,7 @@ class HardwareDeviceView extends StatelessWidget {
       ],
     );
 
-    return OrientationUpdatedShell(
+    return RotationObserver(
       child: stack,
     );
   }
