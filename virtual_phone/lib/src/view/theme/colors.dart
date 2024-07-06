@@ -6,4 +6,8 @@ abstract class BrandColor {
   static const content = Colors.white;
   static const weakTitle = Color(0xFF777777);
   static const weakIcon = Color(0xFFCCCCCC);
+  static const activeButton = Colors.blue;
+  static const enabledSwitch = Colors.lightGreen;
+  static const inactiveGrayout = Color(0xFFEEEEEE);
+  static const shadow = Colors.grey;
 }

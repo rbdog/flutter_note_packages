@@ -160,11 +160,13 @@ class _OnOffTile extends StatelessWidget {
         children: [
           Expanded(child: props.title),
           Switch(
-            activeTrackColor: Colors.lightGreen,
-            inactiveTrackColor: Colors.grey[200],
-            inactiveThumbColor: Colors.white,
+            activeTrackColor: BrandColor.enabledSwitch,
+            inactiveTrackColor: BrandColor.inactiveGrayout,
+            inactiveThumbColor: BrandColor.content,
             trackOutlineWidth: WidgetStateProperty.all(0),
-            trackOutlineColor: WidgetStateProperty.all(Colors.grey[200]),
+            trackOutlineColor: WidgetStateProperty.all(
+              BrandColor.inactiveGrayout,
+            ),
             value: props.value,
             onChanged: props.onChanged,
           ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../theme/colors.dart';
 import 'icon_text_button.dart';
 
 class MinimalPageHeader extends StatelessWidget {
@@ -23,12 +24,12 @@ class MinimalPageHeader extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.chevron_left,
-                  color: Colors.blue,
+                  color: BrandColor.activeButton,
                 ),
                 text: const Text(
                   'Back',
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: BrandColor.activeButton,
                   ),
                 ),
               ),
