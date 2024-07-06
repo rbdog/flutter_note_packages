@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/colors.dart';
+
 class MinimalSlider extends StatelessWidget {
   const MinimalSlider({
     super.key,
@@ -23,8 +25,8 @@ class MinimalSlider extends StatelessWidget {
         thumbShape: RoundSliderThumbShape(elevation: 2),
       ),
       child: Slider(
-        thumbColor: Colors.white,
-        activeColor: Colors.blue,
+        thumbColor: BrandColor.content,
+        activeColor: BrandColor.activeButton,
         value: value,
         onChanged: onChanged,
         min: min,

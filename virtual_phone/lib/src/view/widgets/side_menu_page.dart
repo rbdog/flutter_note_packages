@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/colors.dart';
+
 class SideMenuPage extends StatelessWidget {
   const SideMenuPage({
     super.key,
@@ -35,7 +37,7 @@ class SideMenuPage extends StatelessWidget {
                 decoration: const BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey,
+                      color: BrandColor.shadow,
                       offset: Offset(1, 0),
                       blurRadius: 10,
                     ),
