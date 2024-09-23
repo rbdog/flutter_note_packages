@@ -30,3 +30,11 @@
 ## 1.0.6
 
 - fix: lint errors
+
+## 1.0.7
+
+- fix: lint errors
+
+## 1.0.8
+
+- fix: lint errors
