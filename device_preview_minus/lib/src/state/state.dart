@@ -68,7 +68,7 @@ class DevicePreviewData with _$DevicePreviewData {
     /// Indicate whether animations are disabled.
     @Default(false) bool disableAnimations,
 
-    /// Indicate whether the highcontrast mode is activated.
+    /// Indicate whether the high contrast mode is activated.
     @Default(false) bool highContrast,
 
     /// Indicate whether the navigation is in accessible mode.
