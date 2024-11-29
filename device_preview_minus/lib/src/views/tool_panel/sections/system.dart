@@ -7,7 +7,7 @@ import 'section.dart';
 
 /// All the simulated system settings.
 class SystemSection extends StatelessWidget {
-  /// Create a new menu section with simulated systel properties.
+  /// Create a new menu section with simulated system properties.
   ///
   /// The items can be hidden with [locale], [theme] parameters.
   const SystemSection({
