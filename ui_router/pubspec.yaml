@@ -1,10 +1,12 @@
 name: ui_router
 description: GoRouter Alternative, without context
-version: 3.3.0
+version: 3.4.0
 homepage: https://github.com/rbdog/flutter_note_packages
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.6.0
+
+resolution: workspace
 
 dependencies:
   flutter:
@@ -14,5 +16,3 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints:
-
-flutter:

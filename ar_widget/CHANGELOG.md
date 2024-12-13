@@ -1,19 +1,23 @@
-## 0.0.1
+## 0.1.0
 
-- Add: ARWidget for iOS
+- Add: workspace
 
-## 0.0.2
+## 0.0.5
 
-- Fix: docs
-
-## 0.0.3
-
-- Fix: docs
+- Change: update dependencies
 
 ## 0.0.4
 
 - Change: update dependencies
 
-## 0.0.5
+## 0.0.3
 
-- Change: update dependencies
+- Fix: docs
+
+## 0.0.2
+
+- Fix: docs
+
+## 0.0.1
+
+- Add: ARWidget for iOS

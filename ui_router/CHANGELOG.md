@@ -55,3 +55,7 @@
 ## 3.3.0
 
 - (breaking) require Flutter 3.0
+
+## 3.4.0
+
+- Add: workspace

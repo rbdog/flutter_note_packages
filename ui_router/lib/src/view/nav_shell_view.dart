@@ -45,61 +45,63 @@ class _UiNavShellViewState extends State<UiNavShellView> {
   @override
   Widget build(BuildContext context) {
     final childStates = widget.notifier.state.value.stack;
-    final navigatorWindow = Navigator(
-      pages: List<Page>.generate(
-        childStates.length,
-        (index) {
-          final childState = childStates[index];
-          final childShellPath =
-              widget.notifier.updater.config.fullPath + childState.path;
-          final themeIndex = widget.theme.pages.indexWhere(
-            (theme) => theme.path == childState.path,
-          );
-          if (themeIndex < 0) {
-            // 見つからなかった
-            debugPrint(
-              'theme not found. for fullPath=$childShellPath',
-            );
-          }
-          final theme = widget.theme.pages[themeIndex];
-          late final Widget child;
-
-          switch (childState.routeType) {
-            case UiRouteType.navShell:
-              final navShell = theme as UiNavShellTheme;
-              final childNotifier =
-                  widget.router.getNavShellNotifier(childShellPath);
-              child = UiNavShellView(
-                theme: navShell,
-                notifier: childNotifier,
-                router: widget.router,
-              );
-              break;
-            case UiRouteType.tabShell:
-              final tabShell = theme as UiTabShellTheme;
-              final childNotifier =
-                  widget.router.getTabShellNotifier(childShellPath);
-              child = UiTabShellView(
-                notifier: childNotifier,
-                theme: tabShell,
-              );
-              break;
-            case UiRouteType.page:
-              final pageState = childState as UiPageState;
-              final page = theme as UiPageTheme;
-              child = UiPageView(
-                state: pageState,
-                theme: page,
-              );
-              break;
-          }
-          return MaterialPage(child: child);
-        },
-      ),
-      onPopPage: (route, result) {
+    final navigatorWindow = PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (_, __) {
         widget.notifier.pop(untilWhere: null);
-        return false; // disable pop of the framework
       },
+      child: Navigator(
+        pages: List<Page>.generate(
+          childStates.length,
+          (index) {
+            final childState = childStates[index];
+            final childShellPath =
+                widget.notifier.updater.config.fullPath + childState.path;
+            final themeIndex = widget.theme.pages.indexWhere(
+              (theme) => theme.path == childState.path,
+            );
+            if (themeIndex < 0) {
+              // 見つからなかった
+              debugPrint(
+                'theme not found. for fullPath=$childShellPath',
+              );
+            }
+            final theme = widget.theme.pages[themeIndex];
+            late final Widget child;
+
+            switch (childState.routeType) {
+              case UiRouteType.navShell:
+                final navShell = theme as UiNavShellTheme;
+                final childNotifier =
+                    widget.router.getNavShellNotifier(childShellPath);
+                child = UiNavShellView(
+                  theme: navShell,
+                  notifier: childNotifier,
+                  router: widget.router,
+                );
+                break;
+              case UiRouteType.tabShell:
+                final tabShell = theme as UiTabShellTheme;
+                final childNotifier =
+                    widget.router.getTabShellNotifier(childShellPath);
+                child = UiTabShellView(
+                  notifier: childNotifier,
+                  theme: tabShell,
+                );
+                break;
+              case UiRouteType.page:
+                final pageState = childState as UiPageState;
+                final page = theme as UiPageTheme;
+                child = UiPageView(
+                  state: pageState,
+                  theme: page,
+                );
+                break;
+            }
+            return MaterialPage(child: child);
+          },
+        ),
+      ),
     );
     final withFrame = widget.theme.build.call(
       widget.notifier.state.value,
