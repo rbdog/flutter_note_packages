@@ -1,0 +1,12 @@
+name: _
+publish_to: none
+environment:
+  sdk: ^3.6.0
+
+workspace:
+  - ar_widget
+  - device_preview_minus
+  - liveroom/liveroom
+  - liveroom_test
+  - pixel_color_image
+  - ui_router

@@ -22,25 +22,25 @@ class UiDialogLayer extends StatelessWidget {
     return Navigator(
       pages: [
         MaterialPage(
-          child: Scaffold(
-            backgroundColor: Colors.black.withOpacity(0.5),
-            body: Center(
-              child: SingleChildScrollView(
-                child: Builder(builder: (_) {
-                  final dialogState = notifier.state.value.queue.first;
-                  final builder = notifier.updater.dialogs.singleWhere(
-                    (dialog) => dialog.name == dialogState.name,
-                  );
-                  return builder.build(dialogState);
-                }),
+          child: PopScope(
+            canPop: false,
+            child: Scaffold(
+              backgroundColor: Colors.black.withValues(alpha: 0.5),
+              body: Center(
+                child: SingleChildScrollView(
+                  child: Builder(builder: (_) {
+                    final dialogState = notifier.state.value.queue.first;
+                    final builder = notifier.updater.dialogs.singleWhere(
+                      (dialog) => dialog.name == dialogState.name,
+                    );
+                    return builder.build(dialogState);
+                  }),
+                ),
               ),
             ),
           ),
         ),
       ],
-      onPopPage: (route, result) {
-        return false; // disable pop of the framework
-      },
     );
   }
 }

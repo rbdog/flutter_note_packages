@@ -121,8 +121,6 @@ class Liveroom {
           case _LiveAction.exit:
             _exitCtrl.sink.add(mail.userId);
             break;
-          default:
-            break;
         }
       },
       cancelOnError: true,

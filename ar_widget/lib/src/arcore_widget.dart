@@ -138,7 +138,7 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
                     width: widget.canvasSize.x,
                     height: widget.canvasSize.y,
                     child: Container(
-                      color: Colors.white.withOpacity(0.5),
+                      color: Colors.white.withValues(alpha: 0.5),
                     ),
                   ),
                 ),

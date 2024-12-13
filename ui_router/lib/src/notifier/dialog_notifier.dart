@@ -21,9 +21,9 @@ class UiDialogNotifier {
       dialogs: dialogs,
     );
     final iniState = updater.initState();
-    final valueNotif = ValueNotifier(iniState);
+    final valueNotifier = ValueNotifier(iniState);
     return UiDialogNotifier._(
-      state: valueNotif,
+      state: valueNotifier,
       updater: updater,
     );
   }

@@ -46,7 +46,7 @@ class _UiLoadingLayerState extends State<UiLoadingLayer> {
                 flex: 1,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withValues(alpha: 0.2),
                   ),
                   alignment: Alignment.center,
                   child: const Center(

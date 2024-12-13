@@ -1,11 +1,12 @@
 name: ar_widget
 description: Widget in the AR World
-version: 0.0.5
+version: 0.1.0
 homepage: https://github.com/rbdog/flutter_note_packages
 
 environment:
-  sdk: ^3.0.0
-  flutter: ">=3.10.0"
+  sdk: ^3.6.0
+
+resolution: workspace
 
 dependencies:
   flutter:
