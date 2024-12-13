@@ -1,5 +1,5 @@
 - publish
 
 ```
-dart pub publish
+dart pub -C *** publish
 ```
