@@ -1,3 +1,7 @@
+## 1.3.0
+
+- Require Dart 3.7.0
+
 ## 1.2.0
 
 - Require Dart 3.6.0
