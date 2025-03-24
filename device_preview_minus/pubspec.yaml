@@ -4,7 +4,7 @@ description: A temporary alternative to device_preview. (https://pub.dev/package
 homepage: https://github.com/rbdog/flutter_note_packages
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.0
 
 resolution: workspace
 
@@ -18,6 +18,7 @@ dependencies:
   json_annotation:
   shared_preferences:
   collection:
+  web:
 
 dev_dependencies:
   flutter_lints:

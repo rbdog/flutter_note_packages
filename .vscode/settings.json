@@ -1,10 +1,15 @@
 {
-  "dart.flutterSdkPath": ".fvm/versions/3.27.0",
+  "dart.flutterSdkPath": ".fvm/versions/3.29.0",
   "search.exclude": {
     "**/.fvm": true
   },
   "files.watcherExclude": {
     "**/.fvm": true
   },
-  "cSpell.words": ["arcore", "arkit", "Liveroom", "rbdog"]
+  "cSpell.words": [
+    "arcore",
+    "arkit",
+    "Liveroom",
+    "rbdog"
+  ]
 }
