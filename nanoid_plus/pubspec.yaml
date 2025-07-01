@@ -1,0 +1,11 @@
+name: nanoid_plus
+description: A small, secure, and URL-safe ID generator for Dart.
+version: 1.1.0
+repository: https://github.com/rbdog/flutter_note_packages
+
+environment:
+  sdk: ^3.7.0
+
+dev_dependencies:
+  lints: ^5.0.0
+  test: ^1.24.0
