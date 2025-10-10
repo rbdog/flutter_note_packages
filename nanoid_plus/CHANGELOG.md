@@ -1,3 +1,7 @@
+## 1.2.0
+
+- [deps] Require Dart 3.9.0
+
 ## 1.1.0
 
 - [NEW] excludedCharSet
