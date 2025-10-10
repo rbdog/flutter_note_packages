@@ -63,7 +63,7 @@ class ArkitWidgetState extends State<ArkitWidget> {
                     child: widget.child,
                   ),
                 ),
-              )
+              ),
       ],
     );
   }
@@ -83,10 +83,7 @@ class ArkitWidgetState extends State<ArkitWidget> {
   void _showCanvas(ARKitPlaneAnchor anchor) {
     // Shadow
     final color = ARKitMaterialProperty.color(Colors.black);
-    final material = ARKitMaterial(
-      transparency: 0.9,
-      diffuse: color,
-    );
+    final material = ARKitMaterial(transparency: 0.9, diffuse: color);
     final shape = ARKitCylinder(
       height: 0.001,
       radius: 0.1,
@@ -150,7 +147,7 @@ class ArkitWidgetState extends State<ArkitWidget> {
     final canvas = Matrix4.identity();
     canvas.rotateX(angles.x);
     canvas.rotateY(-angles.y);
-    canvas.scale(scale);
+    canvas.scaleByDouble(scale, scale, scale, 1.0);
     // update
     setState(() {
       _canvas = canvas;

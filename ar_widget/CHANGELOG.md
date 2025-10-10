@@ -1,5 +1,9 @@
 ## 0.1.0
 
+- Change: update dependencies
+
+## 0.1.0
+
 - Add: workspace
 
 ## 0.0.5

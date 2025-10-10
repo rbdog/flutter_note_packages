@@ -117,21 +117,23 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
         _anchor == null
             ? const SizedBox.shrink()
             : Positioned(
-              left: _left,
-              top: _top,
-              child: Transform.rotate(
-                angle: _angle,
-                origin: _origin,
-                alignment: Alignment.topLeft,
-                child: Container(
-                  transform: _canvas,
-                  alignment: Alignment.center,
-                  width: widget.canvasSize.x,
-                  height: widget.canvasSize.y,
-                  child: Container(color: Colors.white.withValues(alpha: 0.5)),
+                left: _left,
+                top: _top,
+                child: Transform.rotate(
+                  angle: _angle,
+                  origin: _origin,
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    transform: _canvas,
+                    alignment: Alignment.center,
+                    width: widget.canvasSize.x,
+                    height: widget.canvasSize.y,
+                    child: Container(
+                      color: Colors.white.withValues(alpha: 0.5),
+                    ),
+                  ),
                 ),
               ),
-            ),
       ],
     );
   }
@@ -185,7 +187,7 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
     final canvas = Matrix4.identity();
     canvas.rotateX(angles.x);
     canvas.rotateY(-angles.y);
-    canvas.scale(scale);
+    canvas.scaleByDouble(scale, scale, scale, 1.0);
     setCanvasTransform(canvas, left, top, camAngles.z, origin);
   }
 }
