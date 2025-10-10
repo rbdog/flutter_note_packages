@@ -46,3 +46,7 @@
 ## 1.3.0
 
 - Add: workspace
+
+## 1.4.0
+
+- Change: upgrade dependencies

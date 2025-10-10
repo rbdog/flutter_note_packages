@@ -44,6 +44,11 @@ class AccessibilitySection extends StatelessWidget {
     final invertColors = context.select(
       (DevicePreviewStore store) => store.data.invertColors,
     );
+
+    final scaleFactor = textScalingFactor >= 2
+        ? 1.0
+        : (textScalingFactor < 1 ? 0.25 : 0.6);
+
     return ToolPanelSection(
       title: 'Accessibility',
       children: [
@@ -82,9 +87,7 @@ class AccessibilitySection extends StatelessWidget {
             ),
             onTap: () {
               final state = context.read<DevicePreviewStore>();
-              state.data = state.data.copyWith(
-                invertColors: !invertColors,
-              );
+              state.data = state.data.copyWith(invertColors: !invertColors);
             },
           ),
         if (this.boldText)
@@ -94,15 +97,11 @@ class AccessibilitySection extends StatelessWidget {
             subtitle: Text(boldText ? 'Enabled' : 'Disabled'),
             trailing: Opacity(
               opacity: boldText ? 1.0 : 0.3,
-              child: const Icon(
-                Icons.format_bold,
-              ),
+              child: const Icon(Icons.format_bold),
             ),
             onTap: () {
               final state = context.read<DevicePreviewStore>();
-              state.data = state.data.copyWith(
-                boldText: !boldText,
-              );
+              state.data = state.data.copyWith(boldText: !boldText);
             },
           ),
         if (this.textScalingFactor) ...[
@@ -112,12 +111,8 @@ class AccessibilitySection extends StatelessWidget {
             subtitle: Text(textScalingFactor.toString()),
             trailing: Transform(
               alignment: Alignment.center,
-              transform: (Matrix4.identity()
-                ..scale(
-                  textScalingFactor >= 2
-                      ? 1.0
-                      : (textScalingFactor < 1 ? 0.25 : 0.6),
-                )),
+              transform: Matrix4.identity()
+                ..scaleByDouble(scaleFactor, scaleFactor, scaleFactor, 1.0),
               child: const Icon(Icons.text_format),
             ),
           ),

@@ -49,32 +49,23 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer.periodic(
-      const Duration(milliseconds: 100),
-      (_) async {
-        if (_arcore == null) return;
-        if (_anchor == null) return;
-        final ancPose = await _arcore!.getAncPose(_anchor!);
-        if (ancPose == null) return;
-        final cam = await _arcore!.getCamPose();
-        if (cam == null) return;
-        updateCanvas(
-          widget.size,
-          1.0,
-          cam,
-          ancPose,
-          (cvs, lf, tp, ang, ogn) {
-            setState(() {
-              _canvas = cvs;
-              _left = lf;
-              _top = tp;
-              _angle = ang;
-              _origin = ogn;
-            });
-          },
-        );
-      },
-    );
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (_) async {
+      if (_arcore == null) return;
+      if (_anchor == null) return;
+      final ancPose = await _arcore!.getAncPose(_anchor!);
+      if (ancPose == null) return;
+      final cam = await _arcore!.getCamPose();
+      if (cam == null) return;
+      updateCanvas(widget.size, 1.0, cam, ancPose, (cvs, lf, tp, ang, ogn) {
+        setState(() {
+          _canvas = cvs;
+          _left = lf;
+          _top = tp;
+          _angle = ang;
+          _origin = ogn;
+        });
+      });
+    });
   }
 
   @override
@@ -104,21 +95,21 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
                 _anchor = a;
               });
 
-              updateCanvas(
-                widget.size,
-                1.0,
-                cam,
-                ancPose,
-                (cvs, lf, tp, ang, ogn) {
-                  setState(() {
-                    _canvas = cvs;
-                    _left = lf;
-                    _top = tp;
-                    _angle = ang;
-                    _origin = ogn;
-                  });
-                },
-              );
+              updateCanvas(widget.size, 1.0, cam, ancPose, (
+                cvs,
+                lf,
+                tp,
+                ang,
+                ogn,
+              ) {
+                setState(() {
+                  _canvas = cvs;
+                  _left = lf;
+                  _top = tp;
+                  _angle = ang;
+                  _origin = ogn;
+                });
+              });
             };
             controller.init();
           },
@@ -126,23 +117,21 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
         _anchor == null
             ? const SizedBox.shrink()
             : Positioned(
-                left: _left,
-                top: _top,
-                child: Transform.rotate(
-                  angle: _angle,
-                  origin: _origin,
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    transform: _canvas,
-                    alignment: Alignment.center,
-                    width: widget.canvasSize.x,
-                    height: widget.canvasSize.y,
-                    child: Container(
-                      color: Colors.white.withValues(alpha: 0.5),
-                    ),
-                  ),
+              left: _left,
+              top: _top,
+              child: Transform.rotate(
+                angle: _angle,
+                origin: _origin,
+                alignment: Alignment.topLeft,
+                child: Container(
+                  transform: _canvas,
+                  alignment: Alignment.center,
+                  width: widget.canvasSize.x,
+                  height: widget.canvasSize.y,
+                  child: Container(color: Colors.white.withValues(alpha: 0.5)),
                 ),
               ),
+            ),
       ],
     );
   }
@@ -158,7 +147,8 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
       double top,
       double angle,
       Offset origin,
-    ) setCanvasTransform,
+    )
+    setCanvasTransform,
   ) async {
     // 1. anc in cam
     final ancInCam = getTransformIn(ancInWorld, camInWorld);
@@ -171,11 +161,7 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
     // 5. scale
     final scale = (scaleUnit / distance);
     // 6. anc pos in screen
-    final posInScreen = getIntersection(
-      posInCam,
-      distanceToScreen,
-      screenSize,
-    );
+    final posInScreen = getIntersection(posInCam, distanceToScreen, screenSize);
     // 7. anc to cam
     final ancToCam = -posInCam;
     // 8. anc to front
@@ -200,12 +186,6 @@ class _ARCoreWidgetState extends State<DevArcoreWidget> {
     canvas.rotateX(angles.x);
     canvas.rotateY(-angles.y);
     canvas.scale(scale);
-    setCanvasTransform(
-      canvas,
-      left,
-      top,
-      camAngles.z,
-      origin,
-    );
+    setCanvasTransform(canvas, left, top, camAngles.z, origin);
   }
 }
