@@ -75,4 +75,4 @@ For bug reports and feature requests, please visit:
 
 MIT
 
-[📖 Japanese Documentation](doc/ja/README.md)
+[📖 Japanese Documentation](https://github.com/rbdog/flutter_note_packages/blob/main/go_router_express/doc/ja/README.md)

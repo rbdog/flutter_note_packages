@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Fix Japanese documentation link
+
 ## 1.0.1
 
 - Fix pubspec.yaml repository URL
