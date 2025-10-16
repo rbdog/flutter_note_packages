@@ -30,20 +30,13 @@ abstract class WidgetMiddleware {
   /// The [req] parameter contains request information.
   /// The [res] parameter allows setting responses.
   /// The [next] parameter is a function that returns the next widget in the chain.
-  Widget build(
-    WidgetRequest req,
-    WidgetResponse res,
-    Widget Function() next,
-  );
+  Widget build(WidgetRequest req, WidgetResponse res, Widget Function() next);
 }
 
 /// Internal class to execute a chain of middleware.
 class MiddlewareChain {
   /// Creates a new [MiddlewareChain].
-  MiddlewareChain({
-    required this.middlewares,
-    required this.finalHandler,
-  });
+  MiddlewareChain({required this.middlewares, required this.finalHandler});
 
   /// The list of middleware to execute.
   final List<WidgetMiddleware> middlewares;

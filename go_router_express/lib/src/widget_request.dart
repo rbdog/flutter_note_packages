@@ -8,10 +8,7 @@ import 'package:go_router/go_router.dart';
 /// request information.
 class WidgetRequest {
   /// Creates a new [WidgetRequest] instance.
-  WidgetRequest({
-    required this.context,
-    required this.state,
-  });
+  WidgetRequest({required this.context, required this.state});
 
   /// The [BuildContext] associated with this request.
   final BuildContext context;

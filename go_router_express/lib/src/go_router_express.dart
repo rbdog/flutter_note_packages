@@ -90,10 +90,10 @@ class GoRouterExpress {
       routes: routes,
       initialLocation: initialLocation,
       debugLogDiagnostics: debugLogDiagnostics,
-      errorBuilder: errorBuilder ??
-          (context, state) => Center(
-                child: Text('Page not found: ${state.uri.path}'),
-              ),
+      errorBuilder:
+          errorBuilder ??
+          (context, state) =>
+              Center(child: Text('Page not found: ${state.uri.path}')),
     );
   }
 
@@ -128,10 +128,8 @@ class GoRouterExpress {
     List<WidgetMiddleware> middlewares,
     RouteHandler handler,
   ) {
-    _routes.add(_RouteConfig(
-      path: path,
-      handler: handler,
-      middlewares: middlewares,
-    ));
+    _routes.add(
+      _RouteConfig(path: path, handler: handler, middlewares: middlewares),
+    );
   }
 }
