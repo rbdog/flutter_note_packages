@@ -1,3 +1,7 @@
+## 1.0.4
+
+- Fix README code examples
+
 ## 1.0.3
 
 - Fix README code examples
