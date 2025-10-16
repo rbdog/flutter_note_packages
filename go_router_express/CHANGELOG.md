@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Fix README code examples
+
 ## 1.0.2
 
 - Fix Japanese documentation link

@@ -5,7 +5,7 @@ An Express.js-like wrapper for [go_router](https://pub.dev/packages/go_router) .
 ## Usage
 
 ```dart
-final app = GoRouterExpress((app) {
+final express = GoRouterExpress((app) {
   app.get('/todos/:id', [], (req, res) {
     final id = req.params('id');
     res.page(TodoPage(id: id));
@@ -13,15 +13,15 @@ final app = GoRouterExpress((app) {
 });
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: app.router,
-    );
+    return MaterialApp.router(routerConfig: express.router);
   }
 }
 ```
@@ -33,14 +33,16 @@ class AuthMiddleware extends WidgetMiddleware {
   @override
   Widget build(WidgetRequest req, WidgetResponse res, Widget Function() next) {
     if (req.query('token') == null) {
-      return UnauthorizedPage();
+      return const UnauthorizedPage();
     }
     return next();
   }
 }
 
-app.get('/admin', [AuthMiddleware()], (req, res) {
-  res.page(AdminPage());
+final express = GoRouterExpress((app) {
+  app.get('/admin', [AuthMiddleware()], (req, res) {
+    res.page(const AdminPage());
+  });
 });
 ```
 
@@ -60,8 +62,8 @@ context.pop();
 
 // From button
 ElevatedButton(
-  onPressed: () => context.push('/detail'),
-  child: Text('Go to Detail'),
+  onPressed: () => context.go('/detail'),
+  child: const Text('Go to Detail'),
 );
 ```
 
