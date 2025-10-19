@@ -3,11 +3,11 @@ import 'package:go_router_express/go_router_express.dart';
 
 final express = GoRouterExpress((app) {
   app.get('/', [], (req, res) {
-    res.page(const HomeScreen());
+    res.page(const HomePage());
   });
 
   app.get('/details', [LoggingMiddleware()], (req, res) {
-    res.page(const DetailsScreen());
+    res.page(const DetailsPage());
   });
 });
 
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +49,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class DetailsScreen extends StatelessWidget {
-  const DetailsScreen({super.key});
+class DetailsPage extends StatelessWidget {
+  const DetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

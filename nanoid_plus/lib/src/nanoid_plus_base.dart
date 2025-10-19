@@ -1,8 +1,11 @@
 import 'dart:math';
 
-/// NanoID generator.
-class NanoID {
-  const NanoID();
+@Deprecated('Use [Nanoid] instead.')
+typedef NanoID = Nanoid;
+
+/// Nano ID generator.
+class Nanoid {
+  const Nanoid();
 
   /// Generate an ID using the standard URL-safe Base64 charset.
   ///
@@ -49,8 +52,10 @@ class NanoID {
     required String charSet,
     required String excludedCharSet,
   }) {
-    final effectiveCharSet =
-        charSet.split('').where((c) => !excludedCharSet.contains(c)).join();
+    final effectiveCharSet = charSet
+        .split('')
+        .where((c) => !excludedCharSet.contains(c))
+        .join();
 
     if (effectiveCharSet.isEmpty) {
       throw ArgumentError('Character set is empty after exclusions.');

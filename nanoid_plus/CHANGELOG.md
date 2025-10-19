@@ -1,3 +1,8 @@
+## 1.3.0
+
+- [FIX] `NanoID` is now deprecated.
+- [NEW] **`Nanoid`** is introduced.
+
 ## 1.2.0
 
 - [deps] Require Dart 3.9.0

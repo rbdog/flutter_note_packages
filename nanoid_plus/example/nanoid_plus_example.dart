@@ -1,23 +1,23 @@
 import 'package:nanoid_plus/nanoid_plus.dart';
 
 void main() {
-  final nanoID = NanoID();
+  final nanoid = Nanoid();
 
   // Use A–Z, a–z, 0–9, '-', '_'
-  final id1 = nanoID.urlSafe();
+  final id1 = nanoid.urlSafe();
 
   // Use A–Z, a–z, 0–9, '-', '_', length=8
-  final id2 = nanoID.urlSafe(length: 8);
+  final id2 = nanoid.urlSafe(length: 8);
 
   // Removes O, I, l, 0, 1
-  final id3 = nanoID.urlSafeHumanFriendly();
+  final id3 = nanoid.urlSafeHumanFriendly();
 
   // Removes O, I, l, 0, 1, length=12
-  final id4 = nanoID.urlSafeHumanFriendly(length: 12);
+  final id4 = nanoid.urlSafeHumanFriendly(length: 12);
 
   // Use A, B, C, 1, 2, 3, length=10
   const customChars = 'ABC123';
-  final id5 = nanoID.custom(length: 10, charSet: customChars);
+  final id5 = nanoid.custom(length: 10, charSet: customChars);
 
   print(id1); // e.g. Axs0km54bhQzL9_YW1D0p
   print(id2); // e.g. Zk3_Pq1A
