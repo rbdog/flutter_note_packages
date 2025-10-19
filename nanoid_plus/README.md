@@ -1,6 +1,6 @@
 # 🐣 Nano ID
 
-[🌐 English](#🌐English) | [🇯🇵 日本語](#🇯🇵日本語) | [🇨🇳 中文](#🇨🇳中文)
+[🌐 English](#english) | [🇯🇵 日本語](#japanese) | [🇨🇳 中文](#chinese)
 
 
 ```
@@ -16,7 +16,7 @@ final id = nanoid.urlSafe(length: 8);
 
 
 ---
-## 🌐English
+## 🌐 English {#english}
 
 - ✅ **Lightweight**: only a few KB.
 - ✅ **Secure**: uses `Random.secure()` to generate unpredictable randomness.
@@ -53,7 +53,7 @@ final id = nanoid.urlSafe(length: 8);
 <br />
 
 
-## 🇯🇵日本語
+## 🇯🇵 日本語 {#japanese}
 
 - ✅ **軽量**: わずか数キロバイト
 - ✅ **安全**: `Random.secure()` で予測不可能な乱数を生成
@@ -89,7 +89,7 @@ final id = nanoid.urlSafe(length: 8);
 <br />
 <br />
 
-## 🇨🇳中文
+## 🇨🇳 中文 {#chinese}
 
 - ✅ **轻量**: 只有几 KB。
 - ✅ **安全**: 使用 `Random.secure()` 生成不可预测的随机数。
