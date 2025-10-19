@@ -1,3 +1,7 @@
+## 1.5.0
+
+- [docs] fix Language anchors
+
 ## 1.4.0
 
 - [docs] fix features list
