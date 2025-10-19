@@ -1,3 +1,7 @@
+## 1.4.0
+
+- [docs] fix features list
+
 ## 1.3.0
 
 - [FIX] `NanoID` is now deprecated.
