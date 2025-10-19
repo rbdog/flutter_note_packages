@@ -1,3 +1,7 @@
+## 1.8.0
+
+- [docs] give up Language anchors
+
 ## 1.7.0
 
 - [docs] fix Language anchors

@@ -1,10 +1,5 @@
 # 🐣 Nano ID
 
-[🌐 English](https://pub.dev/packages/nanoid_plus#english) |
-[🇯🇵 日本語](https://pub.dev/packages/nanoid_plus#日本語) |
-[🇨🇳 中文](https://pub.dev/packages/nanoid_plus#中文)
-
-
 ```
 import 'package:nanoid_plus/nanoid_plus.dart';
 
@@ -19,7 +14,7 @@ final id = nanoid.urlSafe(length: 8);
 
 ---
 
-## 🌐 English
+## English 🌐
 
 - ✅ **Lightweight**: only a few KB.
 - ✅ **Secure**: uses `Random.secure()` to generate unpredictable randomness.
@@ -56,7 +51,7 @@ final id = nanoid.urlSafe(length: 8);
 <br />
 
 
-## 🇯🇵 日本語
+## 日本語 🇯🇵
 
 - ✅ **軽量**: わずか数キロバイト
 - ✅ **安全**: `Random.secure()` で予測不可能な乱数を生成
@@ -92,7 +87,7 @@ final id = nanoid.urlSafe(length: 8);
 <br />
 <br />
 
-## 🇨🇳 中文
+## 中文 🇨🇳
 
 - ✅ **轻量**: 只有几 KB。
 - ✅ **安全**: 使用 `Random.secure()` 生成不可预测的随机数。
